@@ -1,0 +1,1 @@
+link.href = 'chemin/vers/votre/CV.pdf';

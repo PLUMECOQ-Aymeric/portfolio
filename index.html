@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aymeric Plumecoq - Administrateur Réseau Informatique</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+        }
+        
+        .hero-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 5px solid white;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        /* About Section */
+        .about-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* Skills Section */
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+        }
+        
+        /* Projects Section */
+        .project-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--secondary-color);
+        }
+        
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-text {
+            color: #6c757d;
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+        
+        .contact-text {
+            font-size: 1.1rem;
+        }
+        
+        .form-control {
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Aymeric Plumecoq</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Expérience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <!-- Remplacez par le chemin vers votre photo locale -->
+                    <img src="" alt="Aymeric Plumecoq" class="hero-img rounded-circle mb-4">
+                    <h1 class="hero-title">Aymeric Plumecoq</h1>
+                    <p class="hero-subtitle">Administrateur Réseau Informatique</p>
+                    <p class="lead mb-4">Je suis à la recherche de nouvelles opportunités professionnelles après l'obtention de mon BACpro SN.</p>
+                    <a href="#contact" class="btn btn-primary btn-lg me-3">Me contacter</a>
+                    <a href="#" class="btn btn-outline-light btn-lg" id="downloadCV">Télécharger mon CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="about-content text-center">
+                        <p>Je suis un administrateur réseau informatique passionné par les technologies et les systèmes d'information. Récemment diplômé d'un BTS, je suis désireux de mettre en pratique mes connaissances et de continuer à me perfectionner dans le domaine de l'administration réseau.</p>
+                        <p>Dynamique et motivé, je suis constamment à la recherche de nouveaux défis techniques et de possibilités d'apprentissage. Mon objectif est de contribuer au succès d'une entreprise grâce à mes compétences techniques et ma passion pour l'informatique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Mes compétences</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Administration réseau</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Systèmes d'exploitation (Windows, Linux,MacOS)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Résolution de problèmes techniques</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Sécurité informatique</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Virtualisation</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Anglais technique</span>
+                            <span>30%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-desktop fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Matériel</h5>
+                            <p class="card-text">Maintenance et dépannage de matériel informatique, configuration de postes de travail.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-network-wired fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Réseaux</h5>
+                            <p class="card-text">Configuration et administration de réseaux locaux, gestion des équipements réseau.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 text-center h-100">
+                        <div class="card-body">
+                            <i class="fas fa-shield-alt fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Sécurité</h5>
+                            <p class="card-text">Mise en place de politiques de sécurité, protection des systèmes contre les intrusions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Mes projets</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card card">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet réseau">
+                        <div class="card-body">
+                            <h5 class="card-title">Infrastructure réseau</h5>
+                            <p class="card-text">Conception et déploiement d'une infrastructure réseau complète pour une PME.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal1">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card card">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet sécurité">
+                        <div class="card-body">
+                            <h5 class="card-title">Sécurisation de réseau</h5>
+                            <p class="card-text">Mise en place d'un système de sécurité avancé pour protéger les données sensibles.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal2">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card card">
+                        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet serveur">
+                        <div class="card-body">
+                            <h5 class="card-title">Virtualisation de serveurs</h5>
+                            <p class="card-text">Migration de serveurs physiques vers une infrastructure virtualisée avec VMware.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal3">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal1Label">Infrastructure réseau</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid mb-3" alt="Projet réseau">
+                    <p>Ce projet consistait à concevoir et déployer une infrastructure réseau complète pour une PME de 50 employés. Les objectifs principaux étaient d'améliorer la performance, la sécurité et l'évolutivité du réseau.</p>
+                    <h6>Technologies utilisées :</h6>
+                    <ul>
+                        <li>Switchs Cisco Catalyst</li>
+                        <li>Points d'accès Wi-Fi</li>
+                        <li>Serveur Windows Server 2019</li>
+                    </ul>
+                    <h6>Résultats :</h6>
+                    <ul>
+                        <li>Augmentation de 40% de la vitesse du réseau</li>
+                        <li>Réduction de 60% des incidents réseau</li>
+                        <li>Amélioration de la sécurité avec segmentation VLAN</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="projectModal2" tabindex="-1" aria-labelledby="projectModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal2Label">Sécurisation de réseau</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid mb-3" alt="Projet sécurité">
+                    <p>Mise en place d'un système de sécurité complet pour protéger les données sensibles d'une organisation contre les cybermenaces. Le projet incluait l'audit de sécurité initial, la planification et l'implémentation des solutions.</p>
+                    <h6>Mesures de sécurité implémentées :</h6>
+                    <ul>
+                        <li>Firewall pfSense avec règles avancées</li>
+                        <li>Système de détection d'intrusion (IDS)</li>
+                        <li>Chiffrement des données sensibles</li>
+                        <li>Politiques de mot de passe renforcées</li>
+                        <li>Formation des utilisateurs aux bonnes pratiques</li>
+                    </ul>
+                    <h6>Résultats :</h6>
+                    <ul>
+                        <li>Élimination des accès non autorisés</li>
+                        <li>Conformité aux standards de sécurité</li>
+                        <li>Réduction de 90% des alertes de sécurité</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="projectModal3" tabindex="-1" aria-labelledby="projectModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal3Label">Virtualisation de serveurs</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid mb-3" alt="Projet serveur">
+                    <p>Migration d'une infrastructure serveur physique vieillissante vers une solution virtualisée avec VMware vSphere. Le projet comprenait l'analyse de l'existant, la planification de la migration et la mise en œuvre.</p>
+                    <h6>Étapes du projet :</h6>
+                    <ul>
+                        <li>Audit de l'infrastructure existante</li>
+                        <li>Dimensionnement du nouveau environnement</li>
+                        <li>Installation et configuration de VMware vSphere</li>
+                        <li>Migration P2V (Physical to Virtual) des serveurs</li>
+                        <li>Tests de performance et de stabilité</li>
+                    </ul>
+                    <h6>Avantages obtenus :</h6>
+                    <ul>
+                        <li>Réduction de 70% de la consommation électrique</li>
+                        <li>Amélioration de la disponibilité (99,9%)</li>
+                        <li>Simplification de la gestion et de la sauvegarde</li>
+                        <li>Évolutivité accrue pour de futurs besoins</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Mon parcours</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Juillet 2021</div>
+                            <h4 class="timeline-title">Brevet des Collèges</h4>
+                            <p class="timeline-text">Collège Centre, Gap</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Juillet 2025</div>
+                            <h4 class="timeline-title">Baccalauréat Professionnel Systèmes Numériques</h4>
+                            <p class="timeline-text">Lycée Pierre Mendès France, Veynes</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Mars 2024</div>
+                            <h4 class="timeline-title">Technicien Informatique</h4>
+                            <p class="timeline-text">Hôpital de Gap - Stage professionnel</p>
+                            <p class="timeline-text">Maintenance du parc informatique, support aux utilisateurs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Contactez-moi</h2>
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="contact-info d-flex align-items-center mb-4">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>Localisation</h5>
+                            <p>Gap, Hautes-Alpes, France</p>
+                        </div>
+                    </div>
+                    <div class="contact-info d-flex align-items-center mb-4">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>Email</h5>
+                            <p>plmecoq@icloud.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info d-flex align-items-center mb-4">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5>Téléphone</h5>
+                            <p>+33 06 24 35 69 70</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Votre nom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Votre email" required>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Sujet" required>
+                        <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
+                        <button type="submit" class="btn btn-primary btn-lg">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="social-links mb-4">
+               <a href="https://www.linkedin.com/in/aymeric-plumecoq-64351b382/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/PLUMECOQ-Aymeric" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>© 2023 Aymeric Plumecoq. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        function animateSkills() {
+            skillBars.forEach(skillBar => {
+                const width = skillBar.getAttribute('data-width');
+                skillBar.style.width = '0';
+                
+                setTimeout(() => {
+                    skillBar.style.width = width;
+                }, 300);
+            });
+        }
+        
+        // Use Intersection Observer to trigger animation when skills section is in view
+        const skillsSection = document.getElementById('skills');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkills();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(skillsSection);
+        
+        // CV Download
+        document.getElementById('downloadCV').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Créer un lien de téléchargement
+            const link = document.createElement('a');
+            link.href = 'CV_V2_aymeric_plumecoq-1.pdf'; // Remplacez par le chemin vers votre CV
+            link.download = 'CV_Aymeric_Plumecoq.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Votre message a été envoyé avec succès ! Je vous répondrai très prochainement.');
+            this.reset();
+        });
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'var(--primary-color)';
+                navbar.style.padding = '0.5rem 0';
+            } else {
+                navbar.style.backgroundColor = 'transparent';
+                navbar.style.padding = '1rem 0';
+            }
+        });
+    </script>
+</body>
+</html>
