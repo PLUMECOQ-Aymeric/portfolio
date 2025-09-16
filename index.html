@@ -427,7 +427,106 @@
             </div>
         </div>
     </section>
+<section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Mes compte rendue</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet réseau d'entreprise">
+                        <div class="card-body">
+                            <h5 class="card-title">Infrastructure réseau d'entreprise</h5>
+                            <p class="card-text">Conception et déploiement d'un réseau sécurisé pour une PME de 50 employés.</p>
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#project1">Voir les détails</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1581094288338-231b058b38b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Migration vers le cloud">
+                        <div class="card-body">
+                            <h5 class="card-title">panne pc </h5>
+                            <p class="card-text">le pc n'avait plus internet</p>
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#project2">Voir les détails</button>
+                            <a href"compte_rendu_pc.pdf">                 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Système de surveillance">
+                        <div class="card-body">
+                            <h5 class="card-title">Système de surveillance</h5>
+                            <p class="card-text">Mise en place d'un système de surveillance réseau complet avec alertes et reporting.</p>
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#project3">Voir les détails</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 
+    <!-- Project Modals -->
+    <div class="modal fade" id="project1" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Infrastructure réseau d'entreprise</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="modal-img" alt="Projet réseau d'entreprise">
+                    <p><strong>Description :</strong> Conception et déploiement complet d'une infrastructure réseau sécurisée pour une PME de 50 employés, incluant la planification, l'installation et la configuration des équipements.</p>
+                    <p><strong>Technologies utilisées :</strong> Cisco switches, PfSense firewall, VLAN, VPN, Wi-Fi enterprise</p>
+                    <p><strong>Résultats :</strong> Augmentation de 40% de la bande passante, réduction de 60% des incidents de sécurité, amélioration de la stabilité du réseau.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="project2" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Migration vers le cloud</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1581094288338-231b058b38b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="modal-img" alt="Migration vers le cloud">
+                    <p><strong>Description :</strong> Migration des services et données d'une entreprise vers une infrastructure cloud hybride, avec une attention particulière portée à la sécurité et à la continuité des services.</p>
+                    <p><strong>Technologies utilisées :</strong> AWS, Azure, VMware, Docker, Kubernetes</p>
+                    <p><strong>Résultats :</strong> Réduction de 30% des coûts d'infrastructure, amélioration de la disponibilité à 99.9%, scalabilité accrue pour faire face à la croissance.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="project3" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Système de surveillance</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="modal-img" alt="Système de surveillance">
+                    <p><strong>Description :</strong> Mise en place d'un système de surveillance réseau complet avec monitoring en temps réel, alertes automatisées et reporting détaillé pour une gestion proactive des incidents.</p>
+                    <p><strong>Technologies utilisées :</strong> Zabbix, Nagios, Grafana, Prometheus, ELK Stack</p>
+                    <p><strong>Résultats :</strong> Détection 80% plus rapide des anomalies, réduction de 70% du temps de résolution des incidents, rapports détaillés pour la prise de décision.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Projects Section -->
     <section id="projects" class="py-5">
         <div class="container">
@@ -466,6 +565,7 @@
             </div>
         </div>
     </section>
+    
 
     <!-- Project Modals -->
     <div class="modal fade" id="project1" tabindex="-1">
