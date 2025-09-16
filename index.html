@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aymeric Plumecoq - Administrateur Réseau Informatique</title>
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -18,15 +20,14 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             color: #333;
             scroll-behavior: smooth;
         }
         
-        /* Navigation */
         .navbar {
             background-color: var(--primary-color);
-            padding: 1rem 0;
+            padding: 15px 0;
             transition: all 0.3s ease;
         }
         
@@ -38,72 +39,61 @@
         .nav-link {
             color: rgba(255, 255, 255, 0.8) !important;
             font-weight: 500;
-            margin: 0 0.5rem;
-            transition: color 0.3s;
+            margin: 0 10px;
+            transition: all 0.3s ease;
         }
         
         .nav-link:hover {
             color: white !important;
         }
         
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
-            color: white;
-            padding: 160px 0 100px;
-            text-align: center;
-        }
-        
-        .hero-img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border: 5px solid white;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin: 1rem 0;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        /* Section Styling */
         section {
             padding: 80px 0;
         }
         
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
         .section-title {
             position: relative;
-            font-size: 2rem;
+            margin-bottom: 50px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
         }
         
-        .section-title::after {
+        .section-title:after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary-color);
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 15px auto;
         }
         
-        /* About Section */
-        .about-content {
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-        
-        /* Skills Section */
         .skill-item {
             margin-bottom: 20px;
         }
@@ -114,33 +104,22 @@
             margin-bottom: 5px;
         }
         
-        .skill-bar {
+        .progress {
             height: 10px;
-            background-color: #e9ecef;
             border-radius: 5px;
-            overflow: hidden;
         }
         
-        .skill-progress {
-            height: 100%;
-            background-color: var(--secondary-color);
-            border-radius: 5px;
-            transition: width 1s ease-in-out;
-        }
-        
-        /* Projects Section */
         .project-card {
-            border: none;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             margin-bottom: 30px;
         }
         
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
         .project-img {
@@ -148,20 +127,19 @@
             object-fit: cover;
         }
         
-        /* Experience Section */
         .timeline {
             position: relative;
             padding-left: 3rem;
         }
         
-        .timeline::before {
+        .timeline:before {
             content: '';
             position: absolute;
-            left: 7px;
+            left: 0;
             top: 0;
-            height: 100%;
             width: 2px;
-            background-color: var(--secondary-color);
+            height: 100%;
+            background: var(--secondary-color);
         }
         
         .timeline-item {
@@ -169,136 +147,107 @@
             margin-bottom: 2.5rem;
         }
         
-        .timeline-item::before {
+        .timeline-item:before {
             content: '';
             position: absolute;
-            left: -3rem;
-            top: 5px;
-            width: 16px;
-            height: 16px;
+            left: -3.2rem;
+            top: 0.5rem;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            background-color: var(--secondary-color);
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px var(--secondary-color);
+            background: var(--secondary-color);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--secondary-color);
         }
         
-        .timeline-date {
-            font-size: 0.9rem;
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .timeline-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .timeline-text {
-            color: #6c757d;
-        }
-        
-        /* Contact Section */
-        .contact-info {
+        .contact-form .form-control {
+            border-radius: 0;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            padding-left: 0;
+            padding-right: 0;
             margin-bottom: 30px;
         }
         
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .contact-form .form-control:focus {
+            box-shadow: none;
+            border-bottom-color: var(--secondary-color);
+        }
+        
+        .btn-primary {
             background-color: var(--secondary-color);
-            color: white;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            margin-right: 15px;
-        }
-        
-        .contact-text {
-            font-size: 1.1rem;
-        }
-        
-        .form-control {
-            padding: 15px;
-            border-radius: 5px;
-            border: 1px solid #ced4da;
-            margin-bottom: 20px;
-        }
-        
-        .form-control:focus {
             border-color: var(--secondary-color);
-            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 40px 0 20px;
-        }
-        
-        .social-links {
-            margin-bottom: 20px;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            margin: 0 10px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
         
-        .social-link:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-5px);
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
-        /* Back to Top Button */
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+        }
+        
         .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            background-color: var(--secondary-color);
+            background: var(--secondary-color);
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
             opacity: 0;
-            visibility: hidden;
             transition: all 0.3s ease;
             z-index: 1000;
         }
         
-        .back-to-top.active {
+        .back-to-top.show {
             opacity: 1;
-            visibility: visible;
         }
         
-        /* Responsive Adjustments */
+        .modal-img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
         @media (max-width: 768px) {
-            .hero-title {
+            .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .hero-subtitle {
+            .hero p {
                 font-size: 1.2rem;
-            }
-            
-            section {
-                padding: 60px 0;
             }
         }
     </style>
@@ -308,7 +257,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Aymeric Plumecoq</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -321,9 +270,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#skills">Compétences</a>
-                  </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#reports">Mes comptes rendus</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projets</a>
@@ -342,29 +288,44 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <!-- Remplacez par le chemin vers votre photo locale -->
-                    <img src="chemin_vers_votre_photo.jpg" alt="Aymeric Plumecoq" class="hero-img rounded-circle mb-4">
-                    <h1 class="hero-title">Aymeric Plumecoq</h1>
-                    <p class="hero-subtitle">Administrateur Réseau Informatique</p>
-                    <p class="lead mb-4">Je suis à la recherche de nouvelles opportunités professionnelles après l'obtention de mon BACpro SN.</p>
-                    <a href="#contact" class="btn btn-primary btn-lg me-3">Me contacter</a>
-                    <a href="CV_aymeric_plumecoq.pdf" class="btn btn-outline-light btn-lg" id="downloadCV">Télécharger mon CV</a>
-                </div>
-            </div>
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Aymeric Plumecoq" class="profile-img mb-4">
+            <h1>Aymeric Plumecoq</h1>
+            <p>Administrateur Réseau Informatique</p>
+            <a href="#contact" class="btn btn-light btn-lg me-2">Me contacter</a>
+            <a href="#" class="btn btn-outline-light btn-lg" id="downloadCV">Télécharger mon CV</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="bg-light">
+    <section id="about" class="py-5">
         <div class="container">
             <h2 class="section-title">À propos de moi</h2>
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="about-content text-center">
-                        <p>Je suis un administrateur réseau informatique passionné par les technologies et les systèmes d'information. Récemment diplômé d'un BACpro SN, je suis désireux de mettre en pratique mes connaissances et de continuer à me perfectionner dans le domaine de l'administration réseau.</p>
-                        <p>Dynamique et motivé, je suis constamment à la recherche de nouveaux défis techniques et de possibilités d'apprentissage. Mon objectif est de contribuer au succès d'une entreprise grâce à mes compétences techniques et ma passion pour l'informatique.</p>
+                <div class="col-lg-6">
+                    <p>Je suis Aymeric Plumecoq, un administrateur réseau informatique passionné par les technologies et les solutions innovantes. Après l'obtention de mon BTS, je souhaite désormais me lancer dans la vie active et mettre mes compétences au service d'entreprises dynamiques.</p>
+                    <p>Mon parcours académique et mes expériences professionnelles m'ont permis de développer une expertise solide dans la gestion des infrastructures réseau, la maintenance des systèmes informatiques et le support technique aux utilisateurs.</p>
+                    <p>Je suis constamment à la recherche de nouveaux défis et opportunités pour approfondir mes connaissances et contribuer au succès des projets qui me sont confiés.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Nom :</strong> Aymeric Plumecoq</li>
+                                <li class="mb-2"><strong>Téléphone :</strong> +33 6 12 34 56 78</li>
+                                <li class="mb-2"><strong>Ville :</strong> Gap, France</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Diplôme :</strong> Bac Pro SN</li>
+                                <li class="mb-2"><strong>Email :</strong> contact@aymericplumecoq.fr</li>
+                                <li class="mb-2"><strong>Disponibilité :</strong> Immédiate</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-primary me-2">Engagez-moi</a>
+                        <a href="#projects" class="btn btn-outline-primary">Voir mes projets</a>
                     </div>
                 </div>
             </div>
@@ -372,134 +333,94 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="skills" class="bg-light py-5">
         <div class="container">
             <h2 class="section-title">Mes compétences</h2>
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Administration réseau</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Systèmes d'exploitation (Windows, Linux, MacOS)</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Résolution de problèmes techniques</span>
                             <span>90%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90%"></div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Maintenance matérielle</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Support technique</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 95%"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Sécurité informatique</span>
-                            <span>75%</span>
+                            <span>80%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75%"></div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Systèmes d'exploitation</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 95%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Virtualisation</span>
-                            <span>70%</span>
+                            <span>75%</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="70%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Anglais technique</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="65%"></div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 75%"></div>
                         </div>
                     </div>
                 </div>
             </div>
-            
             <div class="row mt-5">
-                <div class="col-md-4 mb-4">
-                    <div class="card border-0 text-center h-100">
-                        <div class="card-body">
-                            <i class="fas fa-desktop fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Matériel</h5>
-                            <p class="card-text">Maintenance et dépannage de matériel informatique, configuration de postes de travail.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card border-0 text-center h-100">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="card h-100 border-0">
                         <div class="card-body">
                             <i class="fas fa-network-wired fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Réseaux</h5>
-                            <p class="card-text">Configuration et administration de réseaux locaux, gestion des équipements réseau.</p>
+                            <h5>Réseaux</h5>
+                            <p>Configuration et maintenance des infrastructures réseau, gestion des switchs, routeurs et pare-feux.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card border-0 text-center h-100">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <i class="fas fa-server fa-3x mb-3 text-primary"></i>
+                            <h5>Systèmes</h5>
+                            <p>Administration des serveurs Windows et Linux, virtualisation, gestion des sauvegardes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="card h-100 border-0">
                         <div class="card-body">
                             <i class="fas fa-shield-alt fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Sécurité</h5>
-                            <p class="card-text">Mise en place de politiques de sécurité, protection des systèmes contre les intrusions.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reports Section -->
-    <section id="reports" class="bg-light">
-        <div class="container">
-            <h2 class="section-title">Mes comptes rendus</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="project-card card">
-                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Initiation aux codes">
-                        <div class="card-body">
-                            <h5 class="card-title">Initiation aux codes</h5>
-                            <p class="card-text">Apprendre à coder</p>
-                            <a href="le_compte_rendu_tp_studio_code.org.pdf" class="btn btn-primary">Voir les détails</a>
-                        </div>
-                    </div>
-                </div>  
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="project-card card">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Portfolio">
-                        <div class="card-body">
-                            <h5 class="card-title">Portfolio</h5>
-                            <p class="card-text">Faire un portfolio</p>
-                            <a href="compte_rendu_portfolio.pdf" class="btn btn-primary">Voir les détails</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="project-card card">
-                        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Panne réseau">
-                        <div class="card-body">
-                            <h5 class="card-title">Panne réseau sur mon PC</h5>
-                            <p class="card-text">Résolution d'une panne réseau</p>
-                            <a href="compte_rendu_pc.pdf" class="btn btn-primary">Voir le compte rendu</a>
+                            <h5>Sécurité</h5>
+                            <p>Mise en place de politiques de sécurité, surveillance des systèmes, prévention des intrusions.</p>
                         </div>
                     </div>
                 </div>
@@ -508,43 +429,37 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="py-5">
         <div class="container">
             <h2 class="section-title">Mes projets</h2>
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="project-card card">
-                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet réseau">
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet réseau d'entreprise">
                         <div class="card-body">
-                            <h5 class="card-title">Infrastructure réseau</h5>
-                            <p class="card-text">Conception et déploiement d'une infrastructure réseau complète pour une PME.</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal1">
-                                Voir les détails
-                            </button>
-                        </div>
-                    </div>
-                </div>  
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="project-card card">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet sécurité">
-                        <div class="card-body">
-                            <h5 class="card-title">Sécurisation de réseau</h5>
-                            <p class="card-text">Mise en place d'un système de sécurité avancé pour protéger les données sensibles.</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal2">
-                                Voir les détails
-                            </button>
+                            <h5 class="card-title">Infrastructure réseau d'entreprise</h5>
+                            <p class="card-text">Conception et déploiement d'un réseau sécurisé pour une PME de 50 employés.</p>
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#project1">Voir les détails</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="project-card card">
-                        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet serveur">
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1581094288338-231b058b38b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Migration vers le cloud">
                         <div class="card-body">
-                            <h5 class="card-title">Virtualisation de serveurs</h5>
-                            <p class="card-text">Migration de serveurs physiques vers une infrastructure virtualisée avec VMware.</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal3">
-                                Voir les détails
-                            </button>
+                            <h5 class="card-title">Migration vers le cloud</h5>
+                            <p class="card-text">Migration des services et données d'une entreprise vers une infrastructure cloud hybride.</p>
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#project2">Voir les détails</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Système de surveillance">
+                        <div class="card-body">
+                            <h5 class="card-title">Système de surveillance</h5>
+                            <p class="card-text">Mise en place d'un système de surveillance réseau complet avec alertes et reporting.</p>
+                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#project3">Voir les détails</button>
                         </div>
                     </div>
                 </div>
@@ -553,28 +468,18 @@
     </section>
 
     <!-- Project Modals -->
-    <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModal1Label" aria-hidden="true">
+    <div class="modal fade" id="project1" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="projectModal1Label">Infrastructure réseau</h5>
+                    <h5 class="modal-title">Infrastructure réseau d'entreprise</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid mb-3" alt="Projet réseau">
-                    <p>Ce projet consistait à concevoir et déployer une infrastructure réseau complète pour une PME de 50 employés. Les objectifs principaux étaient d'améliorer la performance, la sécurité et l'évolutivité du réseau.</p>
-                    <h6>Technologies utilisées :</h6>
-                    <ul>
-                        <li>Switchs Cisco Catalyst</li>
-                        <li>Points d'accès Wi-Fi</li>
-                        <li>Serveur Windows Server 2019</li>
-                    </ul>
-                    <h6>Résultats :</h6>
-                    <ul>
-                        <li>Augmentation de 40% de la vitesse du réseau</li>
-                        <li>Réduction de 60% des incidents réseau</li>
-                        <li>Amélioration de la sécurité avec segmentation VLAN</li>
-                    </ul>
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="modal-img" alt="Projet réseau d'entreprise">
+                    <p><strong>Description :</strong> Conception et déploiement complet d'une infrastructure réseau sécurisée pour une PME de 50 employés, incluant la planification, l'installation et la configuration des équipements.</p>
+                    <p><strong>Technologies utilisées :</strong> Cisco switches, PfSense firewall, VLAN, VPN, Wi-Fi enterprise</p>
+                    <p><strong>Résultats :</strong> Augmentation de 40% de la bande passante, réduction de 60% des incidents de sécurité, amélioration de la stabilité du réseau.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -583,30 +488,18 @@
         </div>
     </div>
 
-    <div class="modal fade" id="projectModal2" tabindex="-1" aria-labelledby="projectModal2Label" aria-hidden="true">
+    <div class="modal fade" id="project2" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="projectModal2Label">Sécurisation de réseau</h5>
+                    <h5 class="modal-title">Migration vers le cloud</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid mb-3" alt="Projet sécurité">
-                    <p>Mise en place d'un système de sécurité complet pour protéger les données sensibles d'une organisation contre les cybermenaces. Le projet incluait l'audit de sécurité initial, la planification et l'implémentation des solutions.</p>
-                    <h6>Mesures de sécurité implémentées :</h6>
-                    <ul>
-                        <li>Firewall pfSense avec règles avancées</li>
-                        <li>Système de détection d'intrusion (IDS)</li>
-                        <li>Chiffrement des données sensibles</li>
-                        <li>Politiques de mot de passe renforcées</li>
-                        <li>Formation des utilisateurs aux bonnes pratiques</li>
-                    </ul>
-                    <h6>Résultats :</h6>
-                    <ul>
-                        <li>Élimination des accès non autorisés</li>
-                        <li>Conformité aux standards de sécurité</li>
-                        <li>Réduction de 90% des alertes de sécurité</li>
-                    </ul>
+                    <img src="https://images.unsplash.com/photo-1581094288338-231b058b38b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="modal-img" alt="Migration vers le cloud">
+                    <p><strong>Description :</strong> Migration des services et données d'une entreprise vers une infrastructure cloud hybride, avec une attention particulière portée à la sécurité et à la continuité des services.</p>
+                    <p><strong>Technologies utilisées :</strong> AWS, Azure, VMware, Docker, Kubernetes</p>
+                    <p><strong>Résultats :</strong> Réduction de 30% des coûts d'infrastructure, amélioration de la disponibilité à 99.9%, scalabilité accrue pour faire face à la croissance.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -615,31 +508,18 @@
         </div>
     </div>
 
-    <div class="modal fade" id="projectModal3" tabindex="-1" aria-labelledby="projectModal3Label" aria-hidden="true">
+    <div class="modal fade" id="project3" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="projectModal3Label">Virtualisation de serveurs</h5>
+                    <h5 class="modal-title">Système de surveillance</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid mb-3" alt="Projet serveur">
-                    <p>Migration d'une infrastructure serveur physique vieillissante vers une solution virtualisée avec VMware vSphere. Le projet comprenait l'analyse de l'existant, la planification de la migration et la mise en œuvre.</p>
-                    <h6>Étapes du projet :</h6>
-                    <ul>
-                        <li>Audit de l'infrastructure existante</li>
-                        <li>Dimensionnement du nouveau environnement</li>
-                        <li>Installation et configuration de VMware vSphere</li>
-                        <li>Migration P2V (Physical to Virtual) des serveurs</li>
-                        <li>Tests de performance et de stabilité</li>
-                    </ul>
-                    <h6>Avantages obtenus :</h6>
-                    <ul>
-                        <li>Réduction de 70% de la consommation électrique</li>
-                        <li>Amélioration de la disponibilité (99,9%)</li>
-                        <li>Simplification de la gestion et de la sauvegarde</li>
-                        <li>Évolutivité accrue pour de futurs besoins</li>
-                    </ul>
+                    <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="modal-img" alt="Système de surveillance">
+                    <p><strong>Description :</strong> Mise en place d'un système de surveillance réseau complet avec monitoring en temps réel, alertes automatisées et reporting détaillé pour une gestion proactive des incidents.</p>
+                    <p><strong>Technologies utilisées :</strong> Zabbix, Nagios, Grafana, Prometheus, ELK Stack</p>
+                    <p><strong>Résultats :</strong> Détection 80% plus rapide des anomalies, réduction de 70% du temps de résolution des incidents, rapports détaillés pour la prise de décision.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -649,27 +529,37 @@
     </div>
 
     <!-- Experience Section -->
-    <section id="experience">
+    <section id="experience" class="bg-light py-5">
         <div class="container">
             <h2 class="section-title">Mon parcours</h2>
             <div class="row">
-                <div class="col-lg-10 mx-auto">
+                <div class="col-lg-6">
+                    <h4 class="mb-4">Expériences professionnelles</h4>
                     <div class="timeline">
                         <div class="timeline-item">
-                            <div class="timeline-date">Juillet 2021</div>
-                            <h4 class="timeline-title">Brevet des Collèges</h4>
-                            <p class="timeline-text">Collège Centre, Gap</p>
+                            <h5>Technicien informatique</h5>
+                            <p class="text-muted">Mars 2024 - Hôpital de Gap</p>
+                            <p>Maintenance du parc informatique, support aux utilisateurs, gestion des incidents, administration du réseau local.</p>
                         </div>
                         <div class="timeline-item">
-                            <div class="timeline-date">Juillet 2025</div>
-                            <h4 class="timeline-title">Baccalauréat Professionnel Systèmes Numériques</h4>
-                            <p class="timeline-text">Lycée Pierre Mendès France, Veynes</p>
+                            <h5>Stagiaire en administration réseau</h5>
+                            <p class="text-muted">Juin 2023 - Août 2023 - Mairie de Veynes</p>
+                            <p>Assistance à la migration des serveurs, mise en place de solutions de sauvegarde, documentation technique.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="mb-4">Formation</h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h5>Baccalauréat Professionnel Systèmes Numériques</h5>
+                            <p class="text-muted">2025 - Lycée Pierre Mendès France, Veynes</p>
+                            <p>Option Réseaux Informatiques et Systèmes Communicants</p>
                         </div>
                         <div class="timeline-item">
-                            <div class="timeline-date">Mars 2024</div>
-                            <h4 class="timeline-title">Technicien Informatique</h4>
-                            <p class="timeline-text">Hôpital de Gap - Stage professionnel</p>
-                            <p class="timeline-text">Maintenance du parc informatique, support aux utilisateurs.</p>
+                            <h5>Brevet des Collèges</h5>
+                            <p class="text-muted">2021 - Collège Centre, Gap</p>
+                            <p>Mention Bien</p>
                         </div>
                     </div>
                 </div>
@@ -678,58 +568,65 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="bg-light">
+    <section id="contact" class="py-5">
         <div class="container">
             <h2 class="section-title">Contactez-moi</h2>
             <div class="row">
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <div class="contact-info d-flex align-items-center mb-4">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                <div class="col-lg-6">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Votre nom" required>
                         </div>
-                        <div class="contact-text">
-                            <h5>Localisation</h5>
-                            <p>Gap, Hautes-Alpes, France</p>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Votre email" required>
                         </div>
-                    </div>
-                    <div class="contact-info d-flex align-items-center mb-4">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Sujet" required>
                         </div>
-                        <div class="contact-text">
-                            <h5>Email</h5>
-                            <p>plmecoq@icloud.com</p>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
                         </div>
-                    </div>
-                    <div class="contact-info d-flex align-items-center mb-4">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h5>Téléphone</h5>
-                            <p>+33 06 24 35 69 70</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/aymeric-plumecoq-64351b382/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/PLUMECOQ-Aymeric" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <form id="contactForm">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Votre nom" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Votre email" required>
-                            </div>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Sujet" required>
-                        <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
-                        <button type="submit" class="btn btn-primary btn-lg">Envoyer le message</button>
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
                     </form>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Localisation</h5>
+                                    <p class="text-muted mb-0">Gap, Hautes-Alpes, France</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Email</h5>
+                                    <p class="text-muted mb-0">contact@aymericplumecoq.fr</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-primary rounded-circle p-3 me-3">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Téléphone</h5>
+                                    <p class="text-muted mb-0">+33 6 12 34 56 78</p>
+                                </div>
+                            </div>
+                            <div class="social-icons mt-4">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -738,88 +635,65 @@
     <!-- Footer -->
     <footer class="text-center">
         <div class="container">
-            <div class="social-links mb-4">
-               <a href="https://www.linkedin.com/in/aymeric-plumecoq-64351b382/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/PLUMECOQ-Aymeric" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            </div>
-            <p>© 2023 Aymeric Plumecoq. Tous droits réservés.</p>
+            <p>&copy; 2025 Aymeric Plumecoq. Tous droits réservés.</p>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <!-- Bootstrap & JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Back to top button
-        const backToTopButton = document.querySelector('.back-to-top');
+        const backToTopButton = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('active');
+                backToTopButton.classList.add('show');
             } else {
-                backToTopButton.classList.remove('active');
+                backToTopButton.classList.remove('show');
             }
         });
         
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
+        backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        // Animate skill bars on scroll
-        const skillBars = document.querySelectorAll('.skill-progress');
-        
-        function animateSkills() {
-            skillBars.forEach(skillBar => {
-                const width = skillBar.getAttribute('data-width');
-                skillBar.style.width = '0';
-                
-                setTimeout(() => {
-                    skillBar.style.width = width;
-                }, 300);
-            });
-        }
-        
-        // Use Intersection Observer to trigger animation when skills section is in view
-        const skillsSection = document.getElementById('skills');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSkills();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        observer.observe(skillsSection);
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').style.padding = '10px 0';
+                document.querySelector('.navbar').style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                document.querySelector('.navbar').style.padding = '15px 0';
+                document.querySelector('.navbar').style.boxShadow = 'none';
+            }
+        });
         
         // CV Download
         document.getElementById('downloadCV').addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Créer un lien de téléchargement
+            // Create a temporary link element
             const link = document.createElement('a');
-            link.href = 'CV_aymeric_plumecoq.pdf'; // Remplacez par le chemin vers votre CV
+            link.href = 'CV_2025-09-03_aymeric_plumecoq.pdf'; // This should point to the actual CV file
             link.download = 'CV_Aymeric_Plumecoq.pdf';
+            
+            // Append to body, click and remove
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         });
         
         // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Votre message a été envoyé avec succès ! Je vous répondrai très prochainement.');
+            alert('Votre message a été envoyé avec succès ! Je vous répondrai très rapidement.');
             this.reset();
         });
-        
-        // Navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.backgroundColor = 'var(--primary-color
+    </script>
+</body>
+</html>
