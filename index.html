@@ -323,7 +323,7 @@
                         <a class="nav-link" href="#skills">Compétences</a>
                   </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="mes-comptes-rendus.html">Mes comptes rendus</a>
+                        <a class="nav-link" href="#reports">Mes comptes rendus</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projets</a>
@@ -345,12 +345,12 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <!-- Remplacez par le chemin vers votre photo locale -->
-                    <img src="" alt="Aymeric Plumecoq" class="hero-img rounded-circle mb-4">
+                    <img src="chemin_vers_votre_photo.jpg" alt="Aymeric Plumecoq" class="hero-img rounded-circle mb-4">
                     <h1 class="hero-title">Aymeric Plumecoq</h1>
                     <p class="hero-subtitle">Administrateur Réseau Informatique</p>
                     <p class="lead mb-4">Je suis à la recherche de nouvelles opportunités professionnelles après l'obtention de mon BACpro SN.</p>
                     <a href="#contact" class="btn btn-primary btn-lg me-3">Me contacter</a>
-                    <a href="CV_aymeric_plumecoq.pdf" class="btn btn-outline-light btn-lg" id="CV_aymeric_plumecoq.pdf">Télécharger mon CV</a>
+                    <a href="CV_aymeric_plumecoq.pdf" class="btn btn-outline-light btn-lg" id="downloadCV">Télécharger mon CV</a>
                 </div>
             </div>
         </div>
@@ -380,7 +380,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Administration réseau</span>
-                            <span>80%</span>
+                            <span>85%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="85%"></div>
@@ -388,7 +388,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>Systèmes d'exploitation (Windows, Linux,MacOS)</span>
+                            <span>Systèmes d'exploitation (Windows, Linux, MacOS)</span>
                             <span>80%</span>
                         </div>
                         <div class="skill-bar">
@@ -409,7 +409,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Sécurité informatique</span>
-                            <span>50%</span>
+                            <span>75%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="75%"></div>
@@ -418,7 +418,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Virtualisation</span>
-                            <span>90%</span>
+                            <span>70%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="70%"></div>
@@ -427,7 +427,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Anglais technique</span>
-                            <span>30%</span>
+                            <span>65%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="65%"></div>
@@ -468,8 +468,47 @@
         </div>
     </section>
 
+    <!-- Reports Section -->
+    <section id="reports" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Mes comptes rendus</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card card">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Initiation aux codes">
+                        <div class="card-body">
+                            <h5 class="card-title">Initiation aux codes</h5>
+                            <p class="card-text">Apprendre à coder</p>
+                            <a href="le_compte_rendu_tp_studio_code.org.pdf" class="btn btn-primary">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card card">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Portfolio">
+                        <div class="card-body">
+                            <h5 class="card-title">Portfolio</h5>
+                            <p class="card-text">Faire un portfolio</p>
+                            <a href="compte_rendu_portfolio.pdf" class="btn btn-primary">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card card">
+                        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Panne réseau">
+                        <div class="card-body">
+                            <h5 class="card-title">Panne réseau sur mon PC</h5>
+                            <p class="card-text">Résolution d'une panne réseau</p>
+                            <a href="compte_rendu_pc.pdf" class="btn btn-primary">Voir le compte rendu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
-    <section id="projects" class="bg-light">
+    <section id="projects">
         <div class="container">
             <h2 class="section-title">Mes projets</h2>
             <div class="row">
@@ -477,7 +516,7 @@
                     <div class="project-card card">
                         <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet réseau">
                         <div class="card-body">
-                            <h5 class="card-title">infrastructure réseau </h5>
+                            <h5 class="card-title">Infrastructure réseau</h5>
                             <p class="card-text">Conception et déploiement d'une infrastructure réseau complète pour une PME.</p>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal1">
                                 Voir les détails
@@ -503,59 +542,6 @@
                         <div class="card-body">
                             <h5 class="card-title">Virtualisation de serveurs</h5>
                             <p class="card-text">Migration de serveurs physiques vers une infrastructure virtualisée avec VMware.</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal3">
-                                Voir les détails
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<section id="projects" class="bg-light">
-        <div class="container">
-            <h2 class="section-title">Mes compte rendu</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="project-card card">
-                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet réseau">
-                        <div class="card-body">
-                            <h5 class="card-title">initiation aux code</h5>
-                            <p class="card-text">apprendre a codé</p>
-                                <a href="le_compte_rendu_tp_studio_code.org.pdf"/>
-                                Voir les détails
-                            </button>
-                        </div>
-                    </div>
-                </div>  
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="project-card card">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet sécurité">
-                        <div class="card-body">
-                            <h5 class="card-title">portfolio</h5>
-                            <p class="card-text">faire un portfolio</p>
-                            <a href="compte_rendu_protfolio .pdf">
-                                Voir les détails
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                div class="col-md-4 mb-4">
-                    <div class="card project-card">
-                        <img src="">
-                        <div class="card-body">
-                            <h5 class="card-title">panne réseau sur mon pc</h5>
-                            <a href="compte_rendu_pc" target="_blank" class="btn btn-primary">Voir le compte rendu
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="project-card card">
-                        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="project-img card-img-top" alt="Projet serveur">
-                        <div class="card-body">
-                            <h5 class="card-title">Début Java</h5>
-                            <p class="card-text"></p>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal3">
                                 Voir les détails
                             </button>
@@ -725,8 +711,8 @@
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/aymeric-plumecoq-64351b382/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/PLUMECOQ-Aymeric" class="social-link"><i class="fab fa-github"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
@@ -818,7 +804,7 @@
             
             // Créer un lien de téléchargement
             const link = document.createElement('a');
-            link.href = 'CV_V2_aymeric_plumecoq-1.pdf'; // Remplacez par le chemin vers votre CV
+            link.href = 'CV_aymeric_plumecoq.pdf'; // Remplacez par le chemin vers votre CV
             link.download = 'CV_Aymeric_Plumecoq.pdf';
             document.body.appendChild(link);
             link.click();
@@ -836,13 +822,4 @@
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.style.backgroundColor = 'var(--primary-color)';
-                navbar.style.padding = '0.5rem 0';
-            } else {
-                navbar.style.backgroundColor = 'transparent';
-                navbar.style.padding = '1rem 0';
-            }
-        });
-    </script>
-</body>
-</html>
+                navbar.style.backgroundColor = 'var(--primary-color
