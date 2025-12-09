@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aymeirc PLUMECOQ - Portfolio</title>
+    <title>Aymeric PLUMECOQ - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
@@ -106,6 +106,7 @@
         .about-content {
             display: flex;
             align-items: center;
+            flex-direction: column; /* Centrer le contenu */
         }
         
         .profile-img {
@@ -251,28 +252,54 @@
             .about-content {
                 flex-direction: column;
             }
+            
+            /* Pour rendre le tableau scrollable sur mobile */
+            .table-responsive {
+                overflow-x: auto;
+                width: 100%;
+            }
         }
-  /* Style de base pour rendre le tableau joli */
-  table {
-    width: 100%;
-    border-collapse: collapse; /* Fusionne les bordures */
-    font-family: Arial, sans-serif;
-  }
-  
-  th, td {
-    border: 1px solid #ddd; /* Bordure grise fine */
-    padding: 12px; /* Espace à l'intérieur des cellules */
-    text-align: left;
-  }
 
-  th {
-    background-color: #f2f2f2; /* Fond gris clair pour l'en-tête */
-    font-weight: bold;
-  }
+        /* Style de base pour rendre le tableau joli */
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Fusionne les bordures */
+            font-family: Arial, sans-serif;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            border: 1px solid #ddd; /* Bordure grise fine */
+            padding: 12px; /* Espace à l'intérieur des cellules */
+            text-align: left;
+            vertical-align: top;
+        }
 
-  tr:hover {
-    background-color: #f9f9f9; /* Effet au survol de la souris */
-  }
+        th {
+            background-color: var(--primary-color); /* Utilisation de la couleur primaire */
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1; /* Effet au survol de la souris */
+        }
+        
+        .tools-badge {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -300,7 +327,7 @@
                         <a class="nav-link" href="#experience">Expérience</a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="veille_technologique.html">veille technologique</a>
+                        <a class="nav-link" href="#veille">Veille Technologique</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -309,74 +336,105 @@
             </div>
         </div>
     </nav>
- <section id="apropos">
+
+    <section id="accueil" class="hero">
+        <div class="container">
+            <h1>Bienvenue sur mon Portfolio</h1>
+            <p>Étudiant en BTS SIO</p>
+            <a href="#veille" class="btn btn-primary">Voir ma veille</a>
+        </div>
+    </section>
+
+    <section id="veille">
         <div class="container">
             <div class="section-title">
-                <h2>veille Technologique</h2>
-                <h3>comment les objets du quotidient surveille notre santé</h3>
+                <h2>Veille Technologique</h2>
+                <h3>Comment les objets du quotidien surveillent notre santé</h3>
             </div>
+            
             <div class="row about-content">
+                <div class="col-lg-12 mb-4">
+                    <div class="card p-4 border-0 shadow-sm bg-light">
+                        <h4>Méthodologie & Outils</h4>
+                        <p>Pour réaliser cette veille, j'ai mis en place un processus automatisé de collecte d'informations :</p>
+                        <div>
+                            <span class="tools-badge">Google Alerts</span>
+                            <span class="tools-badge">Feedly (Flux RSS)</span>
+                            <span class="tools-badge">Newsletter (Medical News)</span>
+                            <span class="tools-badge">Twitter/X (Listes Tech)</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-12">
-                   <table>
-  <thead>
-    <tr>
-    <th>Nom de l'objet</th>
-      <th>Nom de l'objet</th>
-      <th>ce qu'il apport</th>
-      <th>date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    
-      <td>airpods pro 3</td>
-      <td>En 2025, les écouteurs sont devenus des dispositifs médicaux. Ils aident l’audition, surveillent la santé cardiaque et protègent les oreilles, tout en permettant aux médecins d’accéder aux données médicales.
-Attention il y’a des problème de trace de sang retrouver sur les air pods par les utilisateurs</td>
-      <td>25/11/2025</td>
-        <td><a href="https://www.apple.com/fr/airpods-pro/">www.apple.com/fr/</td>
-    </tr>
-      <tr>
-      <td>apple watch</td>
-      <td>cette année elle ajoute des capteurs détecter les apnées du someil</td>
-      <td>2/12/2025</td>
-    </tr>
-    
-      </tbody>
-</table>
+                    <div class="table-responsive">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Date</th>
+                              <th>Sujet / Titre</th>
+                              <th>Source</th>
+                              <th>Outil utilisé</th>
+                              <th>Tags</th>
+                              <th>Résumé / Analyse</th>
+                              <th>Lien</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>25/11/2025</td>
+                              <td><strong>AirPods Pro 3 : Dispositif médical</strong></td>
+                              <td>Apple Newsroom</td>
+                              <td>Google Alerts</td>
+                              <td>#Audio #Santé #IoT</td>
+                              <td>En 2025, les écouteurs évoluent pour surveiller la santé cardiaque et protéger l'audition. Les données peuvent être partagées directement avec les médecins. Un défi technique subsiste concernant la précision des capteurs en mouvement.</td>
+                              <td><a href="https://www.apple.com/fr/airpods-pro/" target="_blank">Lire l'article</a></td>
+                            </tr>
+                            <tr>
+                              <td>02/12/2025</td>
+                              <td><strong>Apple Watch & Apnée du sommeil</strong></td>
+                              <td>The Verge / TechCrunch</td>
+                              <td>Feedly</td>
+                              <td>#Wearable #Sommeil</td>
+                              <td>Intégration de nouveaux capteurs biométriques permettant la détection de l'apnée du sommeil via l'accéléromètre, une avancée majeure pour le diagnostic précoce à domicile.</td>
+                              <td><a href="#" target="_blank">Lire l'article</a></td>
+                            </tr>
+                             <tr>
+                              <td>15/10/2025</td>
+                              <td><strong>Bague connectée Oura Ring 4</strong></td>
+                              <td>Journal du Geek</td>
+                              <td>Newsletter</td>
+                              <td>#SmartRing #Prévention</td>
+                              <td>Nouvelle génération de bagues capables de prédire les cycles de santé et la fatigue avec une précision accrue par rapport aux montres, grâce à la position des capteurs au doigt.</td>
+                              <td><a href="#" target="_blank">Lire l'article</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Back to top button
         const backToTopButton = document.querySelector('.back-to-top');
         
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        // CV Download
-        document.getElementById('downloadCV').addEventListener('click', function(e) {
-            e.preventDefault();
+        if (backToTopButton) { // Check if element exists
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
             
-            // Create a temporary link element
-            const link = document.createElement('a');
-            link.href = 'CV_2025-09-03_PyroFetch_Herzog.pdf'; // This would be the actual CV file
-            link.download = 'CV_PyroFetch_Herzog.pdf';
-            
-            // Simulate click to trigger download
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
         
         // Navbar background on scroll
         window.addEventListener('scroll', function() {
@@ -385,7 +443,8 @@ Attention il y’a des problème de trace de sang retrouver sur les air pods par
                 navbar.style.backgroundColor = 'var(--primary-color)';
                 navbar.style.padding = '10px 0';
             } else {
-                navbar.style.backgroundColor = 'transparent';
+                // Keep background solid for better visibility or adjust as needed
+                navbar.style.backgroundColor = 'var(--primary-color)'; 
                 navbar.style.padding = '15px 0';
             }
         });
@@ -404,6 +463,13 @@ Attention il y’a des problème de trace de sang retrouver sur les air pods par
                         top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
                 }
             });
         });
