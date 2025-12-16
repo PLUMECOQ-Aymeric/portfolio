@@ -273,12 +273,12 @@
                             </tr>
                             <tr>
                               <td>16/12/2025</td>
-                              <td><strong>Withings U-Scan : Labo connecté</strong></td>
-                              <td>Withings / Les Numériques</td>
-                              <td>Feedly</td>
-                              <td>#IoT #Santé #Analyse</td>
-                              <td>Le U-Scan est un galet connecté qui se place dans les toilettes pour analyser l'urine. Il permet un suivi nutritionnel, de l'hydratation et du cycle féminin sans intervention manuelle. Une révolution pour le suivi médical à domicile.</td>
-                              <td><a href="https://www.withings.com/fr-fr/u-scan/" target="_blank">Site Officiel</a></td>
+                              <td><strong>Bracelet Whoop : Coach Santé</strong></td>
+                              <td>Site Officiel / TechCrunch</td>
+                              <td>Google Alerts</td>
+                              <td>#Wearable #Data #Performance</td>
+                              <td>Contrairement aux montres, ce bracelet sans écran se concentre sur la collecte de données 24/7 (VFC, sommeil, récupération) pour fournir un score de contrainte quotidien, orientant l'utilisateur vers le repos ou l'effort.</td>
+                              <td><a href="https://www.whoop.com/fr/en/" target="_blank">Site Officiel</a></td>
                             </tr>
                           </tbody>
                         </table>
@@ -309,4 +309,32 @@
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
                 navbar.style.backgroundColor = 'var(--primary-color)';
-                navbar.style.padding =
+                navbar.style.padding = '10px 0';
+            } else {
+                navbar.style.backgroundColor = 'var(--primary-color)'; 
+                navbar.style.padding = '15px 0';
+            }
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    const navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
