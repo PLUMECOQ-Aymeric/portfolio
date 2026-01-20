@@ -7,11 +7,205 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        /* (Styles unchanged) */
+        :root {
+            --primary-color: #006affff;
+            --secondary-color: #3498db;
+            --accent-color: #3ca8e7;
+            --light-color: #fc9700;
+            --dark-color: #40393f;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white;
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .tools-badge {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse; 
+            font-family: Arial, sans-serif;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .table-responsive { overflow-x: auto; width: 100%; }
+        }
     </style>
 </head>
 <body>
-    <!-- (Navbar and hero unchanged) -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">PLUMECOQ Aymeric</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#apropos">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#competences">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projets">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#veille">Veille Technologique</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="accueil" class="hero">
+        <div class="container">
+            <h1>Bienvenue sur mon Portfolio</h1>
+            <p>Étudiant en BTS SIO</p>
+            <a href="#veille" class="btn btn-primary">Voir ma veille</a>
+        </div>
+    </section>
 
     <section id="veille">
         <div class="container">
@@ -19,10 +213,21 @@
                 <h2>Veille Technologique</h2>
                 <h3>Comment les objets du quotidien surveillent notre santé</h3>
             </div>
+            
             <div class="row about-content">
                 <div class="col-lg-12 mb-4">
-                    <!-- (Méthodologie card unchanged) -->
+                    <div class="card p-4 border-0 shadow-sm bg-light">
+                        <h4>Méthodologie & Outils</h4>
+                        <p>Pour réaliser cette veille, j'ai mis en place un processus automatisé de collecte d'informations :</p>
+                        <div>
+                            <span class="tools-badge">Google Alerts</span>
+                            <span class="tools-badge">Feedly (Flux RSS)</span>
+                            <span class="tools-badge">Newsletter (Medical News)</span>
+                            <span class="tools-badge">Twitter/X (Listes Tech)</span>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="col-lg-12">
                     <div class="table-responsive">
                         <table>
@@ -38,25 +243,77 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <!-- (Existing rows unchanged) -->
                             <tr>
+                              <td>25/11/2025</td>
+                              <td><strong>AirPods Pro 3 : Dispositif médical</strong></td>
+                              <td>Apple Newsroom</td>
+                              <td>Google Alerts</td>
+                              <td>#Audio #Santé #IoT</td>
+                              <td>En 2025, les écouteurs évoluent pour surveiller la santé cardiaque et protéger l'audition. Les données peuvent être partagées directement avec les médecins.</td>
+                              <td><a href="https://www.apple.com/fr/airpods-pro/" target="_blank">Page officielle</a></td>
+                            </tr>
+                            <tr>
+                              <td>02/12/2025</td>
+                              <td><strong>Apple Watch & Apnée du sommeil</strong></td>
+                              <td>The Verge</td>
+                              <td>Feedly</td>
+                              <td>#Wearable #Sommeil</td>
+                              <td>Intégration de nouveaux capteurs biométriques permettant la détection de l'apnée du sommeil via l'accéléromètre.</td>
+                              <td><a href="https://www.apple.com/fr/apple-watch-series-10/" target="_blank">Page produit</a></td>
+                            </tr>
+                            <tr>
+                              <td>09/12/2025</td>
+                              <td><strong>Bague connectée Oura Ring 4</strong></td>
+                              <td>Journal du Geek</td>
+                              <td>Newsletter</td>
+                              <td>#SmartRing #Prévention</td>
+                              <td>Bagues capables de prédire les cycles de santé et la fatigue avec une précision accrue grâce à la position des capteurs au doigt.</td>
+                              <td><a href="https://ouraring.com/fr" target="_blank">Site Oura</a></td>
+                            </tr>
+                            <tr>
+                              <td>16/12/2025</td>
+                              <td><strong>Bracelet Whoop : Coach Santé</strong></td>
+                              <td>TechCrunch</td>
+                              <td>Google Alerts</td>
+                              <td>#Data #Performance</td>
+                              <td>Bracelet sans écran focalisé sur la récupération (VFC) et le score de contrainte quotidien.</td>
+                              <td><a href="https://www.whoop.com/fr/en/" target="_blank">Site Officiel</a></td>
+                            </tr>
+                            <tr>
+                              <td>22/12/2025</td>
+                              <td><strong>Withings Body Scan : ECG à domicile</strong></td>
+                              <td>Withings</td>
+                              <td>Feedly</td>
+                              <td>#SmartScale #Cœur</td>
+                              <td>Une balance connectée qui réalise un ECG et analyse la composition corporelle par segment tout en détectant les neuropathies périphériques.</td>
+                              <td><a href="https://www.withings.com/" target="_blank">Site Withings</a></td>
+                            </tr>
+                            <tr>
+                              <td>03/01/2026</td>
+                              <td><strong>Vêtements Sensoria : Tissu intelligent</strong></td>
+                              <td>Wearable Tech News</td>
+                              <td>Newsletter</td>
+                              <td>#SmartTextile #Sport</td>
+                              <td>Des chaussettes et t-shirts équipés de capteurs textiles pour analyser la foulée, la pression du pied et prévenir les blessures en temps réel.</td>
+                              <td><a href="http://www.sensoriafitness.com/" target="_blank">Site Sensoria</a></td>
+                            </tr>
+                            <tr>
+                              <td>05/01/2026</td>
+                              <td><strong>Lunettes Ray-Ban Meta : Vision & IA</strong></td>
+                              <td>The Verge</td>
+                              <td>Twitter/X</td>
+                              <td>#SmartGlasses #IA</td>
+                              <td>L'IA intégrée analyse l'environnement nutritionnel (calories dans l'assiette) et aide à la gestion du stress par des rappels visuels.</td>
+                              <td><a href="https://www.meta.com/fr/smart-glasses/" target="_blank">Site Meta</a></td>
+                            </tr>
+                               <tr>
                               <td>13/01/2026</td>
                               <td><strong>Garmin Index Sleep Monitor</strong></td>
                               <td>Engadget</td>
                               <td>Feedly</td>
-                              <td>#SmartTextile #sommeil</td>
-                              <td>Appareil connecté dédié au suivi du sommeil (analyse des cycles, durée, efficacité). Se synchronise avec l’écosystème Garmin.</td>
-                              <td><a href="https://www.garmin.com/fr-FR/p/1650098/" target="_blank">Site Garmin</a></td>
-                            </tr>
-                            <!-- Nouvel objet ajouté en rapport avec les autres -->
-                            <tr>
-                              <td>20/01/2026</td>
-                              <td><strong>Polar Ignite 4 : Montre cardio & récupération</strong></td>
-                              <td>TechRadar</td>
-                              <td>Google Alerts</td>
-                              <td>#Wearable #Cardio #Récupération</td>
-                              <td>Montre connectée dotée d'un capteur optique amélioré mesurant la variabilité de fréquence cardiaque (VFC), le stress et la qualité du sommeil avec recommandations personnalisées.</td>
-                              <td><a href="https://www.polar.com/" target="_blank">Site Polar</a></td>
+                              <td>#SmartTextile #sommeil </td>
+                              <td>Appareil connecté dédié au suivi du sommeil (analyse des cycles, durée, efficacité). Se synchronise avec l’écosystème Garmin pour comprendre la qualité de votre repos.</td>
+                              <td><a href="https://www.garmin.com/fr-FR/p/1650098/" target="_blank">Site garmin</a></td>
                             </tr>
                           </tbody>
                         </table>
@@ -66,6 +323,33 @@
         </div>
     </section>
 
-    <!-- (Back to top and scripts unchanged) -->
+    <a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
