@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-       :root {
+        :root {
             --primary-color: #006affff;
             --secondary-color: #3498db;
             --accent-color: #3ca8e7;
@@ -22,6 +22,34 @@
             padding-top: 76px;
         }
         
+        /* --- AJOUT POUR GERER 50 TPS --- */
+        .scrollable-list {
+            max-height: 500px; /* La liste ne dépassera pas cette taille */
+            overflow-y: auto;  /* Ajoute une barre de défilement si ça dépasse */
+            padding-right: 10px; /* Espace pour ne pas coller le texte à la barre */
+            border: 1px solid #e0e0e0; /* Un petit cadre propre */
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #fcfcfc;
+        }
+
+        /* Personnalisation de la barre de défilement pour faire joli */
+        .scrollable-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .scrollable-list::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 4px;
+        }
+        .scrollable-list::-webkit-scrollbar-thumb {
+            background: var(--secondary-color); 
+            border-radius: 4px;
+        }
+        .scrollable-list::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color); 
+        }
+        /* ------------------------------- */
+
         .navbar {
             background-color: var(--primary-color);
             padding: 15px 0;
@@ -228,7 +256,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">Aymeric PLUMECOQ</a>
@@ -249,8 +276,8 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="PDFViewer2.html">Documents</a>
                     </li>
-                     </li>
-                     <li class="nav-item">
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link active" href="veille.html">Veille technologique</a>
                     </li>
                     <li class="nav-item">
@@ -261,7 +288,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <div class="hero">
         <div class="container">
             <h1>Mes Documents</h1>
@@ -269,7 +295,6 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
         <div class="pdf-container">
             <div class="pdf-header">
@@ -284,87 +309,123 @@
         </div>
         
         <div class="pdf-list">
-            <h3 class="mb-4">compte rendus beauvallet</h3>
-            
-            <div class="pdf-item active" data-pdf="CV_aymeric_plumecoq.pdf" data-title="Curriculum Vitae">
-                <div class="pdf-icon">
-                    <i class="bi bi-file-earmark-person"></i>
+            <h3 class="mb-4">Comptes rendus Beauvallet</h3>
+            <div class="scrollable-list">
+                
+                <div class="pdf-item active" data-pdf="CV_aymeric_plumecoq.pdf" data-title="Curriculum Vitae">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-person"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Curriculum Vitae</div>
+                        <p class="pdf-description">Mon CV complet avec compétences, formations et expériences</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
                 </div>
-                <div class="pdf-info">
-                    <div class="pdf-item-title">Curriculum Vitae</div>
-                    <p class="pdf-description">Mon CV complet avec compétences, formations et expériences</p>
+                
+                <div class="pdf-item" data-pdf="le_compte_rendu_tp_studio_code.org.pdf" data-title="Apprendre à coder avec des instructions simples">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu 1 -  Code.org</div>
+                        <p class="pdf-description">Apprendre à coder avec des instructions simples</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
                 </div>
-                <button class="btn-view">Voir</button>
-            </div>
-            
-            <div class="pdf-item" data-pdf="le_compte_rendu_tp_studio_code.org.pdf" data-title="Apprendre à coder avec des instructions simples">
-                <div class="pdf-icon">
-                    <i class="bi bi-file-earmark-code"></i>
-                </div>
-                <div class="pdf-info">
-                    <div class="pdf-item-title">Compte Rendu 1 -  Code.org</div>
-                    <p class="pdf-description">Apprendre à coder avec des instructions simples</p>
-                </div>
-                <button class="btn-view">Voir</button>
-            </div>
 
+                <div class="pdf-item" data-pdf="compte_rendu_portfolio.pdf" data-title="Compte Rendu sur la manière de faire un  Portfollio">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu Portfollio</div>
+                        <p class="pdf-description">Compte Rendu sur la manière de faire un  Portfollio</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                </div>
 
-            <div class="pdf-item" data-pdf="compte_rendu_portfolio.pdf" data-title="Compte Rendu sur la manière de faire un  Portfollio">
-                <div class="pdf-icon">
-                    <i class="bi bi-file-earmark-code"></i>
+                <div class="pdf-item" data-pdf="compte_rendu_shifoumi.pdf" data-title="Compte Rendu sur la manière de faire un  Portfollio">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu shifoumi</div>
+                        <p class="pdf-description">Le compte rendu  d'un code java pour faire un shifoumi</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
                 </div>
-                <div class="pdf-info">
-                    <div class="pdf-item-title">Compte Rendu Portfollio</div>
-                    <p class="pdf-description">Compte Rendu sur la manière de faire un  Portfollio</p>
-                </div>
-                <button class="btn-view">Voir</button>
-            </div>
 
-            
-            <div class="pdf-item" data-pdf="compte_rendu_shifoumi.pdf" data-title="Compte Rendu sur la manière de faire un  Portfollio">
-                <div class="pdf-icon">
-                    <i class="bi bi-file-earmark-code"></i>
+                <div class="pdf-item" data-pdf="certificats-formation.pdf" data-title="Certificats de formation">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-medical"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Certificats de formation</div>
+                        <p class="pdf-description">Attestations de réussite aux différentes formations suivies</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
                 </div>
-                <div class="pdf-info">
-                    <div class="pdf-item-title">Compte Rendu shifoumi</div>
-                    <p class="pdf-description">Le compte rendu  d'un code java pour faire un shifoumi</p>
-                </div>
-                <button class="btn-view">Voir</button>
-            </div>
 
-            <div class="pdf-item" data-pdf="certificats-formation.pdf" data-title="Certificats de formation">
-                <div class="pdf-icon">
-                    <i class="bi bi-file-earmark-medical"></i>
                 </div>
-                <div class="pdf-info">
-                    <div class="pdf-item-title">Certificats de formation</div>
-                    <p class="pdf-description">Attestations de réussite aux différentes formations suivies</p>
-                </div>
-                <button class="btn-view">Voir</button>
-            </div>
         </div>
-         <div class="pdf-list">
-            <h3 class="mb-4">compte rendu sotoca</h3>
-          <div class="pdf-item" data-pdf="compte_rendu_pc.pdf" data-title="Compte Rendu numéro 4">
-                <div class="pdf-icon">
-                    <i class="bi bi-file-earmark-text"></i>
+
+        <div class="pdf-list mt-5">
+            <h3 class="mb-4">Comptes rendu Sotoca</h3>
+            <div class="scrollable-list">
+
+                <div class="pdf-item" data-pdf="compte_rendu_pc.pdf" data-title="Compte Rendu numéro 4">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu dépanage pc</div>
+                        <p class="pdf-description">Le compte rendu résoudre un problème sur un pc</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
                 </div>
-             <div class="pdf-info">
-                    <div class="pdf-item-title">Compte Rendu dépanage pc</div>
-                    <p class="pdf-description">Le compte rendu résoudre un problème sur un pc</p>
+
+                <div class="pdf-item" data-pdf="compte_rendu_outil_de_capture.pdf" data-title="Compte Rendu outil de capture d'écran">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu outil de capture d'écran</div>
+                        <p class="pdf-description">Le compte rendu sur comment faire une capture d'écran</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
                 </div>
-                <button class="btn-view">Voir</button>
-            </div>
-         </div>
-        <div class="pdf-item" data-pdf="compte_rendu_outil_de_capture.pdf" data-title="Compte Rendu outil de capture d'écran">
-                <div class="pdf-icon">
-                    <i class="bi bi-file-earmark-text"></i>
+
                 </div>
-    <div class="pdf-info">
-                    <div class="pdf-item-title">Compte Rendu outil de capture d'écran</div>
-                    <p class="pdf-description">Le compte rendu sur comment faire une capture d'écran</p>
+        </div>
+    </div>
+     <div class="pdf-list mt-5">
+            <h3 class="mb-4">Cybersécurité</h3>
+            <div class="scrollable-list">
+
+                <div class="pdf-item" data-pdf="compte_rendu_pc.pdf" data-title="Compte Rendu numéro 4">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu dépanage pc</div>
+                        <p class="pdf-description">Le compte rendu résoudre un problème sur un pc</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
                 </div>
-                <button class="btn-view">Voir</button>
+
+                <div class="pdf-item" data-pdf="compte_rendu_outil_de_capture.pdf" data-title="Compte Rendu outil de capture d'écran">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu outil de capture d'écran</div>
+                        <p class="pdf-description">Le compte rendu sur comment faire une capture d'écran</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                </div>
+
+                </div>
         </div>
     </div>
         <div class="text-center mt-5">
@@ -374,7 +435,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
@@ -389,7 +449,6 @@
         </div>
     </footer>
 
-    <!-- Bootstrap & JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
