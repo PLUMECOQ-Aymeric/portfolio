@@ -22,18 +22,17 @@
             padding-top: 76px;
         }
         
-        /* --- AJOUT POUR GERER 50 TPS --- */
+        /* --- GESTION DU SCROLL --- */
         .scrollable-list {
-            max-height: 500px; /* La liste ne dépassera pas cette taille */
-            overflow-y: auto;  /* Ajoute une barre de défilement si ça dépasse */
-            padding-right: 10px; /* Espace pour ne pas coller le texte à la barre */
-            border: 1px solid #e0e0e0; /* Un petit cadre propre */
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 15px;
             background-color: #fcfcfc;
         }
 
-        /* Personnalisation de la barre de défilement pour faire joli */
         .scrollable-list::-webkit-scrollbar {
             width: 8px;
         }
@@ -276,8 +275,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="PDFViewer2.html">Documents</a>
                     </li>
-                      </li>
-                      <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link active" href="veille.html">Veille technologique</a>
                     </li>
                     <li class="nav-item">
@@ -328,51 +326,49 @@
                         <i class="bi bi-file-earmark-code"></i>
                     </div>
                     <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu 1 -  Code.org</div>
+                        <div class="pdf-item-title">Compte Rendu 1 - Code.org</div>
                         <p class="pdf-description">Apprendre à coder avec des instructions simples</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
 
-                <div class="pdf-item" data-pdf="compte_rendu_portfolio.pdf" data-title="Compte Rendu sur la manière de faire un  Portfollio">
+                <div class="pdf-item" data-pdf="compte_rendu_portfolio.pdf" data-title="Compte Rendu sur la création d'un Portfolio">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-code"></i>
                     </div>
                     <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu Portfollio</div>
-                        <p class="pdf-description">Compte Rendu sur la manière de faire un  Portfollio</p>
+                        <div class="pdf-item-title">Compte Rendu Portfolio</div>
+                        <p class="pdf-description">Compte Rendu sur la manière de créer un Portfolio</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
 
-                <div class="pdf-item" data-pdf="compte_rendu_shifoumi.pdf" data-title="Compte Rendu sur la manière de faire un  Portfollio">
+                <div class="pdf-item" data-pdf="compte_rendu_shifoumi.pdf" data-title="Compte Rendu code Java Shifoumi">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-code"></i>
                     </div>
                     <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu shifoumi</div>
-                        <p class="pdf-description">Le compte rendu  d'un code java pour faire un shifoumi</p>
+                        <div class="pdf-item-title">Compte Rendu Shifoumi</div>
+                        <p class="pdf-description">Le compte rendu d'un code java pour faire un shifoumi</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-                </div>
-        </div>
- </div>
-     <div class="pdf-list mt-5">
+            </div> </div> <div class="pdf-list mt-5">
             <h3 class="mb-4">TP Sotoca</h3>
             <div class="scrollable-list">
-                </div>
-                           <div class="pdf-item" data-pdf="compte_rendu_pc.pdf" data-title="Compte Rendu numéro 4">
+                
+                <div class="pdf-item" data-pdf="compte_rendu_pc.pdf" data-title="Compte Rendu dépannage PC">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
                     <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu dépanage pc</div>
-                        <p class="pdf-description">Le compte rendu résoudre un problème sur un pc</p>
+                        <div class="pdf-item-title">Compte Rendu dépannage PC</div>
+                        <p class="pdf-description">Le compte rendu sur la résolution d'un problème sur un PC</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-         <div class="pdf-item" data-pdf="compte_rendu_outil_de_capture.pdf" data-title="Compte Rendu outil de capture d'écran">
+
+                <div class="pdf-item" data-pdf="compte_rendu_outil_de_capture.pdf" data-title="Compte Rendu outil de capture d'écran">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
@@ -382,38 +378,45 @@
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-      <div class="pdf-item" data-pdf="compte_rendu_Scenario_commande_linux .pdf" data-title="Compte Rendu outil de capture d'écran">
-                        <div class="pdf-item-title">Compte Rendu sur le scénario commande linux</div>
+
+                <div class="pdf-item" data-pdf="compte_rendu_Scenario_commande_linux .pdf" data-title="Compte Rendu scénario commande Linux">
+                    <div class="pdf-icon">
+                         <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu scénario commande Linux</div>
                         <p class="pdf-description">Le compte rendu scénario commande linux</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-               <div class="pdf-item" data-pdf="compte_rendu_P.E.M.D.pdf" data-title="Compte Rendu sur les logiciels de preise en mise à distance">
+
+                <div class="pdf-item" data-pdf="compte_rendu_P.E.M.D.pdf" data-title="Compte Rendu prise en main à distance">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
                     <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu sur les logiciels de preise en mise à distance</div>
-                        <p class="pdf-description">Le compte rendu sur installer et le fonctionnement d'un logiciel de prise en main à distance</p>
+                        <div class="pdf-item-title">Compte Rendu prise en main à distance</div>
+                        <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-               
 
+            </div> </div>
+
+        <div class="pdf-list mt-5">
+            <h3 class="mb-4">TP Cyber</h3>
+            <div class="scrollable-list">
+                <div class="p-3 text-muted text-center">Aucun document pour le moment.</div>
+            </div>
         </div>
-    </div>
+
         <div class="text-center mt-5">
             <a href="index.html" class="back-to-home">
                 <i class="bi bi-arrow-left me-2"></i>Retour à l'accueil
             </a>
         </div>
-    </div>
-<div class="pdf-list mt-5">
-            <h3 class="mb-4">TP Cyber</h3>
-            <div class="scrollable-list">
-                </div>
-    </div>
-    <footer>
+
+    </div> <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -463,7 +466,8 @@
                 const pdfUrl = item.getAttribute('data-pdf');
                 const title = item.getAttribute('data-title');
                 
-                viewBtn.addEventListener('click', function() {
+                viewBtn.addEventListener('click', function(e) {
+                     e.stopPropagation(); // Empêche le double déclenchement
                     changeDocument(pdfUrl, title, pdfUrl, item);
                 });
                 
