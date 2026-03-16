@@ -22,24 +22,55 @@
             padding-top: 76px;
         }
         
+        /* --- GESTION DU SCROLL --- */
         .scrollable-list {
             max-height: 500px;
             overflow-y: auto;
+            padding-right: 10px;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 15px;
             background-color: #fcfcfc;
-            margin-bottom: 20px;
         }
 
-        .scrollable-list::-webkit-scrollbar { width: 8px; }
-        .scrollable-list::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
-        .scrollable-list::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 4px; }
+        .scrollable-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .scrollable-list::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 4px;
+        }
+        .scrollable-list::-webkit-scrollbar-thumb {
+            background: var(--secondary-color); 
+            border-radius: 4px;
+        }
+        .scrollable-list::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color); 
+        }
+        /* ------------------------------- */
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
         
-        .navbar { background-color: var(--primary-color); padding: 15px 0; }
-        .navbar-brand { font-weight: 700; color: white !important; }
-        .navbar-nav .nav-link { color: rgba(255, 255, 255, 0.8) !important; font-weight: 500; margin: 0 10px; }
-        .navbar-nav .nav-link.active { color: white !important; }
+        .navbar-brand {
+            font-weight: 700;
+            color: white;
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: white;
+        }
         
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
@@ -55,15 +86,43 @@
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
             padding: 25px;
             margin-bottom: 30px;
+            transition: all 0.3s ease;
         }
         
-        .pdf-viewer { width: 100%; height: 600px; border: none; border-radius: 8px; }
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pdf-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .pdf-list {
+            margin-top: 30px;
+        }
         
         .pdf-item {
             background: white;
             border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             display: flex;
@@ -71,46 +130,157 @@
             cursor: pointer;
         }
         
-        .pdf-item:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
-        .pdf-item.active { border-left: 4px solid var(--secondary-color); background-color: rgba(52, 152, 219, 0.05); }
+        .pdf-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
         
-        .pdf-icon { font-size: 1.8rem; color: var(--accent-color); margin-right: 15px; }
-        .pdf-info { flex-grow: 1; }
-        .pdf-item-title { font-weight: 600; color: var(--primary-color); margin-bottom: 2px; }
-        .pdf-description { color: #666; font-size: 0.85rem; margin-bottom: 0; }
+        .pdf-item.active {
+            border-left: 4px solid var(--secondary-color);
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+        
+        .pdf-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-right: 15px;
+        }
+        
+        .pdf-info {
+            flex-grow: 1;
+        }
+        
+        .pdf-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .pdf-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
         
         .btn-view {
             background-color: var(--secondary-color);
             color: white;
             border: none;
-            padding: 6px 12px;
+            padding: 8px 15px;
             border-radius: 5px;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
-
-        .btn-download { border: 1px solid var(--secondary-color); color: var(--secondary-color); }
-        .btn-download:hover { background: var(--secondary-color); color: white; }
-
-        footer { background-color: var(--primary-color); color: white; padding: 40px 0 20px; margin-top: 50px; }
+        
+        .btn-view:hover {
+            background-color: #2980b9;
+            color: white;
+        }
+        
+        .btn-download {
+            background-color: white;
+            color: var(--secondary-color);
+            border: 1px solid var(--secondary-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-download:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .document-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0 15px;
+            margin-top: 50px;
+        }
+        
+        .back-to-home {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--secondary-color);
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .back-to-home:hover {
+            text-decoration: underline;
+        }
+        
+        .no-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            color: #6c757d;
+        }
+        
+        .no-preview i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-viewer {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .pdf-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .document-actions {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">Aymeric PLUMECOQ</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html#accueil">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#apropos">À propos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#projets">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="PDFViewer2.html">Documents</a></li>
-                    <li class="nav-item"><a class="nav-link" href="veille.html">Veille technologique</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#apropos">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projets">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="PDFViewer2.html">Documents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="veille.html">Veille technologique</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -125,29 +295,36 @@
 
     <div class="container">
         <div class="pdf-container">
-            <div class="pdf-header d-flex justify-content-between align-items-center mb-3">
-                <h2 class="pdf-title h4 mb-0" id="current-document-title">Curriculum Vitae</h2>
-                <a href="CV_aymeric_plumecoq.pdf" download class="btn btn-download" id="download-btn">
-                    <i class="bi bi-download me-2"></i>Télécharger
-                </a>
+            <div class="pdf-header">
+                <h2 class="pdf-title" id="current-document-title">Curriculum Vitae</h2>
+                <div class="document-actions">
+                    <a href="CV_aymeric_plumecoq.pdf" download class="btn btn-download" id="download-btn">
+                        <i class="bi bi-download me-2"></i>Télécharger
+                    </a>
+                </div>
             </div>
-            <iframe src="CV_aymeric_plumecoq.pdf" class="pdf-viewer" id="pdf-viewer"></iframe>
+            <iframe src="CV_aymeric_plumecoq.pdf" class="pdf-viewer" id="pdf-viewer" frameborder="0"></iframe>
         </div>
-
+        
         <div class="pdf-list">
             <h3 class="mb-4">Comptes rendus Beauvallet</h3>
             <div class="scrollable-list">
+                
                 <div class="pdf-item active" data-pdf="CV_aymeric_plumecoq.pdf" data-title="Curriculum Vitae">
-                    <div class="pdf-icon"><i class="bi bi-file-earmark-person"></i></div>
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-person"></i>
+                    </div>
                     <div class="pdf-info">
                         <div class="pdf-item-title">Curriculum Vitae</div>
-                        <p class="pdf-description">Mon CV complet avec compétences et expériences</p>
+                        <p class="pdf-description">Mon CV complet avec compétences, formations et expériences</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-
-                <div class="pdf-item" data-pdf="le_compte_rendu_tp_studio_code.org.pdf" data-title="Compte Rendu 1 - Code.org">
-                    <div class="pdf-icon"><i class="bi bi-file-earmark-code"></i></div>
+                
+                <div class="pdf-item" data-pdf="le_compte_rendu_tp_studio_code.org.pdf" data-title="Apprendre à coder avec des instructions simples">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                    </div>
                     <div class="pdf-info">
                         <div class="pdf-item-title">Compte Rendu 1 - Code.org</div>
                         <p class="pdf-description">Apprendre à coder avec des instructions simples</p>
@@ -155,76 +332,207 @@
                     <button class="btn-view">Voir</button>
                 </div>
 
-                <div class="pdf-item" data-pdf="compte_rendu_portfolio.pdf" data-title="Création d'un Portfolio">
-                    <div class="pdf-icon"><i class="bi bi-file-earmark-code"></i></div>
+                <div class="pdf-item" data-pdf="compte_rendu_portfolio.pdf" data-title="Compte Rendu sur la création d'un Portfolio">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                    </div>
                     <div class="pdf-info">
                         <div class="pdf-item-title">Compte Rendu Portfolio</div>
-                        <p class="pdf-description">Méthodologie de création du portfolio</p>
+                        <p class="pdf-description">Compte Rendu sur la manière de créer un Portfolio</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-            </div>
-        </div>
 
+                <div class="pdf-item" data-pdf="compte_rendu_shifoumi.pdf" data-title="Compte Rendu code Java Shifoumi">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu Shifoumi</div>
+                        <p class="pdf-description">Le compte rendu d'un code java pour faire un shifoumi</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                </div>
+    
+                 <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_1.pdf" data-title="Compte Rendu TD4 leclerc partie 1">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu TD4 leclerc partie 1</div>
+                        <p class="pdf-description">gestion de bases de donnée en SQL</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                     </div>
+                     <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_2.pdf" data-title="Compte Rendu TD4 leclerc partie 2">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu TD4 leclerc partie 2</div>
+                        <p class="pdf-description">gestion de bases de donnée en SQL</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                     </div>
+                          <div class="pdf-item" data-pdf="compte_rendu_DABD.pdf" data-title="Compte Rendu gestion des droits sur une base de données">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu gestion des droits sur une base de données</div>
+                        <p class="pdf-description">gestion de bases de donnée des droits en SQL</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                          </div>
+        
+            </div> </div> 
         <div class="pdf-list mt-5">
             <h3 class="mb-4">TP Sotoca</h3>
             <div class="scrollable-list">
-                <div class="pdf-item" data-pdf="compte_rendu_pc.pdf" data-title="Dépannage PC">
-                    <div class="pdf-icon"><i class="bi bi-file-earmark-text"></i></div>
+                
+                <div class="pdf-item" data-pdf="compte_rendu_pc.pdf" data-title="Compte Rendu dépannage PC">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
                     <div class="pdf-info">
                         <div class="pdf-item-title">Compte Rendu dépannage PC</div>
-                        <p class="pdf-description">Résolution d'un problème matériel</p>
+                        <p class="pdf-description">Le compte rendu sur la résolution d'un problème sur un PC</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
 
-                <div class="pdf-item" data-pdf="compte_rendu_Scenario_commande_linux.pdf" data-title="Commandes Linux">
-                    <div class="pdf-icon"><i class="bi bi-terminal"></i></div>
+                <div class="pdf-item" data-pdf="compte_rendu_outil_de_capture.pdf" data-title="Compte Rendu outil de capture d'écran">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
                     <div class="pdf-info">
-                        <div class="pdf-item-title">Scénario commande linux</div>
-                        <p class="pdf-description">Utilisation du terminal et scripts</p>
+                        <div class="pdf-item-title">Compte Rendu outil de capture d'écran</div>
+                        <p class="pdf-description">Le compte rendu sur comment faire une capture d'écran</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-
-                <div class="pdf-item" data-pdf="compte_rendu_P.E.M.D.pdf" data-title="Prise en main à distance">
-                    <div class="pdf-icon"><i class="bi bi-display"></i></div>
+<div class="pdf-item" data-pdf="compte_rendu_Scenario_commande_linux.pdf" data-title="Compte Rendu Scénario commande linux">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
                     <div class="pdf-info">
-                        <div class="pdf-item-title">Prise en main à distance</div>
-                        <p class="pdf-description">Installation et fonctionnement logiciel</p>
+                        <div class="pdf-item-title">Compte Rendu Scénario commande linux</div>
+                        <p class="pdf-description"></p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-            </div>
-        </div>
+                
+                <div class="pdf-item" data-pdf="compte_rendu_P.E.M.D.pdf" data-title="Compte Rendu prise en main à distance">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu prise en main à distance</div>
+                        <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
+                    <button class="btn-view">Voir</button>
+                </div>
+                    
+                <div class="pdf-item" data-pdf="diapo_logiciel_P.E.M.D.pdf" data-title="diapo logiciel prise en main à distance">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">diapo logiciel de prise en main à distance</div>
+                        <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
+                    <button class="btn-view">Voir</button>
+                </div>
+        
+                    <div class="pdf-item" data-pdf="compte_rendu_HFS.pdf" data-title="Compte Rendu HFS">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu HFS </div>
+                        <p class="pdf-description">Installation et fonctionnement HFS </p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                </div>
+             <div class="pdf-item" data-pdf="compte_rendu_keylogger.pdf" data-title="Compte Rendu HFS">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu keylogger </div>
+                        <p class="pdf-description">Installer un keylogger</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                </div>
+           </div></div>
+         
+            <div class="pdf-list mt-5">
+            <h3 class="mb-4">TP Atelier Professionelle</h3>
+        <div class="pdf-item" data-pdf="compte_rendu_hebergement_site.pdf" data-title="Compte Rendu hébergement site">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu hébergement site</div>
+                        <p class="pdf-description">voir comment faire de l'hébergement web </p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                </div>
+             <div class="pdf-item" data-pdf="compte_rendu_transfert_site.pdf" data-title="Compte Rendu transfert de site">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu transfert de site</div>
+                        <p class="pdf-description">voir comment faire un transfert de site </p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                </div>
+             <div class="pdf-item" data-pdf="compte_rendu_save.pdf" data-title="Compte Rendu gestion de savegarde">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu gestion de savegarde</div>
+                        <p class="pdf-description">voir comment faire un site de savegarde </p>
+                    </div>
+                    <button class="btn-view">Voir</button>
+                </div>
+         </div>
 
         <div class="pdf-list mt-5">
-            <h3 class="mb-4">TP Atelier Professionnel</h3>
-            <div class="scrollable-list">
-                <div class="pdf-item" data-pdf="compte_rendu_hebergement_site.pdf" data-title="Hébergement Site">
-                    <div class="pdf-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+            <h3 class="mb-4">TP Cyber</h3>
+    <div class="pdf-item" data-pdf="compte_rendu_veille_infromationnel.pdf" data-title="Compte Rendu veille informationnel">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
                     <div class="pdf-info">
-                        <div class="pdf-item-title">Hébergement web</div>
-                        <p class="pdf-description">Mise en ligne et configuration</p>
+                        <div class="pdf-item-title">Compte Rendu veille informationnel</div>
+                        <p class="pdf-description">voir comment faire une veille informationnel</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
+            <div class="pdf-item" data-pdf="compte_rendu_CHAP5_TD1.pdf" data-title="Compte Rendu CHAP5 TD1">
+                    <div class="pdf-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-item-title">Compte Rendu CHAP5 TD1</div>
+                        <p class="pdf-description">voir comment gérer des droits</p>
+                    </div>
+                    <button class="btn-view">Voir</button>
                 </div>
         </div>
 
-        <div class="text-center mt-5">
-            <a href="index.html" class="back-to-home text-decoration-none">
+ <div class="text-center mt-5">
+            <a href="index.html" class="back-to-home">
                 <i class="bi bi-arrow-left me-2"></i>Retour à l'accueil
             </a>
         </div>
-    </div>
-
-    <footer>
+    </div> <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <h3>Aymeric PLUMECOQ</h3>
-                    <p>Exploration des technologies réseau et solutions innovantes.</p>
+                    <p>Pour aller au-delà de mes missions quotidiennes, j'aime explorer de nouvelles technologies réseau à travers des projets personnels. Cela me pousse à trouver des solutions innovantes et à affiner constamment mes méthodes de diagnostic.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <p>&copy; 2025 Aymeric PLUMECOQ. Tous droits réservés.</p>
@@ -237,22 +545,62 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const pdfViewer = document.getElementById('pdf-viewer');
-            const currentTitle = document.getElementById('current-document-title');
+            const currentDocumentTitle = document.getElementById('current-document-title');
             const downloadBtn = document.getElementById('download-btn');
             const pdfItems = document.querySelectorAll('.pdf-item');
-
+            
+            // Fonction pour changer le document affiché
+            function changeDocument(pdfUrl, title, downloadUrl, item) {
+                // Mettre à jour le titre
+                currentDocumentTitle.textContent = title;
+                
+                // Mettre à jour le PDF affiché
+                pdfViewer.src = pdfUrl;
+                
+                // Mettre à jour le lien de téléchargement
+                if (downloadUrl) {
+                    downloadBtn.href = downloadUrl;
+                    downloadBtn.download = downloadUrl;
+                    downloadBtn.style.display = 'block';
+                } else {
+                    downloadBtn.style.display = 'none';
+                }
+                
+                // Mettre à jour la classe active
+                pdfItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            }
+            
+            // Ajouter les événements aux boutons "Voir"
             pdfItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const pdfUrl = this.getAttribute('data-pdf');
-                    const title = this.getAttribute('data-title');
-
-                    pdfViewer.src = pdfUrl;
-                    currentTitle.textContent = title;
-                    downloadBtn.href = pdfUrl;
-
-                    pdfItems.forEach(i => i.classList.remove('active'));
-                    this.classList.add('active');
+                const viewBtn = item.querySelector('.btn-view');
+                const pdfUrl = item.getAttribute('data-pdf');
+                const title = item.getAttribute('data-title');
+                
+                viewBtn.addEventListener('click', function(e) {
+                     e.stopPropagation(); // Empêche le double déclenchement
+                    changeDocument(pdfUrl, title, pdfUrl, item);
                 });
+                
+                // Permettre de cliquer sur toute la carte
+                item.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('btn-view')) {
+                        changeDocument(pdfUrl, title, pdfUrl, item);
+                    }
+                });
+            });
+            
+            // Gestion des erreurs de chargement de PDF
+            pdfViewer.addEventListener('error', function() {
+                const errorHtml = `
+                    <div class="no-preview">
+                        <i class="bi bi-file-earmark-x"></i>
+                        <h4>Document non disponible</h4>
+                        <p>Le document sélectionné n'est pas disponible pour le moment.</p>
+                    </div>
+                `;
+                pdfViewer.src = 'about:blank';
+                pdfViewer.contentDocument.body.innerHTML = errorHtml;
             });
         });
     </script>
