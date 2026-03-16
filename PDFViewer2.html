@@ -96,6 +96,7 @@
             border-radius: 8px;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            display: block;
         }
         
         .pdf-header {
@@ -218,13 +219,16 @@
         }
         
         .no-preview {
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100%;
+            min-height: 600px;
             text-align: center;
             color: #6c757d;
+            border: 1px dashed #ced4da;
+            border-radius: 8px;
+            background-color: #f8f9fa;
         }
         
         .no-preview i {
@@ -251,6 +255,10 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .no-preview {
+                min-height: 400px;
+            }
         }
     </style>
 </head>
@@ -276,7 +284,7 @@
                         <a class="nav-link active" href="PDFViewer2.html">Documents</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="veille.html">Veille technologique</a>
+                        <a class="nav-link" href="veille.html">Veille technologique</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.html#contact">Contact</a>
@@ -303,7 +311,14 @@
                     </a>
                 </div>
             </div>
-            <iframe src="CV_aymeric_plumecoq.pdf" class="pdf-viewer" id="pdf-viewer" frameborder="0"></iframe>
+
+            <iframe src="CV_aymeric_plumecoq.pdf" class="pdf-viewer" id="pdf-viewer"></iframe>
+
+            <div class="no-preview" id="no-preview">
+                <i class="bi bi-file-earmark-x"></i>
+                <h4>Document non disponible</h4>
+                <p>Le document sélectionné n'est pas disponible pour le moment.</p>
+            </div>
         </div>
         
         <div class="pdf-list">
@@ -354,7 +369,7 @@
                     <button class="btn-view">Voir</button>
                 </div>
     
-                 <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_1.pdf" data-title="Compte Rendu TD4 leclerc partie 1">
+                <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_1.pdf" data-title="Compte Rendu TD4 leclerc partie 1">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-code"></i>
                     </div>
@@ -363,8 +378,9 @@
                         <p class="pdf-description">gestion de bases de donnée en SQL</p>
                     </div>
                     <button class="btn-view">Voir</button>
-                     </div>
-                     <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_2.pdf" data-title="Compte Rendu TD4 leclerc partie 2">
+                </div>
+
+                <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_2.pdf" data-title="Compte Rendu TD4 leclerc partie 2">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-code"></i>
                     </div>
@@ -373,8 +389,9 @@
                         <p class="pdf-description">gestion de bases de donnée en SQL</p>
                     </div>
                     <button class="btn-view">Voir</button>
-                     </div>
-                          <div class="pdf-item" data-pdf="compte_rendu_DABD.pdf" data-title="Compte Rendu gestion des droits sur une base de données">
+                </div>
+
+                <div class="pdf-item" data-pdf="compte_rendu_DABD.pdf" data-title="Compte Rendu gestion des droits sur une base de données">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-code"></i>
                     </div>
@@ -383,9 +400,11 @@
                         <p class="pdf-description">gestion de bases de donnée des droits en SQL</p>
                     </div>
                     <button class="btn-view">Voir</button>
-                          </div>
+                </div>
         
-            </div> </div> 
+            </div>
+        </div>
+
         <div class="pdf-list mt-5">
             <h3 class="mb-4">TP Sotoca</h3>
             <div class="scrollable-list">
@@ -411,7 +430,8 @@
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-<div class="pdf-item" data-pdf="compte_rendu_Scenario_commande_linux.pdf" data-title="Compte Rendu Scénario commande linux">
+
+                <div class="pdf-item" data-pdf="compte_rendu_Scenario_commande_linux.pdf" data-title="Compte Rendu Scénario commande linux">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
@@ -429,6 +449,7 @@
                     <div class="pdf-info">
                         <div class="pdf-item-title">Compte Rendu prise en main à distance</div>
                         <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
+                    </div>
                     <button class="btn-view">Voir</button>
                 </div>
                     
@@ -439,68 +460,80 @@
                     <div class="pdf-info">
                         <div class="pdf-item-title">diapo logiciel de prise en main à distance</div>
                         <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
+                    </div>
                     <button class="btn-view">Voir</button>
                 </div>
         
-                    <div class="pdf-item" data-pdf="compte_rendu_HFS.pdf" data-title="Compte Rendu HFS">
+                <div class="pdf-item" data-pdf="compte_rendu_HFS.pdf" data-title="Compte Rendu HFS">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
                     <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu HFS </div>
-                        <p class="pdf-description">Installation et fonctionnement HFS </p>
+                        <div class="pdf-item-title">Compte Rendu HFS</div>
+                        <p class="pdf-description">Installation et fonctionnement HFS</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-             <div class="pdf-item" data-pdf="compte_rendu_keylogger.pdf" data-title="Compte Rendu HFS">
+
+                <div class="pdf-item" data-pdf="compte_rendu_keylogger.pdf" data-title="Compte Rendu keylogger">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
                     <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu keylogger </div>
+                        <div class="pdf-item-title">Compte Rendu keylogger</div>
                         <p class="pdf-description">Installer un keylogger</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-           </div></div>
+
+            </div>
+        </div>
          
-            <div class="pdf-list mt-5">
+        <div class="pdf-list mt-5">
             <h3 class="mb-4">TP Atelier Professionelle</h3>
-        <div class="pdf-item" data-pdf="compte_rendu_hebergement_site.pdf" data-title="Compte Rendu hébergement site">
+            <div class="scrollable-list">
+
+                <div class="pdf-item" data-pdf="compte_rendu_hebergement_site.pdf" data-title="Compte Rendu hébergement site">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
                     <div class="pdf-info">
                         <div class="pdf-item-title">Compte Rendu hébergement site</div>
-                        <p class="pdf-description">voir comment faire de l'hébergement web </p>
+                        <p class="pdf-description">voir comment faire de l'hébergement web</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-             <div class="pdf-item" data-pdf="compte_rendu_transfert_site.pdf" data-title="Compte Rendu transfert de site">
+
+                <div class="pdf-item" data-pdf="compte_rendu_transfert_site.pdf" data-title="Compte Rendu transfert de site">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
                     <div class="pdf-info">
                         <div class="pdf-item-title">Compte Rendu transfert de site</div>
-                        <p class="pdf-description">voir comment faire un transfert de site </p>
+                        <p class="pdf-description">voir comment faire un transfert de site</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-             <div class="pdf-item" data-pdf="compte_rendu_save.pdf" data-title="Compte Rendu gestion de savegarde">
+
+                <div class="pdf-item" data-pdf="compte_rendu_save.pdf" data-title="Compte Rendu gestion de savegarde">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
                     <div class="pdf-info">
                         <div class="pdf-item-title">Compte Rendu gestion de savegarde</div>
-                        <p class="pdf-description">voir comment faire un site de savegarde </p>
+                        <p class="pdf-description">voir comment faire un site de savegarde</p>
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-         </div>
+
+            </div>
+        </div>
 
         <div class="pdf-list mt-5">
             <h3 class="mb-4">TP Cyber</h3>
-    <div class="pdf-item" data-pdf="compte_rendu_veille_infromationnel.pdf" data-title="Compte Rendu veille informationnel">
+            <div class="scrollable-list">
+
+                <div class="pdf-item" data-pdf="compte_rendu_veille_infromationnel.pdf" data-title="Compte Rendu veille informationnel">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
@@ -510,7 +543,8 @@
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
-            <div class="pdf-item" data-pdf="compte_rendu_CHAP5_TD1.pdf" data-title="Compte Rendu CHAP5 TD1">
+
+                <div class="pdf-item" data-pdf="compte_rendu_CHAP5_TD1.pdf" data-title="Compte Rendu CHAP5 TD1">
                     <div class="pdf-icon">
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
@@ -520,14 +554,18 @@
                     </div>
                     <button class="btn-view">Voir</button>
                 </div>
+
+            </div>
         </div>
 
- <div class="text-center mt-5">
+        <div class="text-center mt-5">
             <a href="index.html" class="back-to-home">
                 <i class="bi bi-arrow-left me-2"></i>Retour à l'accueil
             </a>
         </div>
-    </div> <footer>
+    </div>
+
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -547,13 +585,27 @@
             const pdfViewer = document.getElementById('pdf-viewer');
             const currentDocumentTitle = document.getElementById('current-document-title');
             const downloadBtn = document.getElementById('download-btn');
+            const noPreview = document.getElementById('no-preview');
             const pdfItems = document.querySelectorAll('.pdf-item');
+            
+            function showViewer() {
+                pdfViewer.style.display = 'block';
+                noPreview.style.display = 'none';
+            }
+
+            function showError() {
+                pdfViewer.style.display = 'none';
+                noPreview.style.display = 'flex';
+            }
             
             // Fonction pour changer le document affiché
             function changeDocument(pdfUrl, title, downloadUrl, item) {
                 // Mettre à jour le titre
                 currentDocumentTitle.textContent = title;
                 
+                // Réafficher le viewer
+                showViewer();
+
                 // Mettre à jour le PDF affiché
                 pdfViewer.src = pdfUrl;
                 
@@ -561,7 +613,7 @@
                 if (downloadUrl) {
                     downloadBtn.href = downloadUrl;
                     downloadBtn.download = downloadUrl;
-                    downloadBtn.style.display = 'block';
+                    downloadBtn.style.display = 'inline-block';
                 } else {
                     downloadBtn.style.display = 'none';
                 }
@@ -577,10 +629,12 @@
                 const pdfUrl = item.getAttribute('data-pdf');
                 const title = item.getAttribute('data-title');
                 
-                viewBtn.addEventListener('click', function(e) {
-                     e.stopPropagation(); // Empêche le double déclenchement
-                    changeDocument(pdfUrl, title, pdfUrl, item);
-                });
+                if (viewBtn) {
+                    viewBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        changeDocument(pdfUrl, title, pdfUrl, item);
+                    });
+                }
                 
                 // Permettre de cliquer sur toute la carte
                 item.addEventListener('click', function(e) {
@@ -592,15 +646,12 @@
             
             // Gestion des erreurs de chargement de PDF
             pdfViewer.addEventListener('error', function() {
-                const errorHtml = `
-                    <div class="no-preview">
-                        <i class="bi bi-file-earmark-x"></i>
-                        <h4>Document non disponible</h4>
-                        <p>Le document sélectionné n'est pas disponible pour le moment.</p>
-                    </div>
-                `;
-                pdfViewer.src = 'about:blank';
-                pdfViewer.contentDocument.body.innerHTML = errorHtml;
+                showError();
+            });
+
+            // Vérification simple si le PDF ne charge pas
+            pdfViewer.addEventListener('load', function() {
+                showViewer();
             });
         });
     </script>
