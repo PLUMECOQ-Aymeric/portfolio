@@ -235,6 +235,30 @@
             font-size: 3rem;
             margin-bottom: 15px;
         }
+
+        .year-section {
+            margin-top: 50px;
+        }
+
+        .year-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .year-title i {
+            font-size: 1.5rem;
+        }
+
+        .year-title h2 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
         
         @media (max-width: 768px) {
             .pdf-viewer {
@@ -320,400 +344,423 @@
                 <p>Le document sélectionné n'est pas disponible pour le moment.</p>
             </div>
         </div>
-        
-        <div class="pdf-list">
-            <h3 class="mb-4">Comptes rendus Beauvallet</h3>
-            <div class="scrollable-list">
-                
-                <div class="pdf-item active" data-pdf="CV_aymeric_plumecoq.pdf" data-title="Curriculum Vitae">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-person"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Curriculum Vitae</div>
-                        <p class="pdf-description">Mon CV complet avec compétences, formations et expériences</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                
-                <div class="pdf-item" data-pdf="le_compte_rendu_tp_studio_code.org.pdf" data-title="Apprendre à coder avec des instructions simples">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu 1 - Code.org</div>
-                        <p class="pdf-description">Apprendre à coder avec des instructions simples</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
 
-                <div class="pdf-item" data-pdf="compte_rendu_portfolio.pdf" data-title="Compte Rendu sur la création d'un Portfolio">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu Portfolio</div>
-                        <p class="pdf-description">Compte Rendu sur la manière de créer un Portfolio</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-
-                <div class="pdf-item" data-pdf="compte_rendu_shifoumi.pdf" data-title="Compte Rendu code Java Shifoumi">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu Shifoumi</div>
-                        <p class="pdf-description">Le compte rendu d'un code java pour faire un shifoumi</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-
-                 <div class="pdf-item" data-pdf="compte_rendu_BDD-exo.pdf" data-title="Compte Rendu BDD-exo">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu BDD-exo</div>
-                        <p class="pdf-description">gestion de bases de donnée en SQL</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-    
-                <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_1.pdf" data-title="Compte Rendu TD4 leclerc partie 1">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu TD4 leclerc partie 1</div>
-                        <p class="pdf-description">gestion de bases de donnée en SQL</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-
-                <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_2.pdf" data-title="Compte Rendu TD4 leclerc partie 2">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu TD4 leclerc partie 2</div>
-                        <p class="pdf-description">gestion de bases de donnée en SQL</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-
-                <div class="pdf-item" data-pdf="compte_rendu_DABD.pdf" data-title="Compte Rendu gestion des droits sur une base de données">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu gestion des droits sur une base de données</div>
-                        <p class="pdf-description">gestion de bases de donnée des droits en SQL</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-         <div class="pdf-item" data-pdf="compte_rendu_php_introduction.pdf" data-title="Compte Rendu introduction php">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu introduction php</div>
-                        <p class="pdf-description">introducyion du phph</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-            <div class="pdf-item" data-pdf="compte_rendu_php1.pdf" data-title="Compte Rendu bases de php1">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu bases de php1</div>
-                        <p class="pdf-description">code en php</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                <div class="pdf-item" data-pdf="compte_rendu_php2.pdf" data-title="Compte Rendu bases de php2">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu bases de php2</div>
-                        <p class="pdf-description">code en php</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                <div class="pdf-item" data-pdf="compte_rendu_php3.pdf" data-title="Compte Rendu bases de php3">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu bases de php3</div>
-                        <p class="pdf-description">code en php</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                <div class="pdf-item" data-pdf="compte_rendu_php4.pdf" data-title="Compte Rendu bases de php4">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu bases de php4</div>
-                        <p class="pdf-description">code en php</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                <div class="pdf-item" data-pdf="compte_rendu_php5.pdf" data-title="Compte Rendu bases de php5">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu bases de php5</div>
-                        <p class="pdf-description">code en php</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                 
-                
+        <!-- ===================== 1ère ANNÉE ===================== -->
+        <div class="year-section">
+            <div class="year-title">
+                <i class="bi bi-1-circle-fill"></i>
+                <h2>1ère année</h2>
             </div>
-        </div>
- <div class="pdf-list mt-5">
-            <h3 class="mb-4">TP B1 Sotoca</h3>
-            <div class="scrollable-list">
-                
-                <div class="pdf-item" data-pdf="compte_rendu_controleur_de_domaine.pdf" data-title="Compte Rendu controleur de domaine">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu controleur de domaine</div>
-                        <p class="pdf-description">Le compte rendu sur l'installation de l'AD et DNS</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                
-              <div class="pdf-item" data-pdf="compte_rendu_connexion_au_domaines.pdf" data-title="Compte Rendu connexion au domaine">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu connexion au domaine</div>
-                        <p class="pdf-description">connexion d'un client au dommaine</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                
 
-               
+            <div class="pdf-list">
+                <h3 class="mb-4">Comptes rendus Beauvallet</h3>
+                <div class="scrollable-list">
 
+                    <div class="pdf-item active" data-pdf="CV_aymeric_plumecoq.pdf" data-title="Curriculum Vitae">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-person"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Curriculum Vitae</div>
+                            <p class="pdf-description">Mon CV complet avec compétences, formations et expériences</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="le_compte_rendu_tp_studio_code.org.pdf" data-title="Apprendre à coder avec des instructions simples">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu 1 - Code.org</div>
+                            <p class="pdf-description">Apprendre à coder avec des instructions simples</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_portfolio.pdf" data-title="Compte Rendu sur la création d'un Portfolio">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Portfolio</div>
+                            <p class="pdf-description">Compte Rendu sur la manière de créer un Portfolio</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_shifoumi.pdf" data-title="Compte Rendu code Java Shifoumi">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Shifoumi</div>
+                            <p class="pdf-description">Le compte rendu d'un code java pour faire un shifoumi</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_BDD-exo.pdf" data-title="Compte Rendu BDD-exo">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu BDD-exo</div>
+                            <p class="pdf-description">gestion de bases de donnée en SQL</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_1.pdf" data-title="Compte Rendu TD4 leclerc partie 1">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu TD4 leclerc partie 1</div>
+                            <p class="pdf-description">gestion de bases de donnée en SQL</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_2.pdf" data-title="Compte Rendu TD4 leclerc partie 2">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu TD4 leclerc partie 2</div>
+                            <p class="pdf-description">gestion de bases de donnée en SQL</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_DABD.pdf" data-title="Compte Rendu gestion des droits sur une base de données">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu gestion des droits sur une base de données</div>
+                            <p class="pdf-description">gestion de bases de donnée des droits en SQL</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php_introduction.pdf" data-title="Compte Rendu introduction php">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu introduction php</div>
+                            <p class="pdf-description">introducyion du phph</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php1.pdf" data-title="Compte Rendu bases de php1">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu bases de php1</div>
+                            <p class="pdf-description">code en php</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php2.pdf" data-title="Compte Rendu bases de php2">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu bases de php2</div>
+                            <p class="pdf-description">code en php</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php3.pdf" data-title="Compte Rendu bases de php3">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu bases de php3</div>
+                            <p class="pdf-description">code en php</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php4.pdf" data-title="Compte Rendu bases de php4">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu bases de php4</div>
+                            <p class="pdf-description">code en php</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php5.pdf" data-title="Compte Rendu bases de php5">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu bases de php5</div>
+                            <p class="pdf-description">code en php</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                </div>
             </div>
-        </div>
-        <div class="pdf-list mt-5">
-            <h3 class="mb-4">TP B2 Sotoca</h3>
-            <div class="scrollable-list">
-                
-                <div class="pdf-item" data-pdf="compte_rendu_pc.pdf" data-title="Compte Rendu dépannage PC">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu dépannage PC</div>
-                        <p class="pdf-description">Le compte rendu sur la résolution d'un problème sur un PC</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
 
-                <div class="pdf-item" data-pdf="compte_rendu_outil_de_capture.pdf" data-title="Compte Rendu outil de capture d'écran">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu outil de capture d'écran</div>
-                        <p class="pdf-description">Le compte rendu sur comment faire une capture d'écran</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP B1 Sotoca</h3>
+                <div class="scrollable-list">
 
-                <div class="pdf-item" data-pdf="compte_rendu_Scenario_commande_linux.pdf" data-title="Compte Rendu Scénario commande linux">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
+                    <div class="pdf-item" data-pdf="compte_rendu_controleur_de_domaine.pdf" data-title="Compte Rendu controleur de domaine">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu controleur de domaine</div>
+                            <p class="pdf-description">Le compte rendu sur l'installation de l'AD et DNS</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
                     </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu Scénario commande linux</div>
-                        <p class="pdf-description"></p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                
-                <div class="pdf-item" data-pdf="compte_rendu_P.E.M.D.pdf" data-title="Compte Rendu prise en main à distance">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu prise en main à distance</div>
-                        <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                    
-                <div class="pdf-item" data-pdf="diapo_logiciel_P.E.M.D.pdf" data-title="diapo logiciel prise en main à distance">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">diapo logiciel de prise en main à distance</div>
-                        <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-        
-                <div class="pdf-item" data-pdf="compte_rendu_HFS.pdf" data-title="Compte Rendu HFS">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu HFS</div>
-                        <p class="pdf-description">Installation et fonctionnement HFS</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
 
-                <div class="pdf-item" data-pdf="compte_rendu_keylogger.pdf" data-title="Compte Rendu keylogger">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
+                    <div class="pdf-item" data-pdf="compte_rendu_connexion_au_domaines.pdf" data-title="Compte Rendu connexion au domaine">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu connexion au domaine</div>
+                            <p class="pdf-description">connexion d'un client au dommaine</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
                     </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu keylogger</div>
-                        <p class="pdf-description">Installer un keylogger</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                <div class="pdf-item" data-pdf="compte_rendu_kit.pdf" data-title="Compte Rendu kit technitien">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu kit technitien</div>
-                        <p class="pdf-description">fabriquer un kit technitien</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                <div class="pdf-item" data-pdf="diapo_kit_technitien.pdf" data-title="Compte Rendu keylogger">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">diapo kit technitien</div>
-                        <p class="pdf-description">fabriquer un kit technitien</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
 
+                </div>
             </div>
-        </div>
-        <div class="pdf-list mt-5">
-            <h3 class="mb-4">TP B3 Sotoca</h3>
-            <div class="scrollable-list">
-                </div>
 
-         
-        <div class="pdf-list mt-5">
-            <h3 class="mb-4">TP Atelier Professionelle</h3>
-            <div class="scrollable-list">
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP Cyber</h3>
+                <div class="scrollable-list">
 
-                <div class="pdf-item" data-pdf="compte_rendu_hebergement_site.pdf" data-title="Compte Rendu hébergement site">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
+                    <div class="pdf-item" data-pdf="compte_rendu_veille_infromationnel.pdf" data-title="Compte Rendu veille informationnel">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu veille informationnel</div>
+                            <p class="pdf-description">voir comment faire une veille informationnel</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
                     </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu hébergement site</div>
-                        <p class="pdf-description">voir comment faire de l'hébergement web</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
 
-                <div class="pdf-item" data-pdf="compte_rendu_transfert_site.pdf" data-title="Compte Rendu transfert de site">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
+                    <div class="pdf-item" data-pdf="compte_rendu_CHAP5_TD1.pdf" data-title="Compte Rendu CHAP5 TD1">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu CHAP5 TD1</div>
+                            <p class="pdf-description">voir comment gérer des droits</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
                     </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu transfert de site</div>
-                        <p class="pdf-description">voir comment faire un transfert de site</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
 
-                <div class="pdf-item" data-pdf="compte_rendu_save.pdf" data-title="Compte Rendu gestion de savegarde">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
+                    <div class="pdf-item" data-pdf="compte_rendu_packet_tracer.pdf" data-title="Compte Rendu TP8 packet tracer">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu TP8 packet tracer</div>
+                            <p class="pdf-description">voir comment gérer séparer des pc de personne</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
                     </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu gestion de savegarde</div>
-                        <p class="pdf-description">voir comment faire un site de savegarde</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-                <div class="pdf-item" data-pdf="compte_rendu_P.S.W.pdf" data-title="Compte Rendu Protection Site Web">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu Protection Site Web</div>
-                        <p class="pdf-description">voir comment Protéger un site web</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
 
+                    <div class="pdf-item" data-pdf="TP8_cyber.pkt" data-title="fichier packet tracer">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">TP8 packet tracer</div>
+                            <p class="pdf-description">voir comment gérer séparer des pc de personne</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                </div>
             </div>
         </div>
 
-        <div class="pdf-list mt-5">
-            <h3 class="mb-4">TP Cyber</h3>
-            <div class="scrollable-list">
-
-                <div class="pdf-item" data-pdf="compte_rendu_veille_infromationnel.pdf" data-title="Compte Rendu veille informationnel">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu veille informationnel</div>
-                        <p class="pdf-description">voir comment faire une veille informationnel</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-
-                <div class="pdf-item" data-pdf="compte_rendu_CHAP5_TD1.pdf" data-title="Compte Rendu CHAP5 TD1">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu CHAP5 TD1</div>
-                        <p class="pdf-description">voir comment gérer des droits</p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
-
+        <!-- ===================== 2nde ANNÉE ===================== -->
+        <div class="year-section">
+            <div class="year-title">
+                <i class="bi bi-2-circle-fill"></i>
+                <h2>2nde année</h2>
             </div>
-            <div class="pdf-item" data-pdf="compte_rendu_packet_tracer.pdf" data-title="Compte Rendu TP8 packet tracer">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
-                    </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">Compte Rendu TP8 packet tracer</div>
-                        <p class="pdf-description">voir comment gérer séparer des pc de personne </p>
-                    </div>
-                    <button class="btn-view">Voir</button>
-                </div>
 
+            <div class="pdf-list">
+                <h3 class="mb-4">TP B2 Sotoca</h3>
+                <div class="scrollable-list">
+
+                    <div class="pdf-item" data-pdf="compte_rendu_pc.pdf" data-title="Compte Rendu dépannage PC">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu dépannage PC</div>
+                            <p class="pdf-description">Le compte rendu sur la résolution d'un problème sur un PC</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_outil_de_capture.pdf" data-title="Compte Rendu outil de capture d'écran">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu outil de capture d'écran</div>
+                            <p class="pdf-description">Le compte rendu sur comment faire une capture d'écran</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_Scenario_commande_linux.pdf" data-title="Compte Rendu Scénario commande linux">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Scénario commande linux</div>
+                            <p class="pdf-description"></p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_P.E.M.D.pdf" data-title="Compte Rendu prise en main à distance">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu prise en main à distance</div>
+                            <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="diapo_logiciel_P.E.M.D.pdf" data-title="diapo logiciel prise en main à distance">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">diapo logiciel de prise en main à distance</div>
+                            <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_HFS.pdf" data-title="Compte Rendu HFS">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu HFS</div>
+                            <p class="pdf-description">Installation et fonctionnement HFS</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_keylogger.pdf" data-title="Compte Rendu keylogger">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu keylogger</div>
+                            <p class="pdf-description">Installer un keylogger</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_kit.pdf" data-title="Compte Rendu kit technitien">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu kit technitien</div>
+                            <p class="pdf-description">fabriquer un kit technitien</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="diapo_kit_technitien.pdf" data-title="Compte Rendu keylogger">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">diapo kit technitien</div>
+                            <p class="pdf-description">fabriquer un kit technitien</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                </div>
             </div>
-        <div class="pdf-item" data-pdf="TP8_cyber.pkt" data-title="fichier packet tracer">
-                    <div class="pdf-icon">
-                        <i class="bi bi-file-earmark-text"></i>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP B3 Sotoca</h3>
+                <div class="scrollable-list">
+                </div>
+            </div>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP Atelier Professionelle</h3>
+                <div class="scrollable-list">
+
+                    <div class="pdf-item" data-pdf="compte_rendu_hebergement_site.pdf" data-title="Compte Rendu hébergement site">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu hébergement site</div>
+                            <p class="pdf-description">voir comment faire de l'hébergement web</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
                     </div>
-                    <div class="pdf-info">
-                        <div class="pdf-item-title">TP8 packet tracer</div>
-                        <p class="pdf-description">voir comment gérer séparer des pc de personne </p>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_transfert_site.pdf" data-title="Compte Rendu transfert de site">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu transfert de site</div>
+                            <p class="pdf-description">voir comment faire un transfert de site</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
                     </div>
-                    <button class="btn-view">Voir</button>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_save.pdf" data-title="Compte Rendu gestion de savegarde">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu gestion de savegarde</div>
+                            <p class="pdf-description">voir comment faire un site de savegarde</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_P.S.W.pdf" data-title="Compte Rendu Protection Site Web">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Protection Site Web</div>
+                            <p class="pdf-description">voir comment Protéger un site web</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
                 </div>
             </div>
         </div>
