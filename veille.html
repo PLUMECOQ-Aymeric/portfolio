@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aymeric PLUMECOQ - Portfolio</title>
+    <title>Veille technologique - Aymeric PLUMECOQ</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         :root {
-            --primary-color: #006affff;
+            --primary-color: #006aff;
             --secondary-color: #3498db;
             --accent-color: #3ca8e7;
             --light-color: #fc9700;
@@ -39,12 +39,14 @@
             transition: all 0.3s ease;
         }
         
-        .navbar-nav .nav-link:hover {
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
             color: white;
         }
         
         section {
             padding: 80px 0;
+            scroll-margin-top: 70px;
         }
         
         .hero {
@@ -148,6 +150,24 @@
         tr:hover {
             background-color: #f1f1f1;
         }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0 15px;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--secondary-color);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .back-to-home:hover {
+            text-decoration: underline;
+        }
         
         .back-to-top {
             position: fixed;
@@ -181,19 +201,20 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">PLUMECOQ Aymeric</a>
+            <a class="navbar-brand" href="index.html">PLUMECOQ Aymeric</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#apropos">À propos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#competences">Compétences</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projets">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#veille">Veille Technologique</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#accueil">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#apropos">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#competences">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projets">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#experience">Parcours</a></li>
+                    <li class="nav-item"><a class="nav-link" href="PDFViewer2.html">Documents</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="veille.html">Veille technologique</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -201,8 +222,8 @@
 
     <section id="accueil" class="hero">
         <div class="container">
-            <h1>Bienvenue sur mon Portfolio</h1>
-            <p>Étudiant en BTS SIO</p>
+            <h1>Veille technologique</h1>
+            <p>Comment les objets connectés surveillent notre santé</p>
             <a href="#veille" class="btn btn-primary">Voir ma veille</a>
         </div>
     </section>
@@ -211,7 +232,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Veille Technologique</h2>
-                <h3>Comment les objets connecté surveillent notre santé</h3>
+                <h3>Comment les objets connectés surveillent notre santé</h3>
             </div>
             
             <div class="row about-content">
@@ -250,7 +271,7 @@
                               <td>TikTok</td>
                               <td>#Audio #Santé #IoT</td>
                               <td>En 2025, les écouteurs évoluent pour surveiller la santé cardiaque et protéger l'audition. Les données peuvent être partagées directement avec les médecins.</td>
-                              <td><a href="https://www.apple.com/fr/airpods-pro/" target="_blank">Page officielle</a></td>
+                              <td><a href="https://www.apple.com/fr/airpods-pro/" target="_blank" rel="noopener">Page officielle</a></td>
                             </tr>
                             <tr>
                               <td>02/12/2025</td>
@@ -259,7 +280,7 @@
                               <td>TikTok</td>
                               <td>#Wearable #Sommeil</td>
                               <td>Intégration de nouveaux capteurs biométriques permettant la détection de l'apnée du sommeil via l'accéléromètre.</td>
-                              <td><a href="https://www.apple.com/fr/apple-watch-series-10/" target="_blank">Page produit</a></td>
+                              <td><a href="https://www.apple.com/fr/apple-watch-series-10/" target="_blank" rel="noopener">Page produit</a></td>
                             </tr>
                             <tr>
                               <td>09/12/2025</td>
@@ -268,7 +289,7 @@
                               <td>TikTok</td>
                               <td>#SmartRing #Prévention</td>
                               <td>Bagues capables de prédire les cycles de santé et la fatigue avec une précision accrue grâce à la position des capteurs au doigt.</td>
-                              <td><a href="https://ouraring.com/fr" target="_blank">Site Oura</a></td>
+                              <td><a href="https://ouraring.com/fr" target="_blank" rel="noopener">Site Oura</a></td>
                             </tr>
                             <tr>
                               <td>16/12/2025</td>
@@ -277,7 +298,7 @@
                               <td>Youtube</td>
                               <td>#Data #Performance</td>
                               <td>Bracelet sans écran focalisé sur la récupération (VFC) et le score de contrainte quotidien.</td>
-                              <td><a href="https://www.whoop.com/fr/en/" target="_blank">Site Officiel</a></td>
+                              <td><a href="https://www.whoop.com/fr/en/" target="_blank" rel="noopener">Site Officiel</a></td>
                             </tr>
                             <tr>
                               <td>22/12/2025</td>
@@ -286,7 +307,7 @@
                               <td>Google alerts</td>
                               <td>#SmartScale #Cœur</td>
                               <td>Une balance connectée qui réalise un ECG et analyse la composition corporelle par segment tout en détectant les neuropathies périphériques.</td>
-                              <td><a href="https://www.withings.com/" target="_blank">Site Withings</a></td>
+                              <td><a href="https://www.withings.com/" target="_blank" rel="noopener">Site Withings</a></td>
                             </tr>
                             <tr>
                               <td>03/01/2026</td>
@@ -295,7 +316,7 @@
                               <td>Google alerts</td>
                               <td>#SmartTextile #Sport</td>
                               <td>Des chaussettes et t-shirts équipés de capteurs textiles pour analyser la foulée, la pression du pied et prévenir les blessures en temps réel.</td>
-                              <td><a href="http://www.sensoriafitness.com/" target="_blank">Site Sensoria</a></td>
+                              <td><a href="http://www.sensoriafitness.com/" target="_blank" rel="noopener">Site Sensoria</a></td>
                             </tr>
                             <tr>
                               <td>05/01/2026</td>
@@ -304,155 +325,176 @@
                               <td>TikTok</td>
                               <td>#SmartGlasses #IA</td>
                               <td>L'IA intégrée analyse l'environnement nutritionnel (calories dans l'assiette) et aide à la gestion du stress par des rappels visuels.</td>
-                              <td><a href="https://www.meta.com/fr/smart-glasses/" target="_blank">Site Meta</a></td>
+                              <td><a href="https://www.meta.com/fr/smart-glasses/" target="_blank" rel="noopener">Site Meta</a></td>
                             </tr>
-                               <tr>
+                            <tr>
                               <td>13/01/2026</td>
                               <td><strong>Garmin Index Sleep Monitor</strong></td>
                               <td>Engadget</td>
                               <td>Google alerts</td>
                               <td>#SmartTextile #sommeil </td>
                               <td>Appareil connecté dédié au suivi du sommeil (analyse des cycles, durée, efficacité). Se synchronise avec l’écosystème Garmin pour comprendre la qualité de votre repos.</td>
-                              <td><a href="https://www.garmin.com/fr-FR/p/1650098/" target="_blank">Site garmin</a></td>
+                              <td><a href="https://www.garmin.com/fr-FR/p/1650098/" target="_blank" rel="noopener">Site garmin</a></td>
                             </tr>
-                              <tr>
+                            <tr>
                               <td>20/01/2026</td>
                               <td><strong>Withings U-Scan : Analyse d'urine connectée</strong></td>
                               <td>CNET France</td>
                               <td>Google Alerts</td>
                               <td>#HealthTech #BioData</td>
                               <td>Un capteur placé dans la cuvette des toilettes qui analyse les biomarqueurs (hydratation, nutrition, hormones) pour fournir un bilan de santé quotidien sans effort.</td>
-                              <td><a href="https://www.withings.com/fr/fr/u-scan" target="_blank">Site Withings</a></td>
+                              <td><a href="https://www.withings.com/fr/fr/u-scan" target="_blank" rel="noopener">Site Withings</a></td>
                             </tr>
-                              <tr>
-                                <td>27/01/2026</td>
-                                <td><strong>Oral-B iO : Coaching bucco-dentaire IA</strong></td>
-                                <td>Les Numériques</td>
-                                <td>Youtube</td> 
-                                <td>#Hygiene #IoT #IA</td>
-                                <td>Brosse à dents utilisant une IA pour cartographier la bouche en 3D. Elle détecte les zones oubliées et analyse la pression exercée pour prévenir l'érosion de l'émail et les maladies des gencives.</td>
-                                <td><a href="https://www.oralb.fr/fr-fr/produits-dentaires/brosses-a-dents-electriques/io" target="_blank">Site Oral-B</a></td>
+                            <tr>
+                              <td>27/01/2026</td>
+                              <td><strong>Oral-B iO : Coaching bucco-dentaire IA</strong></td>
+                              <td>Les Numériques</td>
+                              <td>Youtube</td> 
+                              <td>#Hygiene #IoT #IA</td>
+                              <td>Brosse à dents utilisant une IA pour cartographier la bouche en 3D. Elle détecte les zones oubliées et analyse la pression exercée pour prévenir l'érosion de l'émail et les maladies des gencives.</td>
+                              <td><a href="https://www.oralb.fr/fr-fr/produits-dentaires/brosses-a-dents-electriques/io" target="_blank" rel="noopener">Site Oral-B</a></td>
                             </tr>
-                              <tr>
-                                <td>03/02/2026</td>
-                                <td><strong>Apple Watch Ultra 3 : glucose sans piqûre</strong></td>
-                                <td>OnOff.gr</td>
-                                <td>Google Alerts</td>
-                                <td>#Wearable #Glucose #IA</td>
-                                <td>Premier capteur de glucose non invasif sur une montre grand public. Des faisceaux lumineux (cristaux photoniques) traversent la peau pour estimer le taux de glucose dans le liquide interstitiel, avec une précision annoncée d'environ ±10 mg/dL — suffisant pour suivre des tendances, pas encore pour remplacer un capteur continu médical.</td>
-                                <td><a href="https://www.apple.com/fr/apple-watch-ultra-3/" target="_blank">Page produit</a></td>
+                            <tr>
+                              <td>03/02/2026</td>
+                              <td><strong>Apple Watch Ultra 3 : glucose sans piqûre</strong></td>
+                              <td>OnOff.gr</td>
+                              <td>Google Alerts</td>
+                              <td>#Wearable #Glucose #IA</td>
+                              <td>Premier capteur de glucose non invasif sur une montre grand public. Des faisceaux lumineux (cristaux photoniques) traversent la peau pour estimer le taux de glucose dans le liquide interstitiel, avec une précision annoncée d'environ ±10 mg/dL — suffisant pour suivre des tendances, pas encore pour remplacer un capteur continu médical.</td>
+                              <td><a href="https://www.apple.com/fr/apple-watch-ultra-3/" target="_blank" rel="noopener">Page produit</a></td>
                             </tr>
-                              <tr>
-                                <td>10/02/2026</td>
-                                <td><strong>Samsung Galaxy Watch 7 : tension artérielle continue</strong></td>
-                                <td>OnOff.gr</td>
-                                <td>Youtube</td>
-                                <td>#Wearable #Cardio #Validation</td>
-                                <td>La montre embarque désormais un suivi continu de la tension artérielle présenté comme validé médicalement, en plus de la détection des troubles du rythme cardiaque déjà proposée sur la gamme.</td>
-                                <td><a href="https://www.samsung.com/fr/watches/galaxy-watch/" target="_blank">Site Samsung</a></td>
+                            <tr>
+                              <td>10/02/2026</td>
+                              <td><strong>Samsung Galaxy Watch 7 : tension artérielle continue</strong></td>
+                              <td>OnOff.gr</td>
+                              <td>Youtube</td>
+                              <td>#Wearable #Cardio #Validation</td>
+                              <td>La montre embarque désormais un suivi continu de la tension artérielle présenté comme validé médicalement, en plus de la détection des troubles du rythme cardiaque déjà proposée sur la gamme.</td>
+                              <td><a href="https://www.samsung.com/fr/watches/galaxy-watch/" target="_blank" rel="noopener">Site Samsung</a></td>
                             </tr>
-                              <tr>
-                                <td>17/02/2026</td>
-                                <td><strong>Withings ScanWatch Nova</strong></td>
-                                <td>OnOff.gr</td>
-                                <td>Google Alerts</td>
-                                <td>#Wearable #Sommeil #Cœur</td>
-                                <td>Montre hybride française qui cumule SpO2, ECG, mesure de la température corporelle et détection de l'apnée du sommeil dans un même boîtier à l'autonomie proche d'une montre classique.</td>
-                                <td><a href="https://www.withings.com/fr/fr/scanwatch-nova" target="_blank">Site Withings</a></td>
+                            <tr>
+                              <td>17/02/2026</td>
+                              <td><strong>Withings ScanWatch Nova</strong></td>
+                              <td>OnOff.gr</td>
+                              <td>Google Alerts</td>
+                              <td>#Wearable #Sommeil #Cœur</td>
+                              <td>Montre hybride française qui cumule SpO2, ECG, mesure de la température corporelle et détection de l'apnée du sommeil dans un même boîtier à l'autonomie proche d'une montre classique.</td>
+                              <td><a href="https://www.withings.com/fr/fr/scanwatch-nova" target="_blank" rel="noopener">Site Withings</a></td>
                             </tr>
-                              <tr>
-                                <td>24/02/2026</td>
-                                <td><strong>Patchs adhésifs santé : la relève des montres ?</strong></td>
-                                <td>MTM News</td>
-                                <td>Google Alerts</td>
-                                <td>#Patch #Wellness #DonnéesSanté</td>
-                                <td>Des capteurs jetables collés sur le sternum ou le bras offrent jusqu'à 14 jours d'autonomie et une lecture continue sans écran ni chargeur. Samsung Health commence à intégrer ces données dermatologiques, tandis que la question du remboursement et de la durée de conservation des données (jusqu'à 20 ans dans le dossier médical partagé) reste en discussion.</td>
-                                <td><a href="https://www.mtm-news.com/sante-connectee-2026-les-appareils-qui-surveillent-vraiment/" target="_blank">Article MTM News</a></td>
+                            <tr>
+                              <td>24/02/2026</td>
+                              <td><strong>Patchs adhésifs santé : la relève des montres ?</strong></td>
+                              <td>MTM News</td>
+                              <td>Google Alerts</td>
+                              <td>#Patch #Wellness #DonnéesSanté</td>
+                              <td>Des capteurs jetables collés sur le sternum ou le bras offrent jusqu'à 14 jours d'autonomie et une lecture continue sans écran ni chargeur. Samsung Health commence à intégrer ces données dermatologiques, tandis que la question du remboursement et de la durée de conservation des données (jusqu'à 20 ans dans le dossier médical partagé) reste en discussion.</td>
+                              <td><a href="https://www.mtm-news.com/sante-connectee-2026-les-appareils-qui-surveillent-vraiment/" target="_blank" rel="noopener">Article MTM News</a></td>
                             </tr>
-                              <tr>
-                                <td>03/03/2026</td>
-                                <td><strong>Miroir connecté Baracoda Themis</strong></td>
-                                <td>IMIS Lyon</td>
-                                <td>Google Alerts</td>
-                                <td>#SmartMirror #Dermato #IA</td>
-                                <td>Un miroir équipé d'une caméra et de capteurs allant de l'infrarouge à l'ultraviolet, capable d'évaluer la température corporelle, le teint et la qualité de la peau. En cas d'anomalie détectée (sudation, teint jaunâtre...), il peut proposer directement une téléconsultation.</td>
-                                <td><a href="https://www.imislyon.com/actualites/innovation-objets-connectes-service-de-la-sante" target="_blank">Article IMIS</a></td>
+                            <tr>
+                              <td>03/03/2026</td>
+                              <td><strong>Miroir connecté Baracoda Themis</strong></td>
+                              <td>IMIS Lyon</td>
+                              <td>Google Alerts</td>
+                              <td>#SmartMirror #Dermato #IA</td>
+                              <td>Un miroir équipé d'une caméra et de capteurs allant de l'infrarouge à l'ultraviolet, capable d'évaluer la température corporelle, le teint et la qualité de la peau. En cas d'anomalie détectée (sudation, teint jaunâtre...), il peut proposer directement une téléconsultation.</td>
+                              <td><a href="https://www.imislyon.com/actualites/innovation-objets-connectes-service-de-la-sante" target="_blank" rel="noopener">Article IMIS</a></td>
                             </tr>
-                              <tr>
-                                <td>10/03/2026</td>
-                                <td><strong>Circular Ring 2 : bague santé 140 paramètres</strong></td>
-                                <td>Médecine Connectée</td>
-                                <td>Google Alerts</td>
-                                <td>#SmartRing #Prévention</td>
-                                <td>Une bague connectée qui va plus loin que la concurrence en suivant jusqu'à 140 paramètres de santé (sommeil, fréquence cardiaque, SpO2, température...), portée jour et nuit, y compris pendant la natation.</td>
-                                <td><a href="https://medecine-connectee.fr/appareil-sante-connecte/" target="_blank">Article</a></td>
+                            <tr>
+                              <td>10/03/2026</td>
+                              <td><strong>Circular Ring 2 : bague santé 140 paramètres</strong></td>
+                              <td>Médecine Connectée</td>
+                              <td>Google Alerts</td>
+                              <td>#SmartRing #Prévention</td>
+                              <td>Une bague connectée qui va plus loin que la concurrence en suivant jusqu'à 140 paramètres de santé (sommeil, fréquence cardiaque, SpO2, température...), portée jour et nuit, y compris pendant la natation.</td>
+                              <td><a href="https://medecine-connectee.fr/appareil-sante-connecte/" target="_blank" rel="noopener">Article</a></td>
                             </tr>
-                              <tr>
-                                <td>17/03/2026</td>
-                                <td><strong>Lenovo Qira AI : coach santé virtuel</strong></td>
-                                <td>HealthyMind (CES 2026)</td>
-                                <td>Youtube</td>
-                                <td>#IA #CoachSanté #Data</td>
-                                <td>Présenté au CES 2026, cet assistant IA compile les données issues de tous les objets connectés de l'utilisateur pour proposer des conseils de santé personnalisés et répondre à ses questions.</td>
-                                <td><a href="https://healthymind.fr/innovation-technologique-medicale/" target="_blank">Article HealthyMind</a></td>
+                            <tr>
+                              <td>17/03/2026</td>
+                              <td><strong>Lenovo Qira AI : coach santé virtuel</strong></td>
+                              <td>HealthyMind (CES 2026)</td>
+                              <td>Youtube</td>
+                              <td>#IA #CoachSanté #Data</td>
+                              <td>Présenté au CES 2026, cet assistant IA compile les données issues de tous les objets connectés de l'utilisateur pour proposer des conseils de santé personnalisés et répondre à ses questions.</td>
+                              <td><a href="https://healthymind.fr/innovation-technologique-medicale/" target="_blank" rel="noopener">Article HealthyMind</a></td>
                             </tr>
-                              <tr>
-                                <td>07/04/2026</td>
-                                <td><strong>Apple Watch Series 11 : ECG certifié & alerte hypertension</strong></td>
-                                <td>Techbox.fr</td>
-                                <td>Google Alerts</td>
-                                <td>#Wearable #Cardio #Certification</td>
-                                <td>Présentée comme la référence en surveillance cardiaque, elle cumule ECG certifié, détection de fibrillation auriculaire et une nouvelle alerte d'hypertension, avec le plus grand nombre de certifications médicales du marché grand public.</td>
-                                <td><a href="https://techbox.fr/montres-connectees-sante/" target="_blank">Article Techbox</a></td>
+                            <tr>
+                              <td>07/04/2026</td>
+                              <td><strong>Apple Watch Series 11 : ECG certifié & alerte hypertension</strong></td>
+                              <td>Techbox.fr</td>
+                              <td>Google Alerts</td>
+                              <td>#Wearable #Cardio #Certification</td>
+                              <td>Présentée comme la référence en surveillance cardiaque, elle cumule ECG certifié, détection de fibrillation auriculaire et une nouvelle alerte d'hypertension, avec le plus grand nombre de certifications médicales du marché grand public.</td>
+                              <td><a href="https://techbox.fr/montres-connectees-sante/" target="_blank" rel="noopener">Article Techbox</a></td>
                             </tr>
-                              <tr>
-                                <td>28/04/2026</td>
-                                <td><strong>Garmin Fenix 8 / Venu 3 : détection de l'apnée du sommeil</strong></td>
-                                <td>Techbox.fr</td>
-                                <td>Youtube</td>
-                                <td>#Wearable #Sommeil #SpO2</td>
-                                <td>Ces modèles Garmin récents détectent l'apnée du sommeil en croisant la mesure de SpO2 et les variations respiratoires, complétant les fonctions d'endurance et de récupération déjà proposées par la marque.</td>
-                                <td><a href="https://techbox.fr/montres-connectees-sante/" target="_blank">Article Techbox</a></td>
+                            <tr>
+                              <td>28/04/2026</td>
+                              <td><strong>Garmin Fenix 8 / Venu 3 : détection de l'apnée du sommeil</strong></td>
+                              <td>Techbox.fr</td>
+                              <td>Youtube</td>
+                              <td>#Wearable #Sommeil #SpO2</td>
+                              <td>Ces modèles Garmin récents détectent l'apnée du sommeil en croisant la mesure de SpO2 et les variations respiratoires, complétant les fonctions d'endurance et de récupération déjà proposées par la marque.</td>
+                              <td><a href="https://techbox.fr/montres-connectees-sante/" target="_blank" rel="noopener">Article Techbox</a></td>
                             </tr>
-                              <tr>
-                                <td>02/06/2026</td>
-                                <td><strong>Meta Ray-Ban Display : lunettes à écran intégré</strong></td>
-                                <td>L'Usine Digitale</td>
-                                <td>TikTok</td>
-                                <td>#SmartGlasses #IA #Affichage</td>
-                                <td>Successeur du projet Hypernova, ce modèle ajoute un véritable écran dans le verre, ouvrant la voie à des usages santé et bien-être (rappels, coaching visuel) directement dans le champ de vision, en plus des fonctions caméra et assistant IA déjà présentes sur la gamme.</td>
-                                <td><a href="https://www.usine-digitale.fr/hardware/wearable-tech/" target="_blank">Article L'Usine Digitale</a></td>
+                            <tr>
+                              <td>02/06/2026</td>
+                              <td><strong>Meta Ray-Ban Display : lunettes à écran intégré</strong></td>
+                              <td>L'Usine Digitale</td>
+                              <td>TikTok</td>
+                              <td>#SmartGlasses #IA #Affichage</td>
+                              <td>Successeur du projet Hypernova, ce modèle ajoute un véritable écran dans le verre, ouvrant la voie à des usages santé et bien-être (rappels, coaching visuel) directement dans le champ de vision, en plus des fonctions caméra et assistant IA déjà présentes sur la gamme.</td>
+                              <td><a href="https://www.usine-digitale.fr/hardware/wearable-tech/" target="_blank" rel="noopener">Article L'Usine Digitale</a></td>
                             </tr>
-                              <tr>
-                                <td>24/07/2026</td>
-                                <td><strong>Engo : lunettes connectées pour le sport</strong></td>
-                                <td>Bpifrance Big Media</td>
-                                <td>Google Alerts</td>
-                                <td>#SmartGlasses #Sport #Startup</td>
-                                <td>La startup grenobloise Engo annonce une levée de fonds de 5,1 millions d'euros pour accélérer le développement de ses lunettes connectées dédiées au sport, affichant des données en temps réel directement dans le champ de vision.</td>
-                                <td><a href="https://bigmedia.bpifrance.fr/nos-dossiers/iot-sante-les-objets-connectes-transforment-la-sante-et-la-medecine" target="_blank">Article Bpifrance</a></td>
+                            <tr>
+                              <td>24/07/2026</td>
+                              <td><strong>Engo : lunettes connectées pour le sport</strong></td>
+                              <td>Bpifrance Big Media</td>
+                              <td>Google Alerts</td>
+                              <td>#SmartGlasses #Sport #Startup</td>
+                              <td>La startup grenobloise Engo annonce une levée de fonds de 5,1 millions d'euros pour accélérer le développement de ses lunettes connectées dédiées au sport, affichant des données en temps réel directement dans le champ de vision.</td>
+                              <td><a href="https://bigmedia.bpifrance.fr/nos-dossiers/iot-sante-les-objets-connectes-transforment-la-sante-et-la-medecine" target="_blank" rel="noopener">Article Bpifrance</a></td>
                             </tr>
-                              <tr>
-                                <td>07/08/2026</td>
-                                <td><strong>Lits médicaux connectés & capteurs de chute (EHPAD)</strong></td>
-                                <td>SOS EHPAD</td>
-                                <td>Google Alerts</td>
-                                <td>#EHPAD #Sécurité #IoT</td>
-                                <td>Des capteurs intégrés au sommier mesurent la fréquence cardiaque et respiratoire, détectent les sorties de lit nocturnes et évaluent la qualité du sommeil, aux côtés de tensiomètres et oxymètres connectés qui se généralisent dans les établissements pour personnes âgées.</td>
-                                <td><a href="https://sosehpad.com/objets-connectes-en-ehpad-capteurs-de-chute-et-tensiometres-connectes-en-2026/67130/" target="_blank">Article SOS EHPAD</a></td>
+                            <tr>
+                              <td>07/08/2026</td>
+                              <td><strong>Lits médicaux connectés & capteurs de chute (EHPAD)</strong></td>
+                              <td>SOS EHPAD</td>
+                              <td>Google Alerts</td>
+                              <td>#EHPAD #Sécurité #IoT</td>
+                              <td>Des capteurs intégrés au sommier mesurent la fréquence cardiaque et respiratoire, détectent les sorties de lit nocturnes et évaluent la qualité du sommeil, aux côtés de tensiomètres et oxymètres connectés qui se généralisent dans les établissements pour personnes âgées.</td>
+                              <td><a href="https://sosehpad.com/objets-connectes-en-ehpad-capteurs-de-chute-et-tensiometres-connectes-en-2026/67130/" target="_blank" rel="noopener">Article SOS EHPAD</a></td>
                             </tr>
                           </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
+            <div class="text-center">
+                <a href="index.html" class="back-to-home">
+                    <i class="bi bi-arrow-left me-2"></i>Retour à l'accueil
+                </a>
+            </div>
         </div>
     </section>
 
-    <a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Aymeric PLUMECOQ</h3>
+                    <p>Administrateur réseau informatique en formation, passionné de tech.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2026 PLUMECOQ Aymeric. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Retour en haut"><i class="bi bi-arrow-up"></i></a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Bouton retour en haut
         const backToTopButton = document.querySelector('.back-to-top');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
@@ -461,14 +503,19 @@
                 backToTopButton.classList.remove('show');
             }
         });
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
+        // Défilement fluide uniquement pour les ancres de CETTE page (#...)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    e.preventDefault();
                     window.scrollTo({
                         top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
