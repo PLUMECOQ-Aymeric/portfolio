@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aymeirc PLUMECOQ - Portfolio</title>
+    <title>Aymeric PLUMECOQ - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         :root {
-            --primary-color: #006affff;
+            --primary-color: #006aff;
             --secondary-color: #3498db;
             --accent-color: #3ca8e7;
             --light-color: #fc9700;
@@ -148,6 +148,56 @@
             object-fit: cover;
         }
         
+        .project-icon-header {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-icon-header .bi-arrow-left-right {
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .project-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background-color: rgba(52, 152, 219, 0.12);
+            border-radius: 20px;
+            padding: 3px 10px;
+            margin-bottom: 10px;
+        }
+
+        .archi-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .archi-flow span {
+            background-color: white;
+            border: 1px solid var(--secondary-color);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-weight: 500;
+        }
+
+        .archi-flow i {
+            color: var(--secondary-color);
+        }
+
         .timeline {
             position: relative;
             padding-left: 3rem;
@@ -180,6 +230,30 @@
             border: 3px solid white;
             box-shadow: 0 0 0 3px var(--secondary-color);
         }
+
+        .info-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+        }
+
+        .info-list i {
+            color: var(--secondary-color);
+            margin-right: 6px;
+        }
+
+        .os-badges .badge {
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            margin: 0 6px 8px 0;
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--secondary-color);
+        }
         
         .contact-form .form-control {
             border-radius: 10px;
@@ -210,6 +284,10 @@
             color: white;
             margin-right: 10px;
             transition: all 0.3s ease;
+        }
+
+        #contact .social-links a {
+            background-color: var(--secondary-color);
         }
         
         .social-links a:hover {
@@ -277,10 +355,13 @@
                         <a class="nav-link" href="#projets">Projets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#experience">Expérience</a>
+                        <a class="nav-link" href="#experience">Parcours</a>
                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="veille.html">veille technologique</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PDFViewer2.html">Documents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="veille.html">Veille technologique</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -294,14 +375,15 @@
     <section id="accueil" class="hero">
         <div class="container">
             <h1>PLUMECOQ Aymeric</h1>
-            <p>Administrateur résaeux passionné</p>
+            <p>Administrateur réseau informatique</p>
             <div class="mt-4">
-                <a href="#contact" class="btn btn-primary btn-lg me-3">Me Contacter</a>
+                <a href="#contact" class="btn btn-primary btn-lg me-3">Me contacter</a>
                 <a href="CV_aymeric_plumecoq.pdf" class="btn btn-outline-light btn-lg" id="downloadCV">Télécharger mon CV</a>
             </div>
             <div class="mt-4">
-                <a href="PDFViewer2.html" class="btn btn-outline-light btn-lg ms-3">
-    <i class="bi bi-file-earmark-pdf me-2"></i>Voir mes comptes rendus </a>
+                <a href="PDFViewer2.html" class="btn btn-outline-light btn-lg">
+                    <i class="bi bi-file-earmark-pdf me-2"></i>Voir mes comptes rendus
+                </a>
             </div>
         </div>
     </section>
@@ -312,31 +394,30 @@
             <div class="section-title">
                 <h2>À propos de moi</h2>
             </div>
-            <div class="row about-content">
-                <div class="col-lg-4">
-                   
-                </div>
-                <div class="col-lg-8 pt-4 pt-lg-0">
-                    <h3>Développeur Informatique</h3>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h3>Administrateur réseau informatique</h3>
                     <p>
-                        Jeune passionné d'informatique, je suis à la recherche d'opportunités pour développer mes compétences et mettre en pratique mes connaissances dans ce domaine en constante évolution. Motivé et curieux, je suis prêt à relever tous les défis pour atteindre mes objectifs professionnels.
+                        Jeune passionné de tech, je me forme à l'administration réseau et aux systèmes informatiques. Dynamique et curieux, mon objectif est d'entrer dans la vie active après l'obtention de mon BTS.
                     </p>
                     <div class="row">
                         <div class="col-md-6">
-                            <ul>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Âge:</strong> <span>18 ans</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>Gap, France</span></li>
+                            <ul class="info-list">
+                                <li><i class="bi bi-chevron-right"></i><strong>Âge :</strong> <span id="age">19 ans</span></li>
+                                <li><i class="bi bi-chevron-right"></i><strong>Ville :</strong> <span>Gap (05000), France</span></li>
+                                <li><i class="bi bi-chevron-right"></i><strong>Nationalité :</strong> <span>Française</span></li>
                             </ul>
                         </div>
                         <div class="col-md-6">
-                            <ul>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Diplôme:</strong> <span>BacPro Système numérique</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>plumecoqaymeric@gmail.com</span></li>
+                            <ul class="info-list">
+                                <li><i class="bi bi-chevron-right"></i><strong>Diplôme :</strong> <span>Bac Pro Systèmes Numériques</span></li>
+                                <li><i class="bi bi-chevron-right"></i><strong>Email :</strong> <span>aymeric.plumecoq.pro@gmail.com</span></li>
+                                <li><i class="bi bi-chevron-right"></i><strong>Langues :</strong> <span>Français, anglais (B1)</span></li>
                             </ul>
                         </div>
                     </div>
                     <p>
-                        Pour aller au-delà de mes missions quotidiennes, j'aime explorer de nouvelles technologies réseau à travers des projets personnels. Cela me pousse à trouver des solutions innovantes et à affiner constamment mes méthodes de diagnostic.
+                        Pour aller au-delà de mes cours, j'aime explorer de nouvelles technologies réseau à travers des projets personnels. Cela me pousse à trouver des solutions et à affiner mes méthodes de diagnostic.
                     </p>
                 </div>
             </div>
@@ -353,29 +434,29 @@
                 <div class="col-lg-6">
                     <div class="skill-item">
                         <div class="skill-info">
-                            <h5>Administration réseau</h5>
+                            <h5>Paramétrage réseau</h5>
                             <span>80%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <h5>Systèmes d'exploitation (Windows, Linux,MacOS)</h5>
-                            <span>80%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <h5>Résolution de problèmes techniques</h5>
-                            <span>90%</span>
                         </div>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Systèmes d'exploitation</h5>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <h5>Maîtrise logicielle et matérielle sur PC</h5>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -386,7 +467,7 @@
                             <span>60%</span>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -395,19 +476,25 @@
                             <span>90%</span>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <h5>Anglais technique</h5>
-                            <span>40%</span>
+                            <h5>Anglais (niveau B1)</h5>
+                            <span>50%</span>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 87%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="text-center mt-4 os-badges">
+                <h5 class="mb-3">Systèmes maîtrisés</h5>
+                <span class="badge"><i class="bi bi-windows me-2"></i>Windows</span>
+                <span class="badge"><i class="bi bi-apple me-2"></i>macOS</span>
+                <span class="badge"><i class="bi bi-terminal me-2"></i>Linux</span>
             </div>
         </div>
     </section>
@@ -418,34 +505,77 @@
             <div class="section-title">
                 <h2>Mes Projets</h2>
             </div>
-                <div class="row">
+            <div class="row">
                 <div class="col-md-6 col-lg-4">
                     <div class="project-card">
                         <img src="https://images.unsplash.com/photo-1593349328224-3455122b6a2f?auto=format&fit=crop&w=600&q=80" class="project-img card-img-top" alt="Segmentation de réseau domestique">
                         <div class="card-body">
-                            <h5 class="card-title">Sécurisation du Réseau Domestique</h5>
+                            <h5 class="card-title">Sécurisation du réseau domestique</h5>
                             <p class="card-text">Mise en place d'un VLAN dédié aux objets connectés (IoT) pour les isoler du réseau principal et améliorer la sécurité.</p>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#projectModal1">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <div class="project-icon-header card-img-top" role="img" aria-label="Discord relié à une IA locale">
+                            <i class="bi bi-discord"></i>
+                            <i class="bi bi-arrow-left-right"></i>
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <div class="card-body">
+                            <span class="project-badge">Projet personnel</span>
+                            <h5 class="card-title">IA locale connectée à Discord</h5>
+                            <p class="card-text">Un modèle d'IA qui tourne directement sur mon PC avec Ollama, relié à un bot Discord grâce à OpenClaw, sans passer par un service cloud.</p>
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#projectModal2">
                                 Voir les détails
                             </button>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Parcours Section -->
     <section id="experience" class="bg-light">
         <div class="container">
-            <div class="section-title">
-                <h2>Parcours Académique</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>Bachelor en Maths et Physique</h4>
-                    <h5>Lycée Dominique Villars, Gap</h5>
-                    <p><em>Septembre 2020 - Juin 2023</em></p>
-                    <p>Formation approfondie en mathématiques et physique avec obtention de la mention Bien. Acquisition de solides compétences analytiques et de résolution de problèmes.</p>
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="section-title">
+                        <h2>Diplômes et formations</h2>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>BTS SIO</h4>
+                            <p><em>En cours</em></p>
+                            <p>Formation aux services informatiques aux organisations : réseau, systèmes, virtualisation et sécurité.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>Bac Pro Systèmes Numériques</h4>
+                            <h5>Lycée Pierre Mendès France, Veynes</h5>
+                            <p><em>Juillet 2025</em></p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>Brevet des collèges</h4>
+                            <h5>Collège Centre, Gap</h5>
+                            <p><em>Juillet 2021</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h2>Expérience professionnelle</h2>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>Technicien informatique</h4>
+                            <h5>Hôpital de Gap</h5>
+                            <p><em>Mars 2024</em></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -461,19 +591,22 @@
                 <div class="col-lg-6">
                     <div class="contact-info">
                         <div class="mb-4">
-                            <h4>Localisation:</h4>
-                            <p>Gap, Hautes-Alpes, France</p>
+                            <h4>Localisation :</h4>
+                            <p>Gap (05000), Hautes-Alpes, France</p>
                         </div>
                         <div class="mb-4">
-                            <h4>Email:</h4>
-                            <p>contact@pyrofetch.fr</p>
+                            <h4>Email :</h4>
+                            <p><a href="mailto:aymeric.plumecoq.pro@gmail.com">aymeric.plumecoq.pro@gmail.com</a></p>
                         </div>
                         <div class="mb-4">
-                            <h4>Réseaux sociaux:</h4>
+                            <h4>Téléphone :</h4>
+                            <p><a href="tel:+33624356970">06 24 35 69 70</a></p>
+                        </div>
+                        <div class="mb-4">
+                            <h4>Réseaux sociaux :</h4>
                             <div class="social-links">
-                                <a href="#"><i class="bi bi-twitter"></i></a>
-                                <a href="#"><i class="bi bi-github"></i></a>
-                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
                             </div>
                         </div>
                     </div>
@@ -504,15 +637,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h3></h3>
-                    <p>Développeur passionné spécialisé en Python, Java et développement web. Toujours à la recherche de nouveaux défis et opportunités d'apprentissage.</p>
+                    <h3>Aymeric PLUMECOQ</h3>
+                    <p>Administrateur réseau informatique en formation, passionné de tech. Toujours à la recherche de nouveaux défis et d'occasions d'apprendre.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p>&copy; 2025 PLUMECOQ Aymeric. Tous droits réservés.</p>
+                    <p>&copy; 2026 PLUMECOQ Aymeric. Tous droits réservés.</p>
                     <div class="social-links">
-                        <a href="#"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-github"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
                     </div>
                 </div>
             </div>
@@ -520,27 +652,20 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="back-to-top" aria-label="Retour en haut"><i class="bi bi-arrow-up"></i></a>
 
-    <!-- Project Modals -->
+    <!-- Project Modal -->
     <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModal1Label" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="projectModal1Label">Site E-commerce</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="projectModal1Label">Sécurisation du réseau domestique</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" class="img-fluid mb-3" alt="Projet développement web">
-                    <p>Développement d'une plateforme e-commerce complète avec panier d'achat, système de paiement et interface administrateur.</p>
-                    <h6>Technologies utilisées:</h6>
-                    <ul>
-                        <li>HTML5, CSS3, JavaScript</li>
-                        <li>Bootstrap 5</li>
-                        <li>PHP pour le backend</li>
-                        <li>MySQL pour la base de données</li>
-                    </ul>
-                    <p>Ce projet m'a permis de renforcer mes compétences en développement full-stack et en gestion de projet.</p>
+                    <img src="https://images.unsplash.com/photo-1593349328224-3455122b6a2f?auto=format&fit=crop&w=1200&q=80" class="img-fluid mb-3" alt="Segmentation de réseau domestique">
+                    <p>Mise en place d'un VLAN dédié aux objets connectés (IoT) pour les isoler du réseau principal et améliorer la sécurité.</p>
+                    <!-- Ajoute ici le détail de ton projet : matériel utilisé, étapes, résultat -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -553,46 +678,41 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="projectModal2Label">Jeu Python</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="projectModal2Label">IA locale connectée à Discord</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" class="img-fluid mb-3" alt="Projet Python">
-                    <p>Création d'un jeu vidéo en 2D avec le moteur Pygame. Le jeu inclut un système de niveaux, des ennemis intelligents et un système de score.</p>
-                    <h6>Caractéristiques:</h6>
-                    <ul>
-                        <li>Mécaniques de jeu complexes</li>
-                        <li>IA pour les ennemis</li>
-                        <li>Système de sauvegarde des scores</li>
-                        <li>Design responsive</li>
-                    </ul>
-                    <p>Ce projet a été l'occasion d'approfondir mes connaissances en algorithmie et en conception de jeux vidéo.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <h6>Objectif</h6>
+                    <p>Faire tourner une intelligence artificielle entièrement sur mon propre PC, puis pouvoir lui parler depuis Discord comme avec n'importe quel membre d'un serveur. Tout reste en local : les messages ne partent pas chez un fournisseur d'IA en ligne.</p>
 
-    <div class="modal fade" id="projectModal3" tabindex="-1" aria-labelledby="projectModal3Label" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="projectModal3Label">Application Java</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1463194537334-3940784aa69a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" class="img-fluid mb-3" alt="Projet Java">
-                    <p>Application desktop développée en Java avec JavaFX pour la gestion de tâches et projets personnels. Elle permet de créer, organiser et suivre l'avancement des projets.</p>
-                    <h6>Fonctionnalités:</h6>
+                    <h6>Fonctionnement</h6>
+                    <div class="archi-flow">
+                        <span><i class="bi bi-discord me-1"></i>Discord</span>
+                        <i class="bi bi-arrow-right"></i>
+                        <span><i class="bi bi-diagram-3 me-1"></i>OpenClaw</span>
+                        <i class="bi bi-arrow-right"></i>
+                        <span><i class="bi bi-cpu me-1"></i>Ollama (modèle local)</span>
+                    </div>
                     <ul>
-                        <li>Interface utilisateur intuitive</li>
-                        <li>Système de catégorisation des tâches</li>
-                        <li>Notifications et rappels</li>
-                        <li>Export des données en PDF</li>
+                        <li><strong>Ollama</strong> fait tourner le modèle d'IA sur mon PC : c'est le « cerveau ».</li>
+                        <li><strong>OpenClaw</strong> sert de passerelle : il reçoit les messages du bot Discord, les transmet au modèle et renvoie la réponse.</li>
+                        <li><strong>Le bot Discord</strong> est créé depuis le portail développeur de Discord, puis relié à OpenClaw avec son jeton (token).</li>
                     </ul>
-                    <p>Ce projet m'a permis de maîtriser Java et les principes de conception d'interfaces utilisateur.</p>
+
+                    <h6>Points de sécurité</h6>
+                    <ul>
+                        <li>Le jeton du bot reste privé et n'est jamais publié.</li>
+                        <li>L'accès au bot est limité aux utilisateurs autorisés.</li>
+                        <li>Aucune donnée n'est envoyée vers un service d'IA externe.</li>
+                    </ul>
+
+                    <h6>Compétences mobilisées</h6>
+                    <ul>
+                        <li>Installation et configuration de services en local</li>
+                        <li>Mise en relation de plusieurs outils (API, passerelle, bot)</li>
+                        <li>Gestion des accès et protection des identifiants</li>
+                    </ul>
+                    <!-- Ajoute ici le modèle utilisé, des captures d'écran et le résultat obtenu -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -604,6 +724,16 @@
     <!-- Bootstrap & JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Âge calculé automatiquement à partir de la date de naissance
+        (function () {
+            const naissance = new Date(2007, 0, 13); // 13/01/2007
+            const aujourdhui = new Date();
+            let age = aujourdhui.getFullYear() - naissance.getFullYear();
+            const m = aujourdhui.getMonth() - naissance.getMonth();
+            if (m < 0 || (m === 0 && aujourdhui.getDate() < naissance.getDate())) age--;
+            document.getElementById('age').textContent = age + ' ans';
+        })();
+
         // Back to top button
         const backToTopButton = document.querySelector('.back-to-top');
         
@@ -620,22 +750,18 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        // CV Download
+        // Téléchargement du CV
         document.getElementById('downloadCV').addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Create a temporary link element
             const link = document.createElement('a');
-            link.href = 'CV_aymeric_plumecoq.pdf'; // This would be the actual CV file
+            link.href = 'CV_aymeric_plumecoq.pdf';
             link.download = 'CV_aymeric_plumecoq.pdf';
-            
-            // Simulate click to trigger download
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         });
         
-        // Navbar background on scroll
+        // Navbar au défilement
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -647,16 +773,14 @@
             }
         });
         
-        // Smooth scrolling for navigation links
+        // Défilement fluide pour les liens internes
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    e.preventDefault();
                     window.scrollTo({
                         top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
