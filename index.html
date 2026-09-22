@@ -605,8 +605,8 @@
                         <div class="mb-4">
                             <h4>Réseaux sociaux :</h4>
                             <div class="social-links">
-                                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                                <a href="#" data-social="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Mon profil LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://github.com/PLUMECOQ-Aymeric" data-social="github" target="_blank" rel="noopener noreferrer" aria-label="Mon GitHub"><i class="bi bi-github"></i></a>
                             </div>
                         </div>
                     </div>
@@ -643,8 +643,8 @@
                 <div class="col-md-6 text-md-end">
                     <p>&copy; 2026 PLUMECOQ Aymeric. Tous droits réservés.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="#" data-social="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Mon profil LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/PLUMECOQ-Aymeric" data-social="github" target="_blank" rel="noopener noreferrer" aria-label="Mon GitHub"><i class="bi bi-github"></i></a>
                     </div>
                 </div>
             </div>
@@ -724,6 +724,27 @@
     <!-- Bootstrap & JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // ===== MES LIENS (change-les ici, ils s'appliquent partout sur la page) =====
+        const MES_LIENS = {
+            linkedin: '', // ⚠️ colle ici l'adresse de ton profil, ex : 'https://www.linkedin.com/in/aymeric-plumecoq/'
+            github: 'https://github.com/PLUMECOQ-Aymeric'
+        };
+
+        // Lien de secours tant que l'adresse LinkedIn n'est pas renseignée :
+        // ouvre une recherche LinkedIn sur ton nom
+        const LIENS_SECOURS = {
+            linkedin: 'https://www.linkedin.com/search/results/people/?keywords=Aymeric%20PLUMECOQ'
+        };
+
+        document.querySelectorAll('[data-social]').forEach(lien => {
+            const url = MES_LIENS[lien.dataset.social] || LIENS_SECOURS[lien.dataset.social];
+            if (url) {
+                lien.href = url;
+            } else {
+                lien.style.display = 'none';
+            }
+        });
+
         // Âge calculé automatiquement à partir de la date de naissance
         (function () {
             const naissance = new Date(2007, 0, 13); // 13/01/2007
