@@ -95,12 +95,6 @@
             padding: 0 15px 15px;
         }
 
-        /* Menu principal */
-        .dropdown-main > summary {
-            font-size: 1.4rem;
-            color: #333;
-        }
-
         /* Sous-menus */
         .dropdown-sub {
             background-color: white;
@@ -875,27 +869,39 @@
                         <button class="btn-view">Voir</button>
                     </div>
 
-                    <div class="pdf-item" data-pdf="compte_rendu_glpi.pdf" data-title="Compte Rendu GLPI">
-                        <div class="pdf-icon">
-                            <i class="bi bi-file-earmark-text"></i>
-                        </div>
-                        <div class="pdf-info">
-                            <div class="pdf-item-title">Compte Rendu GLPI</div>
-                            <p class="pdf-description">Le compte rendu sur GLPI</p>
-                        </div>
-                        <button class="btn-view">Voir</button>
-                    </div>
+                        <!-- Menu déroulant : TP GLPI -->
+                        <details class="dropdown-block dropdown-sub">
+                            <summary>
+                                <i class="bi bi-chevron-right"></i>
+                                TP GLPI
+                                <span class="dropdown-count">2 documents</span>
+                            </summary>
+                            <div class="dropdown-content">
 
-                    <div class="pdf-item" data-pdf="Opération_GLPI_Feuille_de_route_interactive.pdf" data-title="Compte Rendu escape game GLPI">
-                        <div class="pdf-icon">
-                            <i class="bi bi-file-earmark-text"></i>
-                        </div>
-                        <div class="pdf-info">
-                            <div class="pdf-item-title">Compte Rendu escape game GLPI</div>
-                            <p class="pdf-description">Le compte rendu de l'escape game GLPI</p>
-                        </div>
-                        <button class="btn-view">Voir</button>
-                    </div>
+                                <div class="pdf-item" data-pdf="compte_rendu_glpi.pdf" data-title="Compte Rendu GLPI">
+                                    <div class="pdf-icon">
+                                        <i class="bi bi-file-earmark-text"></i>
+                                    </div>
+                                    <div class="pdf-info">
+                                        <div class="pdf-item-title">Compte Rendu GLPI</div>
+                                        <p class="pdf-description">Le compte rendu sur GLPI</p>
+                                    </div>
+                                    <button class="btn-view">Voir</button>
+                                </div>
+
+                                <div class="pdf-item" data-pdf="Opération_GLPI_Feuille_de_route_interactive.pdf" data-title="Compte Rendu escape game GLPI">
+                                    <div class="pdf-icon">
+                                        <i class="bi bi-file-earmark-text"></i>
+                                    </div>
+                                    <div class="pdf-info">
+                                        <div class="pdf-item-title">Compte Rendu escape game GLPI</div>
+                                        <p class="pdf-description">Le compte rendu de l'escape game GLPI</p>
+                                    </div>
+                                    <button class="btn-view">Voir</button>
+                                </div>
+
+                            </div>
+                        </details>
 
                 </div>
             </div>
@@ -966,16 +972,28 @@
                 <h3 class="mb-4">TP B3 Sotoca</h3>
                 <div class="scrollable-list">
 
-                    <div class="pdf-item" data-pdf="compte_rendu_installation_kali.pdf" data-title="Compte Rendu installation Kali">
-                        <div class="pdf-icon">
-                            <i class="bi bi-file-earmark-text"></i>
-                        </div>
-                        <div class="pdf-info">
-                            <div class="pdf-item-title">Compte Rendu installation Kali</div>
-                            <p class="pdf-description">Voir comment installer Kali Linux pour du pentesting</p>
-                        </div>
-                        <button class="btn-view">Voir</button>
-                    </div>
+                        <!-- Menu déroulant : TP installation Kali Linux -->
+                        <details class="dropdown-block dropdown-sub">
+                            <summary>
+                                <i class="bi bi-chevron-right"></i>
+                                TP installation Kali Linux
+                                <span class="dropdown-count">1 document</span>
+                            </summary>
+                            <div class="dropdown-content">
+
+                                <div class="pdf-item" data-pdf="compte_rendu_installation_kali.pdf" data-title="Compte Rendu installation Kali">
+                                    <div class="pdf-icon">
+                                        <i class="bi bi-file-earmark-text"></i>
+                                    </div>
+                                    <div class="pdf-info">
+                                        <div class="pdf-item-title">Compte Rendu installation Kali</div>
+                                        <p class="pdf-description">Voir comment installer Kali Linux pour du pentesting</p>
+                                    </div>
+                                    <button class="btn-view">Voir</button>
+                                </div>
+
+                            </div>
+                        </details>
 
                 </div>
             </div>
