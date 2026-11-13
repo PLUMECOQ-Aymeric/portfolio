@@ -1,4 +1,4 @@
-T<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -14,14 +14,14 @@ T<!DOCTYPE html>
             --light-color: #fc9700;
             --dark-color: #40393f;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
             background-color: #f8f9fa;
             padding-top: 76px;
         }
-        
+
         /* --- GESTION DU SCROLL --- */
         .scrollable-list {
             max-height: 500px;
@@ -36,18 +36,17 @@ T<!DOCTYPE html>
             width: 8px;
         }
         .scrollable-list::-webkit-scrollbar-track {
-            background: #f1f1f1; 
+            background: #f1f1f1;
             border-radius: 4px;
         }
         .scrollable-list::-webkit-scrollbar-thumb {
-            background: var(--secondary-color); 
+            background: var(--secondary-color);
             border-radius: 4px;
         }
         .scrollable-list::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-color); 
+            background: var(--primary-color);
         }
         /* ------------------------------- */
-
 
         /* --- MENUS DÉPLIANTS IMBRIQUÉS --- */
         .dropdown-block {
@@ -122,24 +121,24 @@ T<!DOCTYPE html>
             padding: 15px 0;
             transition: all 0.3s ease;
         }
-        
+
         .navbar-brand {
             font-weight: 700;
             color: white;
         }
-        
+
         .navbar-nav .nav-link {
             color: rgba(255, 255, 255, 0.8);
             font-weight: 500;
             margin: 0 10px;
             transition: all 0.3s ease;
         }
-        
+
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
             color: white;
         }
-        
+
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
             color: white;
@@ -147,7 +146,7 @@ T<!DOCTYPE html>
             text-align: center;
             margin-bottom: 40px;
         }
-        
+
         .pdf-container {
             background: white;
             border-radius: 10px;
@@ -156,7 +155,7 @@ T<!DOCTYPE html>
             margin-bottom: 30px;
             transition: all 0.3s ease;
         }
-        
+
         .pdf-viewer {
             width: 100%;
             height: 600px;
@@ -166,7 +165,7 @@ T<!DOCTYPE html>
             transition: all 0.3s ease;
             display: block;
         }
-        
+
         .pdf-header {
             display: flex;
             justify-content: space-between;
@@ -175,18 +174,18 @@ T<!DOCTYPE html>
             padding-bottom: 15px;
             border-bottom: 1px solid #eee;
         }
-        
+
         .pdf-title {
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--primary-color);
             margin: 0;
         }
-        
+
         .pdf-list {
             margin-top: 30px;
         }
-        
+
         .pdf-item {
             background: white;
             border-radius: 8px;
@@ -198,39 +197,39 @@ T<!DOCTYPE html>
             align-items: center;
             cursor: pointer;
         }
-        
+
         .pdf-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .pdf-item.active {
             border-left: 4px solid var(--secondary-color);
             background-color: rgba(52, 152, 219, 0.05);
         }
-        
+
         .pdf-icon {
             font-size: 2rem;
             color: var(--accent-color);
             margin-right: 15px;
         }
-        
+
         .pdf-info {
             flex-grow: 1;
         }
-        
+
         .pdf-item-title {
             font-weight: 600;
             margin-bottom: 5px;
             color: var(--primary-color);
         }
-        
+
         .pdf-description {
             color: #666;
             font-size: 0.9rem;
             margin-bottom: 0;
         }
-        
+
         .btn-view {
             background-color: var(--secondary-color);
             color: white;
@@ -240,12 +239,12 @@ T<!DOCTYPE html>
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        
+
         .btn-view:hover {
             background-color: #2980b9;
             color: white;
         }
-        
+
         .btn-download {
             background-color: white;
             color: var(--secondary-color);
@@ -255,25 +254,25 @@ T<!DOCTYPE html>
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        
+
         .btn-download:hover {
             background-color: var(--secondary-color);
             color: white;
         }
-        
+
         .document-actions {
             display: flex;
             gap: 10px;
             margin-top: 20px;
         }
-        
+
         footer {
             background-color: var(--primary-color);
             color: white;
             padding: 30px 0 15px;
             margin-top: 50px;
         }
-        
+
         .back-to-home {
             display: inline-block;
             margin-top: 20px;
@@ -281,11 +280,11 @@ T<!DOCTYPE html>
             font-weight: 500;
             text-decoration: none;
         }
-        
+
         .back-to-home:hover {
             text-decoration: underline;
         }
-        
+
         .no-preview {
             display: none;
             flex-direction: column;
@@ -297,8 +296,9 @@ T<!DOCTYPE html>
             border: 1px dashed #ced4da;
             border-radius: 8px;
             background-color: #f8f9fa;
+            padding: 20px;
         }
-        
+
         .no-preview i {
             font-size: 3rem;
             margin-bottom: 15px;
@@ -327,22 +327,22 @@ T<!DOCTYPE html>
             margin: 0;
             font-size: 1.4rem;
         }
-        
+
         @media (max-width: 768px) {
             .pdf-viewer {
                 height: 400px;
             }
-            
+
             .hero h1 {
                 font-size: 2rem;
             }
-            
+
             .pdf-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
-            
+
             .document-actions {
                 width: 100%;
                 justify-content: center;
@@ -394,7 +394,7 @@ T<!DOCTYPE html>
     </div>
 
     <div class="container">
-        <div class="pdf-container">
+        <div class="pdf-container" id="viewer-container">
             <div class="pdf-header">
                 <h2 class="pdf-title" id="current-document-title">Mon CV</h2>
                 <div class="document-actions">
@@ -404,12 +404,12 @@ T<!DOCTYPE html>
                 </div>
             </div>
 
-            <iframe src="CV_aymeric_plumecoq.pdf" class="pdf-viewer" id="pdf-viewer"></iframe>
+            <iframe src="CV_aymeric_plumecoq.pdf" class="pdf-viewer" id="pdf-viewer" title="Aperçu du document"></iframe>
 
             <div class="no-preview" id="no-preview">
                 <i class="bi bi-file-earmark-x"></i>
-                <h4>Document non disponible</h4>
-                <p>Le document sélectionné n'est pas disponible pour le moment.</p>
+                <h4 id="no-preview-title">Document non disponible</h4>
+                <p id="no-preview-text">Le document sélectionné n'est pas disponible pour le moment.</p>
             </div>
         </div>
 
@@ -874,7 +874,7 @@ T<!DOCTYPE html>
                         <summary>
                             <i class="bi bi-chevron-right"></i>
                             TP GLPI
-                            <span class="dropdown-count">6 documents</span>
+                            <span class="dropdown-count">5 documents</span>
                         </summary>
                         <div class="dropdown-content">
 
@@ -910,26 +910,29 @@ T<!DOCTYPE html>
                                 </div>
                                 <button class="btn-view">Voir</button>
                             </div>
-                              <div class="pdf-item" data-pdf="compte_rendu_ticket_glpi.pdf" data-title="Compte Rendu GLPI helpdesk">
+
+                            <div class="pdf-item" data-pdf="compte_rendu_ticket_glpi.pdf" data-title="Compte Rendu GLPI helpdesk">
                                 <div class="pdf-icon">
                                     <i class="bi bi-file-earmark-text"></i>
                                 </div>
                                 <div class="pdf-info">
                                     <div class="pdf-item-title">Compte Rendu GLPI helpdesk</div>
-                                    <p class="pdf-description">ticket GLPI</p>
+                                    <p class="pdf-description">Ticket GLPI</p>
                                 </div>
                                 <button class="btn-view">Voir</button>
                             </div>
-                              <div class="pdf-item" data-pdf="compte_rendu_deploiment.pdf" data-title="Compte Rendu Déploiment">
+
+                            <div class="pdf-item" data-pdf="compte_rendu_deploiment.pdf" data-title="Compte Rendu Déploiement">
                                 <div class="pdf-icon">
                                     <i class="bi bi-file-earmark-text"></i>
                                 </div>
                                 <div class="pdf-info">
-                                    <div class="pdf-item-title">Compte Rendu délpoiment</div>
-                                    <p class="pdf-description">délpoiment d'app réppertoirié dans GLPI</p>
+                                    <div class="pdf-item-title">Compte Rendu déploiement</div>
+                                    <p class="pdf-description">Déploiement d'applications répertoriées dans GLPI</p>
                                 </div>
                                 <button class="btn-view">Voir</button>
                             </div>
+
                             <div class="pdf-item" data-pdf="compte_rendu_guideuser.pdf" data-title="Compte Rendu Guide Utilisateur">
                                 <div class="pdf-icon">
                                     <i class="bi bi-file-earmark-text"></i>
@@ -1006,7 +1009,7 @@ T<!DOCTYPE html>
                         <button class="btn-view">Voir</button>
                     </div>
 
-                    <!-- Menu déroulant : TP GLPI (CORRIGÉ) -->
+                    <!-- Menu déroulant : TP GLPI -->
                     <details class="dropdown-block dropdown-sub">
                         <summary>
                             <i class="bi bi-chevron-right"></i>
@@ -1021,7 +1024,7 @@ T<!DOCTYPE html>
                                     <i class="bi bi-file-earmark-text"></i>
                                 </div>
                                 <div class="pdf-info">
-                                    <div class="pdf-item-title">Compte Rendu Mise en place d'un serveur GLPI(en cour d'édition)</div>
+                                    <div class="pdf-item-title">Compte Rendu Mise en place d'un serveur GLPI (en cours d'édition)</div>
                                     <p class="pdf-description">Compte rendu sur la mise en place d'un serveur GLPI</p>
                                 </div>
                                 <button class="btn-view">Voir</button>
@@ -1041,69 +1044,72 @@ T<!DOCTYPE html>
 
                         </div>
                     </details>
-                     <details class="dropdown-block dropdown-sub">
+
+                    <!-- Menu déroulant : TP script (balises corrigées : un seul dropdown-content) -->
+                    <details class="dropdown-block dropdown-sub">
                         <summary>
                             <i class="bi bi-chevron-right"></i>
                             TP script
-                            <span class="dropdown-count">2 documents</span>
+                            <span class="dropdown-count">5 documents</span>
                         </summary>
                         <div class="dropdown-content">
-                             <div class="pdf-item" data-pdf="compte_rendu_script.pdf" data-title="Compte Rendu script">
+
+                            <div class="pdf-item" data-pdf="compte_rendu_script.pdf" data-title="Compte Rendu script">
                                 <div class="pdf-icon">
                                     <i class="bi bi-file-earmark-text"></i>
                                 </div>
                                 <div class="pdf-info">
-                                    <div class="pdf-item-title">Compte Rendu agent script</div>
-                                    <p class="pdf-description">Compte rendu sur les script pour Windows serveurs 2025</p>
+                                    <div class="pdf-item-title">Compte Rendu script</div>
+                                    <p class="pdf-description">Compte rendu sur les scripts pour Windows Server 2025</p>
                                 </div>
                                 <button class="btn-view">Voir</button>
                             </div>
-                            <div class="dropdown-content">
-                             <div class="pdf-item" data-pdf="creation.bat" data-title="script">
+
+                            <div class="pdf-item" data-pdf="creation.bat" data-title="Script de création">
                                 <div class="pdf-icon">
-                                    <i class="bi bi-file-earmark-text"></i>
+                                    <i class="bi bi-file-earmark-code"></i>
                                 </div>
                                 <div class="pdf-info">
-                                    <div class="pdf-item-title"></div>
-                                    <p class="pdf-description"></p>
+                                    <div class="pdf-item-title">Script de création</div>
+                                    <p class="pdf-description">creation.bat : création d'utilisateurs dans l'AD</p>
                                 </div>
                                 <button class="btn-view">Voir</button>
                             </div>
-                            <div class="dropdown-content">
-                             <div class="pdf-item" data-pdf="modification.bat" data-title="Compte Rendu script">
+
+                            <div class="pdf-item" data-pdf="modification.bat" data-title="Script de modification">
                                 <div class="pdf-icon">
-                                    <i class="bi bi-file-earmark-text"></i>
+                                    <i class="bi bi-file-earmark-code"></i>
                                 </div>
                                 <div class="pdf-info">
-                                    <div class="pdf-item-title">Compte Rendu agent script</div>
-                                    <p class="pdf-description">Compte rendu sur les script pour Windows serveurs 2025</p>
+                                    <div class="pdf-item-title">Script de modification</div>
+                                    <p class="pdf-description">modification.bat : modification d'utilisateurs dans l'AD</p>
                                 </div>
                                 <button class="btn-view">Voir</button>
                             </div>
-                            <div class="dropdown-content">
-                             <div class="pdf-item" data-pdf="supression.bat" data-title="Compte Rendu script">
+
+                            <div class="pdf-item" data-pdf="supression.bat" data-title="Script de suppression">
                                 <div class="pdf-icon">
-                                    <i class="bi bi-file-earmark-text"></i>
+                                    <i class="bi bi-file-earmark-code"></i>
                                 </div>
                                 <div class="pdf-info">
-                                    <div class="pdf-item-title">Compte Rendu agent script</div>
-                                    <p class="pdf-description">Compte rendu sur les script pour Windows serveurs 2025</p>
+                                    <div class="pdf-item-title">Script de suppression</div>
+                                    <p class="pdf-description">supression.bat : suppression d'utilisateurs dans l'AD</p>
                                 </div>
                                 <button class="btn-view">Voir</button>
                             </div>
-                            <div class="dropdown-content">
-                             <div class="pdf-item" data-pdf="gestion_AD.bat" data-title="Compte Rendu script">
+
+                            <div class="pdf-item" data-pdf="gestion_AD.bat" data-title="Script gestion_AD">
                                 <div class="pdf-icon">
-                                    <i class="bi bi-file-earmark-text"></i>
+                                    <i class="bi bi-file-earmark-code"></i>
                                 </div>
                                 <div class="pdf-info">
-                                    <div class="pdf-item-title">Compte Rendu agent script</div>
-                                    <p class="pdf-description">Compte rendu sur les script pour Windows serveurs 2025</p>
+                                    <div class="pdf-item-title">Script gestion_AD</div>
+                                    <p class="pdf-description">gestion_AD.bat : menu regroupant les scripts de gestion de l'AD</p>
                                 </div>
                                 <button class="btn-view">Voir</button>
                             </div>
+
                         </div>
-                        
                     </details>
 
                 </div>
@@ -1186,13 +1192,14 @@ T<!DOCTYPE html>
                         </div>
                         <button class="btn-view">Voir</button>
                     </div>
+
                     <div class="pdf-item" data-pdf="compte_rendu_transfert_vm.pdf" data-title="Compte Rendu Migration">
                         <div class="pdf-icon">
                             <i class="bi bi-file-earmark-text"></i>
                         </div>
                         <div class="pdf-info">
                             <div class="pdf-item-title">Compte Rendu migration</div>
-                            <p class="pdf-description">Voir comment migré des vm </p>
+                            <p class="pdf-description">Voir comment migrer des VM</p>
                         </div>
                         <button class="btn-view">Voir</button>
                     </div>
@@ -1203,24 +1210,25 @@ T<!DOCTYPE html>
             <div class="pdf-list mt-5">
                 <h3 class="mb-4">Autre</h3>
                 <div class="scrollable-list">
-                 <details class="dropdown-block dropdown-sub">
+
+                    <details class="dropdown-block dropdown-sub">
                         <summary>
                             <i class="bi bi-chevron-right"></i>
                             TP MOOC
-                            <span class="dropdown-count">5 documents</span>
+                            <span class="dropdown-count">4 documents</span>
                         </summary>
                         <div class="dropdown-content">
 
-                         <div class="pdf-item" data-pdf="compte_rendu_mooc.pdf" data-title="Compte Rendu MOOC recherche">
-                        <div class="pdf-icon">
-                            <i class="bi bi-file-earmark-text"></i>
-                        </div>
-                        <div class="pdf-info">
-                            <div class="pdf-item-title">Compte Rendu MOOC recherche</div>
-                            <p class="pdf-description">Le compte rendu pour trouver une formation sur internet</p>
-                        </div>
-                        <button class="btn-view">Voir</button>
-                    </div>
+                            <div class="pdf-item" data-pdf="compte_rendu_mooc.pdf" data-title="Compte Rendu MOOC recherche">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu MOOC recherche</div>
+                                    <p class="pdf-description">Le compte rendu pour trouver une formation sur internet</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
 
                             <div class="pdf-item" data-pdf="compte_rendu_planning_mooc.pdf" data-title="Compte Rendu MOOC planning">
                                 <div class="pdf-icon">
@@ -1228,55 +1236,40 @@ T<!DOCTYPE html>
                                 </div>
                                 <div class="pdf-info">
                                     <div class="pdf-item-title">Compte Rendu MOOC planning</div>
-                                    <p class="pdf-description">compte rendu du planning mooc</p>
+                                    <p class="pdf-description">Compte rendu du planning MOOC</p>
                                 </div>
                                 <button class="btn-view">Voir</button>
                             </div>
-                             <div class="pdf-item" data-pdf=".pdf" data-title="TP3">
+
+                            <!-- Ancien bloc "TP3" vide (data-pdf=".pdf", sans titre) retiré :
+                                 à remettre quand le PDF existera -->
+
+                            <div class="pdf-item" data-pdf="bilan_plumecoq_aymeric.pdf" data-title="Bilan de compétences">
                                 <div class="pdf-icon">
                                     <i class="bi bi-file-earmark-text"></i>
                                 </div>
                                 <div class="pdf-info">
-                                    <div class="pdf-item-title"></div>
-                                    <p class="pdf-description"></p>
+                                    <div class="pdf-item-title">Bilan de compétences</div>
+                                    <p class="pdf-description">Bilan de compétences</p>
                                 </div>
                                 <button class="btn-view">Voir</button>
                             </div>
-                              <div class="pdf-item" data-pdf="bilan_plumecoq_aymeric.pdf" data-title="Bilan de compétence">
-                        <div class="pdf-icon">
-                            <i class="bi bi-file-earmark-text"></i>
-                        </div>
-                        <div class="pdf-info">
-                            <div class="pdf-item-title">Bilan de compétence</div>
-                            <p class="pdf-description">Bilan de compétence</p>
-                        </div>
-                        <button class="btn-view">Voir</button>
-                    </div>
-                               <div class="pdf-item" data-pdf="Certification_PLUMECOQ.pdf" data-title="certification">
-                        <div class="pdf-icon">
-                            <i class="bi bi-file-earmark-text"></i>
-                        </div>
-                        <div class="pdf-info">
-                            <div class="pdf-item-title">certification</div>
-                            <p class="pdf-description">certification</p>
-                        </div>
-                        <button class="btn-view">Voir</button>
-                    </div>
-                        </details>
 
-                   
-                  
-                     <div class="pdf-item" data-pdf=".pdf" data-title="prochain">
-                        <div class="pdf-icon">
-                            <i class="bi bi-file-earmark-text"></i>
-                        </div>
-                        <div class="pdf-info">
-                            <div class="pdf-item-title">prochian</div>
-                            <p class="pdf-description"></p>
-                        </div>
-                        <button class="btn-view">Voir</button>
-                    </div>
+                            <div class="pdf-item" data-pdf="Certification_PLUMECOQ.pdf" data-title="Certification">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Certification</div>
+                                    <p class="pdf-description">Certification</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
 
+                        </div>
+                    </details>
+
+                    <!-- Ancien bloc "prochain" vide (data-pdf=".pdf") retiré -->
                     <!-- Ajoutez ici vos documents supplémentaires -->
 
                 </div>
@@ -1306,77 +1299,75 @@ T<!DOCTYPE html>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const pdfViewer = document.getElementById('pdf-viewer');
+            const viewerContainer = document.getElementById('viewer-container');
             const currentDocumentTitle = document.getElementById('current-document-title');
             const downloadBtn = document.getElementById('download-btn');
             const noPreview = document.getElementById('no-preview');
+            const noPreviewTitle = document.getElementById('no-preview-title');
+            const noPreviewText = document.getElementById('no-preview-text');
             const pdfItems = document.querySelectorAll('.pdf-item');
-            
+
+            // Seuls les PDF peuvent s'afficher dans l'iframe
+            function isPdf(url) {
+                return /\.pdf$/i.test(url || '');
+            }
+
             function showViewer() {
                 pdfViewer.style.display = 'block';
                 noPreview.style.display = 'none';
             }
 
-            function showError() {
+            function showNoPreview(title, text) {
                 pdfViewer.style.display = 'none';
                 noPreview.style.display = 'flex';
+                noPreviewTitle.textContent = title;
+                noPreviewText.textContent = text;
             }
-            
-            // Fonction pour changer le document affiché
-            function changeDocument(pdfUrl, title, downloadUrl, item) {
-                // Mettre à jour le titre
-                currentDocumentTitle.textContent = title;
-                
-                // Réafficher le viewer
-                showViewer();
 
-                // Mettre à jour le PDF affiché
-                pdfViewer.src = pdfUrl;
-                
-                // Mettre à jour le lien de téléchargement
-                if (downloadUrl) {
-                    downloadBtn.href = downloadUrl;
-                    downloadBtn.download = downloadUrl;
-                    downloadBtn.style.display = 'inline-block';
+            // Fonction pour changer le document affiché
+            function changeDocument(fileUrl, title, item) {
+                currentDocumentTitle.textContent = title;
+
+                if (isPdf(fileUrl)) {
+                    showViewer();
+                    pdfViewer.src = fileUrl;
                 } else {
-                    downloadBtn.style.display = 'none';
+                    // .xlsx, .bat, .pkt... : pas d'aperçu possible dans le navigateur
+                    pdfViewer.src = 'about:blank';
+                    showNoPreview(
+                        'Aperçu non disponible',
+                        "Ce type de fichier ne peut pas s'afficher ici. Utilise le bouton « Télécharger » pour l'ouvrir."
+                    );
                 }
-                
-                // Mettre à jour la classe active
+
+                // Lien de téléchargement
+                downloadBtn.href = fileUrl;
+                downloadBtn.setAttribute('download', '');
+                downloadBtn.style.display = 'inline-block';
+
+                // Élément actif
                 pdfItems.forEach(i => i.classList.remove('active'));
                 item.classList.add('active');
+
+                // Remonter vers le lecteur pour voir le document choisi
+                viewerContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-            
-            // Ajouter les événements aux boutons "Voir"
+
+            // Événements sur les cartes et les boutons "Voir"
             pdfItems.forEach(item => {
-                const viewBtn = item.querySelector('.btn-view');
-                const pdfUrl = item.getAttribute('data-pdf');
+                const fileUrl = item.getAttribute('data-pdf');
                 const title = item.getAttribute('data-title');
-                
-                if (viewBtn) {
-                    viewBtn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        changeDocument(pdfUrl, title, pdfUrl, item);
-                    });
-                }
-                
-                // Permettre de cliquer sur toute la carte
-                item.addEventListener('click', function(e) {
-                    if (!e.target.classList.contains('btn-view')) {
-                        changeDocument(pdfUrl, title, pdfUrl, item);
-                    }
+
+                item.addEventListener('click', function () {
+                    changeDocument(fileUrl, title, item);
                 });
             });
-            
-            // Gestion des erreurs de chargement de PDF
-            pdfViewer.addEventListener('error', function() {
-                showError();
-            });
 
-            // Vérification simple si le PDF ne charge pas
-            pdfViewer.addEventListener('load', function() {
-                showViewer();
+            // Erreur de chargement (rarement déclenchée par un iframe, gardée par sécurité)
+            pdfViewer.addEventListener('error', function () {
+                showNoPreview('Document non disponible', "Le document sélectionné n'est pas disponible pour le moment.");
             });
         });
     </script>
