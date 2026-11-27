@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets - Aymeric PLUMECOQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        /* ==========================================================
+           Thème « schéma réseau » — couleurs et typographie
+           ========================================================== */
+        :root {
+            --paper: #eef1f5;      /* fond, gris bleuté façon façade de switch */
+            --surface: #ffffff;    /* cartes, tableau, lecteur */
+            --ink: #14213d;        /* texte principal */
+            --ink-soft: #4d5b78;   /* texte secondaire */
+            --line: #cfd7e2;       /* traits, bordures */
+            --blue: #006aff;       /* couleur principale (câble) */
+            --blue-deep: #0052c7;
+            --blue-tint: #e5efff;
+            --led: #fc9700;        /* orange « lien actif » */
+            --radius: 6px;
+            --wrap: 1180px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 88px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { color: var(--blue); }
+        a:hover { color: var(--blue-deep); }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            line-height: 1.15;
+            font-weight: 700;
+            font-stretch: 112%;
+        }
+
+        p { margin: 0 0 1em; }
+
+        :focus-visible {
+            outline: 3px solid var(--led);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: var(--wrap);
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* ---------- Barre de navigation ---------- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(238, 241, 245, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .site-header.scrolled { border-bottom-color: var(--line); }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            min-height: 72px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 800;
+            font-stretch: 125%;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+
+        .brand:hover { color: var(--ink); }
+
+        .brand-mark {
+            width: 14px;
+            height: 14px;
+            border: 3px solid var(--blue);
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .brand-mark::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--led);
+            border-radius: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 12px;
+            border-radius: var(--radius);
+            color: var(--ink-soft);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover { color: var(--ink); background: rgba(0, 106, 255, 0.06); }
+
+        .nav-links a.active { color: var(--ink); font-weight: 600; }
+
+        .nav-links a.active::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--led);
+            box-shadow: 0 0 0 3px rgba(252, 151, 0, 0.2);
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+            color: var(--ink);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 991px) {
+            .nav-toggle { display: inline-flex; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 8px 20px 16px;
+                background: var(--paper);
+                border-bottom: 1px solid var(--line);
+            }
+
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 12px; font-size: 1rem; }
+        }
+
+        /* ---------- Boutons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 46px;
+            padding: 10px 20px;
+            border: 1.5px solid var(--blue);
+            border-radius: var(--radius);
+            background: var(--blue);
+            color: #fff;
+            font: inherit;
+            font-weight: 600;
+            font-size: 0.98rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+        }
+
+        .btn:hover { background: var(--blue-deep); border-color: var(--blue-deep); color: #fff; }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: var(--ink);
+            color: var(--ink);
+        }
+
+        .btn-ghost:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+        .btn-sm { min-height: 36px; padding: 6px 14px; font-size: 0.9rem; }
+
+        /* ---------- Bas de page ---------- */
+        .site-footer {
+            margin-top: 0;
+            padding: 56px 0 40px;
+            background: var(--ink);
+            color: #c9d3e6;
+        }
+
+        .site-footer h3 {
+            color: #fff;
+            font-size: 1.35rem;
+            font-stretch: 125%;
+            margin-bottom: 12px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 32px;
+            align-items: end;
+        }
+
+        .footer-grid p { max-width: 60ch; }
+        .footer-right { text-align: right; }
+
+        @media (max-width: 767px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-right { text-align: left; }
+        }
+
+        .social-links { display: flex; gap: 10px; }
+        .footer-right .social-links { justify-content: flex-end; }
+
+        @media (max-width: 767px) {
+            .footer-right .social-links { justify-content: flex-start; }
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            font-size: 1.15rem;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid currentColor;
+        }
+
+        .site-footer .social-links a { color: #fff; border-color: rgba(255, 255, 255, 0.3); }
+        .site-footer .social-links a:hover { background: var(--blue); border-color: var(--blue); }
+
+        /* ---------- Lien retour ---------- */
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-to-home:hover { text-decoration: underline; }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            background: var(--ink);
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 40;
+        }
+
+        .back-to-top.show { opacity: 1; pointer-events: auto; }
+        .back-to-top:hover { color: #fff; background: var(--blue); }
+
+        /* ---------- En-tête de page (pages secondaires) ---------- */
+        .page-head {
+            padding: 64px 0 48px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .page-head h1 {
+            font-size: clamp(2.4rem, 5.5vw, 4.25rem);
+            font-weight: 800;
+            font-stretch: 125%;
+            letter-spacing: -0.01em;
+            margin-bottom: 14px;
+        }
+
+        .page-head p {
+            font-size: 1.25rem;
+            color: var(--ink-soft);
+            max-width: 46ch;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+
+        /* Petits utilitaires (repris de Bootstrap, utilisés dans le contenu) */
+        .me-1 { margin-right: 0.3rem; }
+        .me-2 { margin-right: 0.5rem; }
+        .mb-3 { margin-bottom: 1rem; }
+        .img-fluid { max-width: 100%; height: auto; }
+
+        /* ==========================================================
+           Page documents : liste à gauche, lecteur à droite
+           ========================================================== */
+        .docs-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+            gap: 32px;
+            align-items: start;
+            padding-top: 40px;
+            padding-bottom: 88px;
+        }
+
+        .docs-list { grid-column: 1; grid-row: 1; min-width: 0; }
+        .docs-viewer { grid-column: 2; grid-row: 1; align-self: stretch; }
+
+        /* ---------- Lecteur ---------- */
+        .pdf-container {
+            position: sticky;
+            top: 88px;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 112px);
+            min-height: 520px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .pdf-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-stretch: 105%;
+            margin: 0;
+            min-width: 0;
+        }
+
+        .document-actions { display: flex; gap: 10px; flex: none; }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 40px;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            background: var(--blue);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-download:hover { background: var(--blue-deep); color: #fff; }
+
+        .pdf-viewer {
+            flex: 1;
+            width: 100%;
+            border: 0;
+            display: block;
+            background: #dfe4ec;
+        }
+
+        .no-preview {
+            flex: 1;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 32px;
+            color: var(--ink-soft);
+            background-color: var(--paper);
+            background-image: radial-gradient(var(--line) 1px, transparent 1px);
+            background-size: 18px 18px;
+        }
+
+        .no-preview i { font-size: 2.8rem; color: var(--ink); margin-bottom: 12px; }
+        .no-preview h4 { font-size: 1.25rem; color: var(--ink); margin-bottom: 8px; }
+        .no-preview p { max-width: 40ch; }
+
+        /* ---------- Années ---------- */
+        .year-section { margin-top: 44px; }
+
+        .year-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 12px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--ink);
+        }
+
+        .year-title i { font-size: 1.5rem; color: var(--blue); }
+
+        .year-title h2 {
+            margin: 0;
+            font-size: 1.7rem;
+            font-weight: 800;
+            font-stretch: 125%;
+        }
+
+        .pdf-list { margin-top: 24px; }
+        .pdf-list.mt-5 { margin-top: 28px; }
+
+        .pdf-list h3 {
+            font-size: 1.05rem;
+            font-weight: 650;
+            font-stretch: 100%;
+            color: var(--ink-soft);
+            margin: 0 0 10px;
+        }
+
+        .scrollable-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        /* ---------- Document ---------- */
+        .pdf-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 14px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--line);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: border-color 0.15s ease, background-color 0.15s ease;
+        }
+
+        .pdf-item:hover { border-color: #aab7ca; border-left-color: var(--blue); }
+
+        .pdf-item.active {
+            background: var(--blue-tint);
+            border-color: #b9d2fb;
+            border-left-color: var(--blue);
+        }
+
+        .pdf-icon {
+            flex: none;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            background: var(--paper);
+            color: var(--blue);
+            font-size: 1.2rem;
+        }
+
+        .pdf-item.active .pdf-icon { background: var(--blue); color: #fff; }
+
+        .pdf-info { flex: 1; min-width: 0; }
+
+        .pdf-item-title {
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--ink);
+        }
+
+        .pdf-description {
+            margin: 2px 0 0;
+            font-size: 0.88rem;
+            line-height: 1.4;
+            color: var(--ink-soft);
+        }
+
+        .btn-view {
+            flex: none;
+            min-height: 34px;
+            padding: 5px 14px;
+            border: 1.5px solid var(--ink);
+            border-radius: var(--radius);
+            background: transparent;
+            color: var(--ink);
+            font: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .pdf-item:hover .btn-view,
+        .btn-view:focus-visible { background: var(--ink); color: #fff; }
+
+        .pdf-item.active .btn-view { border-color: var(--blue); background: var(--blue); color: #fff; }
+
+        /* ---------- Menus dépliants ---------- */
+        .dropdown-block {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+
+        .dropdown-block > summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 16px;
+            font-weight: 650;
+            user-select: none;
+            border-radius: var(--radius);
+        }
+
+        .dropdown-block > summary::-webkit-details-marker { display: none; }
+
+        .dropdown-block > summary .bi-chevron-right {
+            color: var(--blue);
+            transition: transform 0.2s ease;
+        }
+
+        .dropdown-block[open] > summary .bi-chevron-right { transform: rotate(90deg); }
+        .dropdown-block > summary:hover { background: #f6f8fb; }
+        .dropdown-block[open] > summary { border-bottom: 1px dashed var(--line); border-radius: var(--radius) var(--radius) 0 0; }
+
+        .dropdown-count {
+            margin-left: auto;
+            padding: 2px 10px;
+            border-radius: 999px;
+            background: var(--paper);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--ink-soft);
+        }
+
+        .dropdown-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 10px;
+            background: var(--paper);
+            border-radius: 0 0 var(--radius) var(--radius);
+        }
+
+        .back-row { margin-top: 40px; }
+
+        /* ---------- Mobile : lecteur au-dessus, liste en dessous ---------- */
+        @media (max-width: 991px) {
+            .docs-layout { grid-template-columns: 1fr; gap: 8px; padding-top: 24px; }
+            .docs-viewer, .docs-list { grid-column: 1; grid-row: auto; }
+            .pdf-container { position: static; height: 70vh; min-height: 420px; scroll-margin-top: 84px; }
+        }
+
+        @media (max-width: 560px) {
+            .pdf-header { flex-direction: column; align-items: flex-start; }
+            .pdf-item { gap: 10px; padding: 10px 12px; }
+            .pdf-icon { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrap nav-inner">
+            <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Aymeric PLUMECOQ</a>
+            <button class="nav-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Ouvrir le menu">
+                <i class="bi bi-list"></i>
+            </button>
+            <nav aria-label="Navigation principale">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html#accueil">Accueil</a></li>
+                    <li><a href="index.html#apropos">À propos</a></li>
+                    <li><a href="index.html#projets">Projets</a></li>
+                    <li><a class="active" href="PDFViewer2.html" aria-current="page">Documents</a></li>
+                    <li><a href="veille.html">Veille technologique</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-head">
+            <div class="wrap">
+                <h1>Mes Documents</h1>
+                <p>CV, projets et réalisations</p>
+            </div>
+        </div>
+
+        <div class="wrap docs-layout">
+            <!-- ===================== LECTEUR ===================== -->
+            <div class="docs-viewer">
+                <div class="pdf-container" id="viewer-container">
+                    <div class="pdf-header">
+                        <h2 class="pdf-title" id="current-document-title">Mon CV</h2>
+                        <div class="document-actions">
+                            <a href="CV_aymeric_plumecoq.pdf" download class="btn-download" id="download-btn">
+                                <i class="bi bi-download"></i>Télécharger
+                            </a>
+                        </div>
+                    </div>
+
+                    <iframe src="CV_aymeric_plumecoq.pdf" class="pdf-viewer" id="pdf-viewer" title="Aperçu du document"></iframe>
+
+                    <div class="no-preview" id="no-preview">
+                        <i class="bi bi-file-earmark-x"></i>
+                        <h4 id="no-preview-title">Document non disponible</h4>
+                        <p id="no-preview-text">Le document sélectionné n'est pas disponible pour le moment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===================== LISTE DES DOCUMENTS ===================== -->
+            <div class="docs-list">
+        <div class="pdf-item active" data-pdf="CV_aymeric_plumecoq.pdf" data-title="Mon CV">
+            <div class="pdf-icon">
+                <i class="bi bi-file-earmark-person"></i>
+            </div>
+            <div class="pdf-info">
+                <div class="pdf-item-title">Mon CV</div>
+                <p class="pdf-description">Mon CV complet avec compétences, formations et expériences</p>
+            </div>
+            <button class="btn-view">Voir</button>
+        </div>
+
+        <!-- ===================== 1ère ANNÉE ===================== -->
+        <div class="year-section">
+            <div class="year-title">
+                <i class="bi bi-1-circle-fill"></i>
+                <h2>1ère année</h2>
+            </div>
+
+            <div class="pdf-list">
+                <h3 class="mb-4">Comptes rendus Beauvallet</h3>
+                <div class="scrollable-list">
+
+                    <div class="pdf-item" data-pdf="le_compte_rendu_tp_studio_code.org.pdf" data-title="Apprendre à coder avec des instructions simples">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu 1 - Code.org</div>
+                            <p class="pdf-description">Apprendre à coder avec des instructions simples</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_portfolio.pdf" data-title="Compte Rendu sur la création d'un Portfolio">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Portfolio</div>
+                            <p class="pdf-description">Compte rendu sur la manière de créer un portfolio</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_shifoumi.pdf" data-title="Compte Rendu code Java Shifoumi">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Shifoumi</div>
+                            <p class="pdf-description">Le compte rendu d'un code Java pour faire un shifoumi</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_BDD-exo.pdf" data-title="Compte Rendu BDD-exo">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu BDD-exo</div>
+                            <p class="pdf-description">Gestion de bases de données en SQL</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_1.pdf" data-title="Compte Rendu TD4 Leclerc partie 1">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu TD4 Leclerc partie 1</div>
+                            <p class="pdf-description">Gestion de bases de données en SQL</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_TD4_Leclerc_part_2.pdf" data-title="Compte Rendu TD4 Leclerc partie 2">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu TD4 Leclerc partie 2</div>
+                            <p class="pdf-description">Gestion de bases de données en SQL</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_DABD.pdf" data-title="Compte Rendu gestion des droits sur une base de données">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu gestion des droits sur une base de données</div>
+                            <p class="pdf-description">Gestion des droits sur une base de données en SQL</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php_introduction.pdf" data-title="Compte Rendu introduction PHP">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu introduction PHP</div>
+                            <p class="pdf-description">Introduction au PHP</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php1.pdf" data-title="Compte Rendu bases de PHP 1">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu bases de PHP 1</div>
+                            <p class="pdf-description">Code en PHP</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php2.pdf" data-title="Compte Rendu bases de PHP 2">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu bases de PHP 2</div>
+                            <p class="pdf-description">Code en PHP</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php3.pdf" data-title="Compte Rendu bases de PHP 3">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu bases de PHP 3</div>
+                            <p class="pdf-description">Code en PHP</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php4.pdf" data-title="Compte Rendu bases de PHP 4">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu bases de PHP 4</div>
+                            <p class="pdf-description">Code en PHP</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_php5.pdf" data-title="Compte Rendu bases de PHP 5">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu bases de PHP 5</div>
+                            <p class="pdf-description">Code en PHP</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP B1 Sotoca</h3>
+                <div class="scrollable-list">
+
+                    <div class="pdf-item" data-pdf="compte_rendu_controleur_de_domaine.pdf" data-title="Compte Rendu contrôleur de domaine">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu contrôleur de domaine</div>
+                            <p class="pdf-description">Le compte rendu sur l'installation de l'AD et du DNS</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_connexion_au_domaines.pdf" data-title="Compte Rendu connexion au domaine">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu connexion au domaine</div>
+                            <p class="pdf-description">Connexion d'un client au domaine</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP Cyber</h3>
+                <div class="scrollable-list">
+
+                    <div class="pdf-item" data-pdf="compte_rendu_veille_infromationnel.pdf" data-title="Compte Rendu veille informationnelle">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu veille informationnelle</div>
+                            <p class="pdf-description">Voir comment faire une veille informationnelle</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_CHAP5_TD1.pdf" data-title="Compte Rendu CHAP5 TD1">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu CHAP5 TD1</div>
+                            <p class="pdf-description">Voir comment gérer des droits</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_packet_tracer.pdf" data-title="Compte Rendu TP8 Packet Tracer">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu TP8 Packet Tracer</div>
+                            <p class="pdf-description">Voir comment séparer les PC de différents utilisateurs</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="TP8_cyber.pkt" data-title="Fichier Packet Tracer TP8">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">TP8 Packet Tracer</div>
+                            <p class="pdf-description">Voir comment séparer les PC de différents utilisateurs</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP B2 Sotoca</h3>
+                <div class="scrollable-list">
+
+                    <div class="pdf-item" data-pdf="compte_rendu_pc.pdf" data-title="Compte Rendu dépannage PC">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu dépannage PC</div>
+                            <p class="pdf-description">Le compte rendu sur la résolution d'un problème sur un PC</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_outil_de_capture.pdf" data-title="Compte Rendu outil de capture d'écran">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu outil de capture d'écran</div>
+                            <p class="pdf-description">Le compte rendu sur comment faire une capture d'écran</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_Scenario_commande_linux.pdf" data-title="Compte Rendu Scénario commande Linux">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Scénario commande Linux</div>
+                            <p class="pdf-description">Scénario d'utilisation des commandes Linux</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_P.E.M.D.pdf" data-title="Compte Rendu prise en main à distance">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu prise en main à distance</div>
+                            <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="diapo_logiciel_P.E.M.D.pdf" data-title="Diapo logiciel de prise en main à distance">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Diapo logiciel de prise en main à distance</div>
+                            <p class="pdf-description">Installation et fonctionnement d'un logiciel de prise en main à distance</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_HFS.pdf" data-title="Compte Rendu HFS">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu HFS</div>
+                            <p class="pdf-description">Installation et fonctionnement de HFS</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_keylogger.pdf" data-title="Compte Rendu keylogger">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu keylogger</div>
+                            <p class="pdf-description">Installer un keylogger</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_kit.pdf" data-title="Compte Rendu kit technicien">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu kit technicien</div>
+                            <p class="pdf-description">Fabriquer un kit technicien</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="diapo_kit_technitien.pdf" data-title="Diapo kit technicien">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Diapo kit technicien</div>
+                            <p class="pdf-description">Fabriquer un kit technicien</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== 2nde ANNÉE ===================== -->
+        <div class="year-section">
+            <div class="year-title">
+                <i class="bi bi-2-circle-fill"></i>
+                <h2>2nde année</h2>
+            </div>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP B1 Beauvallet</h3>
+                <div class="scrollable-list">
+
+                    <!-- Sous-menu : TP PGI -->
+                    <details class="dropdown-block dropdown-sub">
+                        <summary>
+                            <i class="bi bi-chevron-right"></i>
+                            TP PGI
+                            <span class="dropdown-count">2 documents</span>
+                        </summary>
+                        <div class="dropdown-content">
+
+                            <div class="pdf-item" data-pdf="td_PGI_exercice_aymeric.pdf" data-title="TD PGI">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">TD PGI</div>
+                                    <p class="pdf-description">Exercices sur les progiciels de gestion intégrés</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="PGI_TP_aymeric.xlsx" data-title="Tableau Excel PGI">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-spreadsheet"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Tableau Excel PGI</div>
+                                    <p class="pdf-description">Tableau Excel du TP sur les PGI</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                        </div>
+                    </details>
+
+                    <!-- Sous-menu : TP restaurant PGI -->
+                    <details class="dropdown-block dropdown-sub">
+                        <summary>
+                            <i class="bi bi-chevron-right"></i>
+                            TP restaurant PGI
+                            <span class="dropdown-count">2 documents</span>
+                        </summary>
+                        <div class="dropdown-content">
+
+                            <!-- ⚠️ Remplace le nom du fichier par celui de ton vrai compte rendu -->
+                            <div class="pdf-item" data-pdf="compte_rendu_restaurant_PGI.pdf" data-title="Compte rendu TP restaurant PGI">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte rendu TP restaurant PGI</div>
+                                    <p class="pdf-description">Compte rendu du TP sur le restaurant PGI</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <!-- ⚠️ Remplace le nom du fichier par celui du tableau Excel du restaurant -->
+                            <div class="pdf-item" data-pdf="PGI_restaurant_aymeric.xlsx" data-title="Tableau Excel restaurant PGI">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-spreadsheet"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Tableau Excel restaurant PGI</div>
+                                    <p class="pdf-description">Tableau Excel du TP sur le restaurant PGI</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                        </div>
+                    </details>
+
+                    <!-- Pour ajouter un autre menu déroulant, copie un bloc <details class="dropdown-block dropdown-sub"> ci-dessus -->
+
+                </div>
+            </div>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP B1 Sotoca</h3>
+                <div class="scrollable-list">
+
+                    <div class="pdf-item" data-pdf="compte_rendu_P.I.pdf" data-title="Compte Rendu Patrimoine informatique">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Patrimoine informatique</div>
+                            <p class="pdf-description">Le compte rendu sur le patrimoine informatique</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <!-- Menu déroulant : TP GLPI -->
+                    <details class="dropdown-block dropdown-sub">
+                        <summary>
+                            <i class="bi bi-chevron-right"></i>
+                            TP GLPI
+                            <span class="dropdown-count">5 documents</span>
+                        </summary>
+                        <div class="dropdown-content">
+
+                            <div class="pdf-item" data-pdf="compte_rendu_glpi.pdf" data-title="Compte Rendu GLPI">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu GLPI</div>
+                                    <p class="pdf-description">Le compte rendu sur GLPI</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="operation_glpi.pdf" data-title="Compte Rendu escape game GLPI">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu escape game GLPI</div>
+                                    <p class="pdf-description">Le compte rendu de l'escape game GLPI</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="compte_rendu_interface_glpi.pdf" data-title="Compte Rendu Utilisation GLPI">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu Utilisation GLPI</div>
+                                    <p class="pdf-description">Utilisation de GLPI</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="compte_rendu_ticket_glpi.pdf" data-title="Compte Rendu GLPI helpdesk">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu GLPI helpdesk</div>
+                                    <p class="pdf-description">Ticket GLPI</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="compte_rendu_deploiment.pdf" data-title="Compte Rendu Déploiement">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu déploiement</div>
+                                    <p class="pdf-description">Déploiement d'applications répertoriées dans GLPI</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="compte_rendu_guideuser.pdf" data-title="Compte Rendu Guide Utilisateur">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu Guide Utilisateur</div>
+                                    <p class="pdf-description">Guide Utilisateur</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP B2 Sotoca</h3>
+                <div class="scrollable-list">
+
+                    <div class="pdf-item" data-pdf="compte_rendu_SVPe.pdf" data-title="Compte Rendu Le serveur de virtualisation PowerEdge R730">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Le serveur de virtualisation PowerEdge R730</div>
+                            <p class="pdf-description">Le compte rendu sur les serveurs de virtualisation</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_switch_virtuel.pdf" data-title="Compte Rendu Création de switches virtuels personnalisés">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Création de switches virtuels personnalisés</div>
+                            <p class="pdf-description">Le compte rendu sur la création de switches virtuels personnalisés</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_samba.pdf" data-title="Compte Rendu serveur Samba">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu serveur Samba</div>
+                            <p class="pdf-description">Le compte rendu sur la création d'un serveur Samba</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_wifi2.pdf" data-title="Compte Rendu Mise en place d'un point d'accès Wifi">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Mise en place d'un point d'accès Wifi</div>
+                            <p class="pdf-description">Le compte rendu sur la mise en place d'un point d'accès Wifi</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_save-restor.pdf" data-title="Compte Rendu Les sauvegardes/restaurations sur serveurs ESXi">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Les sauvegardes/restaurations sur serveurs ESXi</div>
+                            <p class="pdf-description">Le compte rendu sur les sauvegardes/restaurations sur serveurs ESXi</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <!-- Menu déroulant : TP GLPI -->
+                    <details class="dropdown-block dropdown-sub">
+                        <summary>
+                            <i class="bi bi-chevron-right"></i>
+                            TP GLPI
+                            <span class="dropdown-count">2 documents</span>
+                        </summary>
+                        <div class="dropdown-content">
+
+                            <!-- ⚠️ Remplace le nom du fichier par celui de ton vrai PDF -->
+                            <div class="pdf-item" data-pdf="compte_rendu_serveur_glpi.pdf" data-title="Compte Rendu Mise en place d'un serveur GLPI">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu Mise en place d'un serveur GLPI (en cours d'édition)</div>
+                                    <p class="pdf-description">Compte rendu sur la mise en place d'un serveur GLPI</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <!-- ⚠️ Remplace le nom du fichier par celui de ton vrai PDF -->
+                            <div class="pdf-item" data-pdf="compte_rendu_agent-glpi.pdf" data-title="Compte Rendu agent GLPI">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu agent GLPI</div>
+                                    <p class="pdf-description">Compte rendu sur l'installation de l'agent GLPI</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                        </div>
+                    </details>
+
+                    <!-- Menu déroulant : TP script (balises corrigées : un seul dropdown-content) -->
+                    <details class="dropdown-block dropdown-sub">
+                        <summary>
+                            <i class="bi bi-chevron-right"></i>
+                            TP script
+                            <span class="dropdown-count">5 documents</span>
+                        </summary>
+                        <div class="dropdown-content">
+
+                            <div class="pdf-item" data-pdf="compte_rendu_Scripting.pdf" data-title="Compte Rendu script">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu script</div>
+                                    <p class="pdf-description">Compte rendu sur les scripts pour Windows Server 2025</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="creation.bat" data-title="Script de création">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-code"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Script de création</div>
+                                    <p class="pdf-description">creation.bat : création d'utilisateurs dans l'AD</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="modification.bat" data-title="Script de modification">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-code"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Script de modification</div>
+                                    <p class="pdf-description">modification.bat : modification d'utilisateurs dans l'AD</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="supression.bat" data-title="Script de suppression">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-code"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Script de suppression</div>
+                                    <p class="pdf-description">supression.bat : suppression d'utilisateurs dans l'AD</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="gestion_AD.bat" data-title="Script gestion_AD">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-code"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Script gestion_AD</div>
+                                    <p class="pdf-description">gestion_AD.bat : menu regroupant les scripts de gestion de l'AD</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP B3 Sotoca</h3>
+                <div class="scrollable-list">
+
+                    <!-- Menu déroulant : TP pentest -->
+                    <details class="dropdown-block dropdown-sub">
+                        <summary>
+                            <i class="bi bi-chevron-right"></i>
+                            TP pentest
+                            <span class="dropdown-count">1 document</span>
+                        </summary>
+                        <div class="dropdown-content">
+
+                            <div class="pdf-item" data-pdf="compte_rendu_installation_kali.pdf" data-title="Compte Rendu installation Kali">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu installation Kali</div>
+                                    <p class="pdf-description">Voir comment installer Kali Linux pour du pentesting</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">TP Atelier Professionnel</h3>
+                <div class="scrollable-list">
+
+                    <div class="pdf-item" data-pdf="compte_rendu_hebergement_site.pdf" data-title="Compte Rendu hébergement site">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu hébergement site</div>
+                            <p class="pdf-description">Voir comment faire de l'hébergement web</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_transfert_site.pdf" data-title="Compte Rendu transfert de site">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu transfert de site</div>
+                            <p class="pdf-description">Voir comment faire un transfert de site</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_save.pdf" data-title="Compte Rendu gestion de sauvegarde">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu gestion de sauvegarde</div>
+                            <p class="pdf-description">Voir comment faire la sauvegarde d'un site</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_P.S.W.pdf" data-title="Compte Rendu Protection Site Web">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu Protection Site Web</div>
+                            <p class="pdf-description">Voir comment protéger un site web</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <div class="pdf-item" data-pdf="compte_rendu_transfert_vm.pdf" data-title="Compte Rendu Migration">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu migration</div>
+                            <p class="pdf-description">Voir comment migrer des VM</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="pdf-list mt-5">
+                <h3 class="mb-4">Autre</h3>
+                <div class="scrollable-list">
+
+                    <details class="dropdown-block dropdown-sub">
+                        <summary>
+                            <i class="bi bi-chevron-right"></i>
+                            TP MOOC
+                            <span class="dropdown-count">4 documents</span>
+                        </summary>
+                        <div class="dropdown-content">
+
+                            <div class="pdf-item" data-pdf="compte_rendu_mooc.pdf" data-title="Compte Rendu MOOC recherche">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu MOOC recherche</div>
+                                    <p class="pdf-description">Le compte rendu pour trouver une formation sur internet</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="compte_rendu_planning_mooc.pdf" data-title="Compte Rendu MOOC planning">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Compte Rendu MOOC planning</div>
+                                    <p class="pdf-description">Compte rendu du planning MOOC</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <!-- Ancien bloc "TP3" vide (data-pdf=".pdf", sans titre) retiré :
+                                 à remettre quand le PDF existera -->
+
+                            <div class="pdf-item" data-pdf="bilan_plumecoq_aymeric.pdf" data-title="Bilan de compétences">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Bilan de compétences</div>
+                                    <p class="pdf-description">Bilan de compétences</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                            <div class="pdf-item" data-pdf="Certification_PLUMECOQ.pdf" data-title="Certification">
+                                <div class="pdf-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <div class="pdf-item-title">Certification</div>
+                                    <p class="pdf-description">Certification</p>
+                                </div>
+                                <button class="btn-view">Voir</button>
+                            </div>
+
+                        </div>
+                    </details>
+
+                    <!-- Ancien bloc "prochain" vide (data-pdf=".pdf") retiré -->
+                    <!-- Ajoutez ici vos documents supplémentaires -->
+
+             
+                 <div class="pdf-item" data-pdf="compte_rendu_hackropole.pdf" data-title="Compte Rendu hackropole">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Compte Rendu hackropole</div>
+                            <p class="pdf-description">Compte Rendu hackropole</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== STAGES ===================== -->
+        <div class="year-section">
+            <div class="year-title">
+                <i class="bi bi-briefcase-fill"></i>
+                <h2>Stages</h2>
+            </div>
+
+            <div class="pdf-list">
+                <div class="scrollable-list">
+
+                <div class="pdf-item" data-pdf="plumecoq-tableau-de-synthèse-des-réalisations.pdf" data-title="Tableau-de-synthèse-des-réalisations">
+                        <div class="pdf-icon">
+                            <i class="bi bi-file-earmark-code"></i>
+                        </div>
+                        <div class="pdf-info">
+                            <div class="pdf-item-title">Tableau de synthèse des réalisations</div>
+                            <p class="pdf-description">Tableau de synthèse des réalisations</p>
+                        </div>
+                        <button class="btn-view">Voir</button>
+                    </div>
+
+                    <!-- Ajoutez ici vos documents de stage -->
+
+                </div>
+            </div>
+        </div>
+
+                <div class="back-row">
+                    <a href="index.html" class="back-to-home">
+                        <i class="bi bi-arrow-left"></i>Retour à l'accueil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap footer-grid">
+            <div>
+                <h3>Aymeric PLUMECOQ</h3>
+                <p>Pour aller au-delà de mes missions quotidiennes, j'aime explorer de nouvelles technologies réseau à travers des projets personnels. Cela me pousse à trouver des solutions innovantes et à affiner constamment mes méthodes de diagnostic.</p>
+            </div>
+            <div class="footer-right">
+                <p>&copy; 2025 Aymeric PLUMECOQ. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Retour en haut"><i class="bi bi-arrow-up"></i></a>
+
+    <script>
+        // Menu mobile + bordure de la barre au défilement + bouton retour en haut
+        (function () {
+            const header = document.querySelector('.site-header');
+            const toggle = document.querySelector('.nav-toggle');
+            const links = document.getElementById('navLinks');
+
+            if (toggle && links) {
+                toggle.addEventListener('click', () => {
+                    const open = links.classList.toggle('open');
+                    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    toggle.innerHTML = open ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+                });
+                links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                    links.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.innerHTML = '<i class="bi bi-list"></i>';
+                }));
+            }
+
+            const backToTop = document.querySelector('.back-to-top');
+            function onScroll() {
+                if (header) header.classList.toggle('scrolled', window.scrollY > 10);
+                if (backToTop) backToTop.classList.toggle('show', window.scrollY > 300);
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            if (backToTop) {
+                backToTop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        })();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const pdfViewer = document.getElementById('pdf-viewer');
+            const viewerContainer = document.getElementById('viewer-container');
+            const currentDocumentTitle = document.getElementById('current-document-title');
+            const downloadBtn = document.getElementById('download-btn');
+            const noPreview = document.getElementById('no-preview');
+            const noPreviewTitle = document.getElementById('no-preview-title');
+            const noPreviewText = document.getElementById('no-preview-text');
+            const pdfItems = document.querySelectorAll('.pdf-item');
+            // Lecteur à côté de la liste (grand écran) ou au-dessus (mobile)
+            const stacked = window.matchMedia('(max-width: 991px)');
+
+            // Seuls les PDF peuvent s'afficher dans l'iframe
+            function isPdf(url) {
+                return /\.pdf$/i.test(url || '');
+            }
+
+            function showViewer() {
+                pdfViewer.style.display = 'block';
+                noPreview.style.display = 'none';
+            }
+
+            function showNoPreview(title, text) {
+                pdfViewer.style.display = 'none';
+                noPreview.style.display = 'flex';
+                noPreviewTitle.textContent = title;
+                noPreviewText.textContent = text;
+            }
+
+            // Fonction pour changer le document affiché
+            function changeDocument(fileUrl, title, item) {
+                currentDocumentTitle.textContent = title;
+
+                if (isPdf(fileUrl)) {
+                    showViewer();
+                    pdfViewer.src = fileUrl;
+                } else {
+                    // .xlsx, .bat, .pkt... : pas d'aperçu possible dans le navigateur
+                    pdfViewer.src = 'about:blank';
+                    showNoPreview(
+                        'Aperçu non disponible',
+                        "Ce type de fichier ne peut pas s'afficher ici. Utilise le bouton « Télécharger » pour l'ouvrir."
+                    );
+                }
+
+                // Lien de téléchargement
+                downloadBtn.href = fileUrl;
+                downloadBtn.setAttribute('download', '');
+                downloadBtn.style.display = 'inline-flex';
+
+                // Élément actif
+                pdfItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+
+                // Sur mobile, remonter vers le lecteur pour voir le document choisi
+                // (sur grand écran le lecteur reste visible à côté de la liste)
+                if (stacked.matches) {
+                    viewerContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            // Événements sur les cartes et les boutons "Voir"
+            pdfItems.forEach(item => {
+                const fileUrl = item.getAttribute('data-pdf');
+                const title = item.getAttribute('data-title');
+
+                item.addEventListener('click', function () {
+                    changeDocument(fileUrl, title, item);
+                });
+            });
+
+            // Erreur de chargement (rarement déclenchée par un iframe, gardée par sécurité)
+            pdfViewer.addEventListener('error', function () {
+                showNoPreview('Document non disponible', "Le document sélectionné n'est pas disponible pour le moment.");
+            });
+        });
+    </script>
+</body>
+</html>

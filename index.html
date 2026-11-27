@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aymeric PLUMECOQ - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        /* ==========================================================
+           Thème « schéma réseau » — couleurs et typographie
+           ========================================================== */
+        :root {
+            --paper: #eef1f5;      /* fond, gris bleuté façon façade de switch */
+            --surface: #ffffff;    /* cartes, tableau, lecteur */
+            --ink: #14213d;        /* texte principal */
+            --ink-soft: #4d5b78;   /* texte secondaire */
+            --line: #cfd7e2;       /* traits, bordures */
+            --blue: #006aff;       /* couleur principale (câble) */
+            --blue-deep: #0052c7;
+            --blue-tint: #e5efff;
+            --led: #fc9700;        /* orange « lien actif » */
+            --radius: 6px;
+            --wrap: 1180px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 88px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { color: var(--blue); }
+        a:hover { color: var(--blue-deep); }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            line-height: 1.15;
+            font-weight: 700;
+            font-stretch: 112%;
+        }
+
+        p { margin: 0 0 1em; }
+
+        :focus-visible {
+            outline: 3px solid var(--led);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: var(--wrap);
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* ---------- Barre de navigation ---------- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(238, 241, 245, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .site-header.scrolled { border-bottom-color: var(--line); }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            min-height: 72px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 800;
+            font-stretch: 125%;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+
+        .brand:hover { color: var(--ink); }
+
+        .brand-mark {
+            width: 14px;
+            height: 14px;
+            border: 3px solid var(--blue);
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .brand-mark::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--led);
+            border-radius: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 12px;
+            border-radius: var(--radius);
+            color: var(--ink-soft);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover { color: var(--ink); background: rgba(0, 106, 255, 0.06); }
+
+        .nav-links a.active { color: var(--ink); font-weight: 600; }
+
+        .nav-links a.active::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--led);
+            box-shadow: 0 0 0 3px rgba(252, 151, 0, 0.2);
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+            color: var(--ink);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 991px) {
+            .nav-toggle { display: inline-flex; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 8px 20px 16px;
+                background: var(--paper);
+                border-bottom: 1px solid var(--line);
+            }
+
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 12px; font-size: 1rem; }
+        }
+
+        /* ---------- Boutons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 46px;
+            padding: 10px 20px;
+            border: 1.5px solid var(--blue);
+            border-radius: var(--radius);
+            background: var(--blue);
+            color: #fff;
+            font: inherit;
+            font-weight: 600;
+            font-size: 0.98rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+        }
+
+        .btn:hover { background: var(--blue-deep); border-color: var(--blue-deep); color: #fff; }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: var(--ink);
+            color: var(--ink);
+        }
+
+        .btn-ghost:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+        .btn-sm { min-height: 36px; padding: 6px 14px; font-size: 0.9rem; }
+
+        /* ---------- Bas de page ---------- */
+        .site-footer {
+            margin-top: 0;
+            padding: 56px 0 40px;
+            background: var(--ink);
+            color: #c9d3e6;
+        }
+
+        .site-footer h3 {
+            color: #fff;
+            font-size: 1.35rem;
+            font-stretch: 125%;
+            margin-bottom: 12px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 32px;
+            align-items: end;
+        }
+
+        .footer-grid p { max-width: 60ch; }
+        .footer-right { text-align: right; }
+
+        @media (max-width: 767px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-right { text-align: left; }
+        }
+
+        .social-links { display: flex; gap: 10px; }
+        .footer-right .social-links { justify-content: flex-end; }
+
+        @media (max-width: 767px) {
+            .footer-right .social-links { justify-content: flex-start; }
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            font-size: 1.15rem;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid currentColor;
+        }
+
+        .site-footer .social-links a { color: #fff; border-color: rgba(255, 255, 255, 0.3); }
+        .site-footer .social-links a:hover { background: var(--blue); border-color: var(--blue); }
+
+        /* ---------- Lien retour ---------- */
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-to-home:hover { text-decoration: underline; }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            background: var(--ink);
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 40;
+        }
+
+        .back-to-top.show { opacity: 1; pointer-events: auto; }
+        .back-to-top:hover { color: #fff; background: var(--blue); }
+
+        /* ---------- En-tête de page (pages secondaires) ---------- */
+        .page-head {
+            padding: 64px 0 48px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .page-head h1 {
+            font-size: clamp(2.4rem, 5.5vw, 4.25rem);
+            font-weight: 800;
+            font-stretch: 125%;
+            letter-spacing: -0.01em;
+            margin-bottom: 14px;
+        }
+
+        .page-head p {
+            font-size: 1.25rem;
+            color: var(--ink-soft);
+            max-width: 46ch;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+
+        /* Petits utilitaires (repris de Bootstrap, utilisés dans le contenu) */
+        .me-1 { margin-right: 0.3rem; }
+        .me-2 { margin-right: 0.5rem; }
+        .mb-3 { margin-bottom: 1rem; }
+        .img-fluid { max-width: 100%; height: auto; }
+
+        /* ==========================================================
+           Page d'accueil
+           ========================================================== */
+
+        /* ---------- Hero : topologie du site ---------- */
+        .hero { padding: 56px 0 104px; }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+            gap: 56px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 22px;
+            letter-spacing: -0.015em;
+        }
+
+        .hero h1 .surname {
+            font-size: clamp(2.5rem, 5.2vw, 4.4rem);
+            font-weight: 850;
+            font-stretch: 125%;
+            line-height: 0.95;
+        }
+
+        .hero h1 .firstname {
+            font-size: clamp(2.1rem, 4.2vw, 3.5rem);
+            font-weight: 400;
+            font-stretch: 80%;
+            line-height: 1.05;
+            color: var(--ink-soft);
+        }
+
+        .hero-role {
+            font-size: clamp(1.2rem, 2vw, 1.45rem);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .hero-place {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--ink-soft);
+            margin-bottom: 32px;
+        }
+
+        .hero-place i { color: var(--blue); }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .topo {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto 48px;
+        }
+
+        .topo svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .topo .link {
+            fill: none;
+            stroke: var(--blue);
+            stroke-width: 0.45;
+            stroke-linecap: round;
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            animation: draw 0.7s cubic-bezier(.4, 0, .2, 1) forwards;
+        }
+
+        .topo .ring {
+            fill: none;
+            stroke: var(--line);
+            stroke-width: 0.3;
+            stroke-dasharray: 1.2 1.6;
+        }
+
+        @keyframes draw { to { stroke-dashoffset: 0; } }
+
+        .topo-core {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 31%;
+            aspect-ratio: 1;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: var(--ink);
+            border: 4px solid var(--paper);
+            box-shadow: 0 0 0 2px var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: #fff;
+            font-weight: 850;
+            font-stretch: 125%;
+            font-size: clamp(1.4rem, 3.2vw, 2rem);
+        }
+
+        .topo-core img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .node {
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            width: 112px;
+            transform: translate(-50%, -27px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--ink);
+            text-align: center;
+        }
+
+        .node-icon {
+            position: relative;
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: var(--surface);
+            border: 1.5px solid var(--ink);
+            font-size: 1.3rem;
+            transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+
+        /* LED du port, qui s'allume une fois le câble tracé */
+        .node-icon::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--line);
+            animation: led-on 0.3s ease forwards;
+            animation-delay: inherit;
+        }
+
+        @keyframes led-on { to { background: var(--led); box-shadow: 0 0 0 3px rgba(252, 151, 0, 0.22); } }
+
+        .node-label {
+            font-size: 0.92rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .node:hover .node-icon,
+        .node:focus-visible .node-icon {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+        }
+
+        .node:hover { color: var(--ink); }
+
+        @media (max-width: 991px) {
+            .hero { padding: 40px 0 72px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .topo { max-width: 440px; }
+        }
+
+        @media (max-width: 520px) {
+            .node { width: 92px; }
+            .node-icon { width: 46px; height: 46px; font-size: 1.1rem; border-radius: 10px; }
+            .node { transform: translate(-50%, -23px); }
+            .node-label { font-size: 0.8rem; }
+        }
+
+        /* ---------- Sections ---------- */
+        .section {
+            padding: 88px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+            gap: 48px;
+        }
+
+        .section-head h2 {
+            position: sticky;
+            top: 100px;
+            font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+            font-weight: 800;
+            font-stretch: 125%;
+            letter-spacing: -0.01em;
+        }
+
+        .section-head h2::before {
+            content: '';
+            display: block;
+            width: 34px;
+            height: 4px;
+            margin-bottom: 18px;
+            border-radius: 2px;
+            background: var(--blue);
+        }
+
+        @media (max-width: 991px) {
+            .section { padding: 64px 0; }
+            .section-grid { grid-template-columns: 1fr; gap: 28px; }
+            .section-head h2 { position: static; }
+        }
+
+        .prose { max-width: 66ch; }
+
+        .prose h3 {
+            font-size: 1.45rem;
+            margin-bottom: 14px;
+        }
+
+        /* ---------- À propos ---------- */
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin: 28px 0;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+            overflow: hidden;
+        }
+
+        .facts > div {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .facts > div:nth-child(odd) { border-right: 1px solid var(--line); }
+        .facts > div:nth-last-child(-n+2) { border-bottom: 0; }
+
+        .facts dt {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+        }
+
+        .facts dd {
+            margin: 2px 0 0;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 600px) {
+            .facts { grid-template-columns: 1fr; }
+            .facts > div:nth-child(odd) { border-right: 0; }
+            .facts > div:nth-last-child(2) { border-bottom: 1px solid var(--line); }
+        }
+
+        /* ---------- Compétences : rangées de ports ---------- */
+        .skills {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px 48px;
+        }
+
+        @media (max-width: 700px) { .skills { grid-template-columns: 1fr; } }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .skill-top h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            font-stretch: 100%;
+        }
+
+        .skill-value {
+            font-weight: 700;
+            font-stretch: 125%;
+            color: var(--blue);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .ports {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 5px;
+        }
+
+        .ports i {
+            height: 14px;
+            border-radius: 3px;
+            border: 1.5px solid var(--line);
+            background: var(--surface);
+        }
+
+        .ports i.on {
+            background: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .systems {
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px dashed var(--line);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .systems h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            font-stretch: 100%;
+            margin-right: 8px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            border: 1.5px solid var(--ink);
+            background: var(--surface);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- Projets ---------- */
+        .projects { display: grid; gap: 28px; }
+
+        .project {
+            display: grid;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .project-media { min-height: 220px; background: var(--ink); }
+
+        .project-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-icon-header {
+            height: 100%;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            color: #fff;
+            font-size: 3rem;
+            background-color: var(--ink);
+            background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+            background-size: 18px 18px;
+        }
+
+        .project-icon-header .bi-arrow-left-right { font-size: 1.5rem; color: var(--led); }
+
+        .project-body { padding: 28px 32px; display: flex; flex-direction: column; align-items: flex-start; }
+
+        .project-body h3 { font-size: 1.4rem; margin-bottom: 10px; }
+        .project-body p { color: var(--ink-soft); max-width: 56ch; }
+        .project-body .btn { margin-top: auto; }
+
+        .project-badge {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--blue-deep);
+            background: var(--blue-tint);
+            border-radius: 999px;
+            padding: 3px 12px;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 760px) {
+            .project { grid-template-columns: 1fr; }
+            .project-media, .project-icon-header { min-height: 180px; height: 180px; }
+            .project-body { padding: 22px; }
+        }
+
+        /* ---------- Fenêtres de détail ---------- */
+        dialog.modal {
+            width: min(760px, calc(100% - 32px));
+            max-height: calc(100vh - 48px);
+            padding: 0;
+            border: 0;
+            border-radius: 10px;
+            background: var(--surface);
+            color: var(--ink);
+            box-shadow: 0 24px 60px rgba(20, 33, 61, 0.3);
+        }
+
+        dialog.modal::backdrop { background: rgba(20, 33, 61, 0.55); }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--surface);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .modal-title { font-size: 1.3rem; }
+
+        .btn-close {
+            width: 40px;
+            height: 40px;
+            flex: none;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: transparent;
+            color: var(--ink);
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .btn-close:hover { background: var(--paper); }
+
+        .modal-body { padding: 24px; }
+        .modal-body img { border-radius: var(--radius); margin-bottom: 18px; }
+
+        .modal-body h6 {
+            font-size: 1.05rem;
+            margin: 24px 0 10px;
+        }
+
+        .modal-body h6:first-child { margin-top: 0; }
+        .modal-body ul { padding-left: 1.2em; margin: 0 0 1em; }
+        .modal-body li { margin-bottom: 6px; }
+
+        .archi-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            padding: 16px;
+            background: var(--paper);
+            border-radius: var(--radius);
+            margin-bottom: 18px;
+        }
+
+        .archi-flow span {
+            background: var(--surface);
+            border: 1.5px solid var(--blue);
+            border-radius: var(--radius);
+            padding: 6px 12px;
+            font-weight: 600;
+        }
+
+        .archi-flow > i { color: var(--led); }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            padding: 16px 24px;
+            border-top: 1px solid var(--line);
+        }
+
+        /* ---------- Parcours : chronologie ---------- */
+        .journey {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 56px;
+        }
+
+        @media (max-width: 860px) { .journey { grid-template-columns: 1fr; gap: 48px; } }
+
+        .journey h2 {
+            font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+            font-weight: 800;
+            font-stretch: 125%;
+            margin-bottom: 32px;
+        }
+
+        .journey h2::before {
+            content: '';
+            display: block;
+            width: 34px;
+            height: 4px;
+            margin-bottom: 18px;
+            border-radius: 2px;
+            background: var(--blue);
+        }
+
+        .timeline {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--blue);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            padding-bottom: 32px;
+        }
+
+        .timeline-item:last-child { padding-bottom: 0; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            background: var(--surface);
+            border: 2px solid var(--blue);
+        }
+
+        .timeline-item:first-child::before { background: var(--blue); }
+
+        .timeline-item .when {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--blue-deep);
+            margin-bottom: 4px;
+        }
+
+        .timeline-item h4 { font-size: 1.3rem; margin-bottom: 4px; }
+
+        .timeline-item h5 {
+            font-size: 1rem;
+            font-weight: 500;
+            font-stretch: 100%;
+            color: var(--ink-soft);
+            margin-bottom: 6px;
+        }
+
+        .timeline-item p { color: var(--ink-soft); max-width: 52ch; margin-top: 8px; }
+
+        /* ---------- Contact ---------- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+            gap: 40px;
+        }
+
+        @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+
+        .contact-info h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-stretch: 100%;
+            color: var(--ink-soft);
+            margin-bottom: 4px;
+        }
+
+        .contact-info > div { margin-bottom: 22px; }
+        .contact-info p { margin: 0; font-weight: 600; font-size: 1.1rem; overflow-wrap: anywhere; }
+        .contact-info a { text-decoration: none; }
+        .contact-info a:hover { text-decoration: underline; }
+
+        .contact-info .social-links a { color: var(--ink); }
+        .contact-info .social-links a:hover { background: var(--ink); color: #fff; text-decoration: none; }
+
+        .contact-form {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+
+        .form-control {
+            width: 100%;
+            display: block;
+            margin-bottom: 14px;
+            padding: 13px 15px;
+            font: inherit;
+            font-size: 1rem;
+            color: var(--ink);
+            background: var(--paper);
+            border: 1.5px solid transparent;
+            border-radius: var(--radius);
+            transition: border-color 0.15s ease, background-color 0.15s ease;
+        }
+
+        .form-control::placeholder { color: #7684a0; }
+
+        .form-control:focus {
+            outline: none;
+            background: var(--surface);
+            border-color: var(--blue);
+        }
+
+        textarea.form-control { resize: vertical; min-height: 140px; }
+
+        .contact-form .btn { width: 100%; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="site-header">
+        <div class="wrap nav-inner">
+            <a class="brand" href="#accueil"><span class="brand-mark" aria-hidden="true"></span>PLUMECOQ Aymeric</a>
+            <button class="nav-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Ouvrir le menu">
+                <i class="bi bi-list"></i>
+            </button>
+            <nav aria-label="Navigation principale">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#experience">Parcours</a></li>
+                    <li><a href="PDFViewer2.html">Documents</a></li>
+                    <li><a href="veille.html">Veille technologique</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section id="accueil" class="hero">
+            <div class="wrap hero-grid">
+                <div class="hero-text">
+                    <h1><span class="surname">PLUMECOQ</span><span class="firstname">Aymeric</span></h1>
+                    <p class="hero-role">Administrateur réseau informatique</p>
+                    <p class="hero-place"><i class="bi bi-geo-alt-fill"></i>Gap (05000), Hautes-Alpes, France</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn">Me contacter</a>
+                        <a href="CV_aymeric_plumecoq.pdf" class="btn btn-ghost" id="downloadCV"><i class="bi bi-download"></i>Télécharger mon CV</a>
+                        <a href="PDFViewer2.html" class="btn btn-ghost"><i class="bi bi-file-earmark-pdf"></i>Voir mes comptes rendus</a>
+                    </div>
+                </div>
+
+                <!-- Topologie : chaque section du site est un poste relié au centre -->
+                <nav class="topo" aria-label="Plan du site">
+                    <svg viewBox="0 0 100 100" aria-hidden="true">
+                        <circle class="ring" cx="50" cy="50" r="41"></circle>
+                        <path class="link" pathLength="1" d="M50 50 L50 9"   style="animation-delay:.10s"></path>
+                        <path class="link" pathLength="1" d="M50 50 L85 26"  style="animation-delay:.20s"></path>
+                        <path class="link" pathLength="1" d="M50 50 L88 64"  style="animation-delay:.30s"></path>
+                        <path class="link" pathLength="1" d="M50 50 L66 91"  style="animation-delay:.40s"></path>
+                        <path class="link" pathLength="1" d="M50 50 L34 91"  style="animation-delay:.50s"></path>
+                        <path class="link" pathLength="1" d="M50 50 L12 64"  style="animation-delay:.60s"></path>
+                        <path class="link" pathLength="1" d="M50 50 L15 26"  style="animation-delay:.70s"></path>
+                    </svg>
+
+                    <div class="topo-core">
+                        <span aria-hidden="true">AP</span>
+                        <!-- Photo : remplace le chemin par celui de ta photo (elle s'affiche à la place des initiales) -->
+                        <img src="chemin/vers/votre/photo.jpg" alt="Aymeric Plumecoq" onerror="this.remove()">
+                    </div>
+
+                    <a class="node" href="#apropos"      style="--x:50%;--y:9%"><span class="node-icon" style="animation-delay:.75s"><i class="bi bi-person"></i></span><span class="node-label">À propos</span></a>
+                    <a class="node" href="#competences"  style="--x:85%;--y:26%"><span class="node-icon" style="animation-delay:.85s"><i class="bi bi-sliders"></i></span><span class="node-label">Compétences</span></a>
+                    <a class="node" href="#projets"      style="--x:88%;--y:64%"><span class="node-icon" style="animation-delay:.95s"><i class="bi bi-kanban"></i></span><span class="node-label">Projets</span></a>
+                    <a class="node" href="#experience"   style="--x:66%;--y:91%"><span class="node-icon" style="animation-delay:1.05s"><i class="bi bi-signpost-split"></i></span><span class="node-label">Parcours</span></a>
+                    <a class="node" href="PDFViewer2.html" style="--x:34%;--y:91%"><span class="node-icon" style="animation-delay:1.15s"><i class="bi bi-file-earmark-pdf"></i></span><span class="node-label">Documents</span></a>
+                    <a class="node" href="veille.html"   style="--x:12%;--y:64%"><span class="node-icon" style="animation-delay:1.25s"><i class="bi bi-broadcast"></i></span><span class="node-label">Veille technologique</span></a>
+                    <a class="node" href="#contact"      style="--x:15%;--y:26%"><span class="node-icon" style="animation-delay:1.35s"><i class="bi bi-envelope"></i></span><span class="node-label">Contact</span></a>
+                </nav>
+            </div>
+        </section>
+
+        <!-- À propos -->
+        <section id="apropos" class="section">
+            <div class="wrap section-grid">
+                <div class="section-head"><h2>À propos de moi</h2></div>
+                <div class="prose">
+                    <h3>Administrateur réseau informatique</h3>
+                    <p>
+                        Jeune passionné de tech, je me forme à l'administration réseau et aux systèmes informatiques. Dynamique et curieux, mon objectif est d'entrer dans la vie active après l'obtention de mon BTS.
+                    </p>
+                    <dl class="facts">
+                        <div><dt>Âge</dt><dd><span id="age">19 ans</span></dd></div>
+                        <div><dt>Ville</dt><dd>Gap (05000), France</dd></div>
+                        <div><dt>Nationalité</dt><dd>Française</dd></div>
+                        <div><dt>Diplôme</dt><dd>Bac Pro Systèmes Numériques</dd></div>
+                        <div><dt>Email</dt><dd>aymeric.plumecoq.pro@gmail.com</dd></div>
+                        <div><dt>Langues</dt><dd>Français, anglais (B1)</dd></div>
+                    </dl>
+                    <p>
+                        Pour aller au-delà de mes cours, j'aime explorer de nouvelles technologies réseau à travers des projets personnels. Cela me pousse à trouver des solutions et à affiner mes méthodes de diagnostic.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétences -->
+        <section id="competences" class="section">
+            <div class="wrap section-grid">
+                <div class="section-head"><h2>Compétences</h2></div>
+                <div>
+                    <!-- Pour changer un niveau : modifie le pourcentage ET aria-valuenow (les ports se remplissent tout seuls) -->
+                    <ul class="skills">
+                        <li>
+                            <div class="skill-top"><h3>Paramétrage réseau</h3><span class="skill-value">80%</span></div>
+                            <div class="ports" role="progressbar" aria-label="Paramétrage réseau" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </li>
+                        <li>
+                            <div class="skill-top"><h3>Sécurité informatique</h3><span class="skill-value">60%</span></div>
+                            <div class="ports" role="progressbar" aria-label="Sécurité informatique" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        </li>
+                        <li>
+                            <div class="skill-top"><h3>Systèmes d'exploitation</h3><span class="skill-value">80%</span></div>
+                            <div class="ports" role="progressbar" aria-label="Systèmes d'exploitation" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </li>
+                        <li>
+                            <div class="skill-top"><h3>Virtualisation</h3><span class="skill-value">90%</span></div>
+                            <div class="ports" role="progressbar" aria-label="Virtualisation" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </li>
+                        <li>
+                            <div class="skill-top"><h3>Maîtrise logicielle et matérielle sur PC</h3><span class="skill-value">90%</span></div>
+                            <div class="ports" role="progressbar" aria-label="Maîtrise logicielle et matérielle sur PC" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </li>
+                        <li>
+                            <div class="skill-top"><h3>Anglais (niveau B1)</h3><span class="skill-value">50%</span></div>
+                            <div class="ports" role="progressbar" aria-label="Anglais (niveau B1)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </li>
+                    </ul>
+
+                    <div class="systems">
+                        <h3>Systèmes utilisés</h3>
+                        <span class="chip"><i class="bi bi-windows"></i>Windows</span>
+                        <span class="chip"><i class="bi bi-apple"></i>macOS</span>
+                        <span class="chip"><i class="bi bi-terminal"></i>Linux</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projets -->
+        <section id="projets" class="section">
+            <div class="wrap section-grid">
+                <div class="section-head"><h2>Mes Projets</h2></div>
+                <div class="projects">
+                    <article class="project">
+                        <div class="project-media">
+                            <img src="https://images.unsplash.com/photo-1593349328224-3455122b6a2f?auto=format&fit=crop&w=600&q=80" alt="Segmentation de réseau domestique">
+                        </div>
+                        <div class="project-body">
+                            <h3>Sécurisation du réseau domestique</h3>
+                            <p>Mise en place d'un VLAN dédié aux objets connectés (IoT) pour les isoler du réseau principal et améliorer la sécurité.</p>
+                            <button type="button" class="btn btn-ghost btn-sm" data-open="projectModal1">Voir les détails</button>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-media">
+                            <div class="project-icon-header" role="img" aria-label="Discord relié à une IA locale">
+                                <i class="bi bi-discord"></i>
+                                <i class="bi bi-arrow-left-right"></i>
+                                <i class="bi bi-robot"></i>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <span class="project-badge">Projet personnel</span>
+                            <h3>IA locale connectée à Discord</h3>
+                            <p>Un modèle d'IA qui tourne directement sur mon PC avec Ollama, relié à un bot Discord grâce à OpenClaw, sans passer par un service cloud.</p>
+                            <button type="button" class="btn btn-ghost btn-sm" data-open="projectModal2">Voir les détails</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parcours -->
+        <section id="experience" class="section">
+            <div class="wrap journey">
+                <div>
+                    <h2>Diplômes et formations</h2>
+                    <ol class="timeline">
+                        <li class="timeline-item">
+                            <span class="when">En cours</span>
+                            <h4>BTS SIO</h4>
+                            <p>Formation aux services informatiques aux organisations : réseau, systèmes, virtualisation et sécurité.</p>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="when">Juillet 2025</span>
+                            <h4>Bac Pro Systèmes Numériques</h4>
+                            <h5>Lycée Pierre Mendès France, Veynes</h5>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="when">Juillet 2022</span>
+                            <h4>Brevet des collèges</h4>
+                            <h5>Collège Centre, Gap</h5>
+                        </li>
+                    </ol>
+                </div>
+                <div>
+                    <h2>Expérience professionnelle</h2>
+                    <ol class="timeline">
+                        <li class="timeline-item">
+                            <span class="when">Mars 2024</span>
+                            <h4>Technicien informatique</h4>
+                            <h5>Hôpital de Gap</h5>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <div class="wrap section-grid">
+                <div class="section-head"><h2>Contact</h2></div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div>
+                            <h4>Localisation :</h4>
+                            <p>Gap (05000), Hautes-Alpes, France</p>
+                        </div>
+                        <div>
+                            <h4>Email :</h4>
+                            <p><a href="mailto:aymeric.plumecoq.pro@gmail.com">aymeric.plumecoq.pro@gmail.com</a></p>
+                        </div>
+                        <div>
+                            <h4>Téléphone :</h4>
+                            <p><a href="tel:+33624356970">06 24 35 69 70</a></p>
+                        </div>
+                        <div>
+                            <h4>Réseaux sociaux :</h4>
+                            <div class="social-links">
+                                <a href="#" data-social="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Mon profil LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://github.com/PLUMECOQ-Aymeric" data-social="github" target="_blank" rel="noopener noreferrer" aria-label="Mon GitHub"><i class="bi bi-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <input type="text" class="form-control" placeholder="Votre nom" aria-label="Votre nom" required>
+                            <input type="email" class="form-control" placeholder="Votre email" aria-label="Votre email" required>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Sujet" aria-label="Sujet" required>
+                        <textarea class="form-control" rows="5" placeholder="Message" aria-label="Message" required></textarea>
+                        <button type="submit" class="btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="wrap footer-grid">
+            <div>
+                <h3>Aymeric PLUMECOQ</h3>
+                <p>Administrateur réseau informatique en formation, passionné de tech. Toujours à la recherche de nouveaux défis et d'occasions d'apprendre.</p>
+            </div>
+            <div class="footer-right">
+                <p>&copy; 2026 PLUMECOQ Aymeric. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#" data-social="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Mon profil LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/PLUMECOQ-Aymeric" data-social="github" target="_blank" rel="noopener noreferrer" aria-label="Mon GitHub"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top" aria-label="Retour en haut"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Fenêtres de détail des projets -->
+    <dialog class="modal" id="projectModal1" aria-labelledby="projectModal1Label">
+        <div class="modal-header">
+            <h2 class="modal-title" id="projectModal1Label">Sécurisation du réseau domestique</h2>
+            <button type="button" class="btn-close" data-close aria-label="Fermer"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1593349328224-3455122b6a2f?auto=format&fit=crop&w=1200&q=80" class="img-fluid mb-3" alt="Segmentation de réseau domestique">
+                    <p>Mise en place d'un VLAN dédié aux objets connectés (IoT) pour les isoler du réseau principal et améliorer la sécurité.</p>
+                    <!-- Ajoute ici le détail de ton projet : matériel utilisé, étapes, résultat -->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-ghost btn-sm" data-close>Fermer</button>
+        </div>
+    </dialog>
+
+    <dialog class="modal" id="projectModal2" aria-labelledby="projectModal2Label">
+        <div class="modal-header">
+            <h2 class="modal-title" id="projectModal2Label">IA locale connectée à Discord</h2>
+            <button type="button" class="btn-close" data-close aria-label="Fermer"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body">
+                    <h6>Objectif</h6>
+                    <p>Faire tourner une intelligence artificielle entièrement sur mon propre PC, puis pouvoir lui parler depuis Discord comme avec n'importe quel membre d'un serveur. Tout reste en local : les messages ne partent pas chez un fournisseur d'IA en ligne.</p>
+
+                    <h6>Fonctionnement</h6>
+                    <div class="archi-flow">
+                        <span><i class="bi bi-discord me-1"></i>Discord</span>
+                        <i class="bi bi-arrow-right"></i>
+                        <span><i class="bi bi-diagram-3 me-1"></i>OpenClaw</span>
+                        <i class="bi bi-arrow-right"></i>
+                        <span><i class="bi bi-cpu me-1"></i>Ollama (modèle local)</span>
+                    </div>
+                    <ul>
+                        <li><strong>Ollama</strong> fait tourner le modèle d'IA sur mon PC : c'est le « cerveau ».</li>
+                        <li><strong>OpenClaw</strong> sert de passerelle : il reçoit les messages du bot Discord, les transmet au modèle et renvoie la réponse.</li>
+                        <li><strong>Le bot Discord</strong> est créé depuis le portail développeur de Discord, puis relié à OpenClaw avec son jeton (token).</li>
+                    </ul>
+
+                    <h6>Points de sécurité</h6>
+                    <ul>
+                        <li>Le jeton du bot reste privé et n'est jamais publié.</li>
+                        <li>L'accès au bot est limité aux utilisateurs autorisés.</li>
+                        <li>Aucune donnée n'est envoyée vers un service d'IA externe.</li>
+                    </ul>
+
+                    <h6>Compétences mobilisées</h6>
+                    <ul>
+                        <li>Installation et configuration de services en local</li>
+                        <li>Mise en relation de plusieurs outils (API, passerelle, bot)</li>
+                        <li>Gestion des accès et protection des identifiants</li>
+                    </ul>
+                    <!-- Ajoute ici le modèle utilisé, des captures d'écran et le résultat obtenu -->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-ghost btn-sm" data-close>Fermer</button>
+        </div>
+    </dialog>
+
+    <script>
+        // Menu mobile + bordure de la barre au défilement + bouton retour en haut
+        (function () {
+            const header = document.querySelector('.site-header');
+            const toggle = document.querySelector('.nav-toggle');
+            const links = document.getElementById('navLinks');
+
+            if (toggle && links) {
+                toggle.addEventListener('click', () => {
+                    const open = links.classList.toggle('open');
+                    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    toggle.innerHTML = open ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+                });
+                links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                    links.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.innerHTML = '<i class="bi bi-list"></i>';
+                }));
+            }
+
+            const backToTop = document.querySelector('.back-to-top');
+            function onScroll() {
+                if (header) header.classList.toggle('scrolled', window.scrollY > 10);
+                if (backToTop) backToTop.classList.toggle('show', window.scrollY > 300);
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            if (backToTop) {
+                backToTop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        })();
+
+        // ===== MES LIENS (change-les ici, ils s'appliquent partout sur la page) =====
+        const MES_LIENS = {
+            linkedin: '', // ⚠️ colle ici l'adresse de ton profil, ex : 'https://www.linkedin.com/in/aymeric-plumecoq/'
+            github: 'https://github.com/PLUMECOQ-Aymeric'
+        };
+
+        // Lien de secours tant que l'adresse LinkedIn n'est pas renseignée :
+        // ouvre une recherche LinkedIn sur ton nom
+        const LIENS_SECOURS = {
+            linkedin: 'https://www.linkedin.com/search/results/people/?keywords=Aymeric%20PLUMECOQ'
+        };
+
+        document.querySelectorAll('[data-social]').forEach(lien => {
+            const url = MES_LIENS[lien.dataset.social] || LIENS_SECOURS[lien.dataset.social];
+            if (url) {
+                lien.href = url;
+            } else {
+                lien.style.display = 'none';
+            }
+        });
+
+        // Âge calculé automatiquement à partir de la date de naissance
+        (function () {
+            const naissance = new Date(2007, 0, 13); // 13/01/2007
+            const aujourdhui = new Date();
+            let age = aujourdhui.getFullYear() - naissance.getFullYear();
+            const m = aujourdhui.getMonth() - naissance.getMonth();
+            if (m < 0 || (m === 0 && aujourdhui.getDate() < naissance.getDate())) age--;
+            document.getElementById('age').textContent = age + ' ans';
+        })();
+
+        // Rangées de ports des compétences : 1 port allumé par tranche de 10 %
+        document.querySelectorAll('.ports').forEach(row => {
+            const value = parseInt(row.getAttribute('aria-valuenow'), 10) || 0;
+            const lit = Math.round(value / 10);
+            for (let i = 0; i < 10; i++) {
+                const port = document.createElement('i');
+                if (i < lit) port.className = 'on';
+                row.appendChild(port);
+            }
+        });
+
+        // Téléchargement du CV
+        document.getElementById('downloadCV').addEventListener('click', function (e) {
+            e.preventDefault();
+            const link = document.createElement('a');
+            link.href = 'CV_aymeric_plumecoq.pdf';
+            link.download = 'CV_aymeric_plumecoq.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        // Fenêtres de détail des projets
+        document.querySelectorAll('[data-open]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const dialog = document.getElementById(btn.dataset.open);
+                if (dialog) dialog.showModal();
+            });
+        });
+        document.querySelectorAll('dialog.modal').forEach(dialog => {
+            dialog.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => dialog.close()));
+            // Fermer en cliquant à côté de la fenêtre
+            dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+        });
+    </script>
+</body>
+</html>
